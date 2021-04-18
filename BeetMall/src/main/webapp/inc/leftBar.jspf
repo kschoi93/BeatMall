@@ -1,0 +1,81 @@
+ <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"> 
+<style>
+	.menu { margin: 0px 20px 0px 0px;padding: 0; width:180px;  }
+	.menu ul a { display: block; padding: 10px; color:gray; line-height: 1; text-align:center; }
+	label { display: block; margin: 0; padding: 20px 0px; line-height: 1; font-size:20px; background: rgb(224,102,102); cursor: pointer; text-align:center; height:60px; }
+	label:hover, label:active{ font-weight:bold; color:rgb(35,35,35); }
+	label:visited{font-weight:normal;}
+	input { display: none; }
+	.menu ul { margin: 0; padding: 0; background: rgb(232,167,167); list-style: none; }
+	.menu ul>li>a:active, a:link, a:visited{ color:rgb(252,237,237); text-decoration:none;}
+	.menu li { color:rgb(74,72,72); font-size:17px; max-height: 0; overflow-y: hidden; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -ms-transition: all 0.5s; -o-transition: all 0.5s; transition: all 0.5s; }
+	.menu li:hover{ font-weight:bold; background-color:rgb(250, 122, 122); color:black; } 
+	#menu_bar01:checked ~ #links01 li, #menu_bar02:checked ~ #links02 li, #menu_bar03:checked ~ #links03 li, #menu_bar04:checked ~ #links04 li, #menu_bar05:checked ~ #links05 li, #menu_bar06:checked ~ #links06 li { max-height: 46px; opacity: 1; }
+</style>  
+<script>
+$(function(){	  
+	 
+	//클릭시 글자 색깔 변경
+	$(".menu>label").click(function(){  
+		$(".menu>label").css('color','rgb(252,237,237)');   
+		$(this).css('color','black').css('font-weight','bold');      
+	}); 
+	$(".menu>ul>li").click(function(){  
+		$(".menu>ul>li").css('color','rgb(74,72,72)');   
+		$(this).css('color','black').css('font-weight','bold');      
+	}); 
+	 
+});
+</script>
+</head>
+<body>  
+	<div class="menu">
+	  <label for="menu_bar01">일반회원 관리∨</label>
+	  <input type="checkbox" id="menu_bar01" class="accordion" />
+		  <ul id="links01">
+		    <li><a href="">회원 목록</a></li>
+		    <li><a href="">탈퇴 회원</a></li>
+		    <li><a href="">블랙리스트</a></li> 
+		  </ul>
+	  <label for="menu_bar02">판매자 관리∨</label>
+	  <input type="checkbox" id="menu_bar02" class="accordion" />
+		  <ul id="links02">
+		    <li><a href="">회원 목록</a></li>
+		    <li><a href="">탈퇴 회원</a></li>
+		    <li><a href="">블랙리스트</a></li> 
+		  </ul> 
+	  <label for="menu_bar03">매출 관리∨</label>
+	  <input type="checkbox" id="menu_bar03" class="accordion" />
+		  <ul id="links03">
+		    <li><a href="">수익 매출분석</a></li>
+		    <li><a href="">카테고리별 매출분석</a></li>
+		    <li><a href="">판매내역</a></li> 
+		  </ul> 
+	  <label for="menu_bar04">정산 관리∨</label>
+	  <input type="checkbox" id="menu_bar04" class="accordion" />
+		  <ul id="links04">
+		    <li><a href="">정산관리</a></li> 
+		  </ul> 
+	  <label for="menu_bar05">게시글 관리∨</label>
+	  <input type="checkbox" id="menu_bar05" class="accordion" />
+		  <ul id="links05">
+		    <li><a href="boardList">공지 관리</a></li>
+		    <li><a href="">레시피 관리</a></li>
+		    <li><a href="">소비자 리뷰</a></li>
+		    <li><a href="">상품 목록</a></li>
+		    <li><a href="">디자인 관리</a></li> 
+		  </ul> 
+	  <label for="menu_bar06">고객센터∨</label>
+	  <input type="checkbox" id="menu_bar06" class="accordion" />
+		  <ul id="links06">
+		    <li><a href="">고객 문의</a></li>
+		    <li><a href="">상품문의 열람</a></li>
+		    <li><a href="">자주 묻는 질문</a></li>
+		    <li><a href="">1:1 채팅</a></li> 
+		  </ul>
+</div>

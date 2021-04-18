@@ -16,12 +16,12 @@
 		<mvc:mapping path="/boardDel"/>
 		<bean class="com.beetmall.sshj.interceptor.LoginInterceptor"></bean>
 	-->
-	<!-- 
+ 
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/claseWriteFormOk"/>
-			<bean class="com.beetmall.sshj.interceptor.LoginInterceptor"></bean>
+			<bean class="com.beetmall.admin.interceptor.LoginInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
-	 -->		
+	 		
 </beans>
