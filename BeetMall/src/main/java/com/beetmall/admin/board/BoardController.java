@@ -28,13 +28,13 @@ public class BoardController {
 	}
 
 
-	@RequestMapping("/boardList")
+	@RequestMapping("/noticeBoardList")
 	public ModelAndView allList() {
 		BoardDAOImpl dao = sqlSession.getMapper(BoardDAOImpl.class);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", dao.allList());
-		mav.setViewName("board/boardList");
+		mav.setViewName("board/noticeBoardList");
 		return mav;
 	}
 	

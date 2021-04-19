@@ -64,7 +64,7 @@ $(function(){
 	  <label for="menu_bar05">게시글 관리∨</label>
 	  <input type="checkbox" id="menu_bar05" class="accordion" />
 		  <ul id="links05">
-		    <li><a href="boardList">공지 관리</a></li>
+		    <li><a href="noticeBoardList">공지 관리</a></li>
 		    <li><a href="">레시피 관리</a></li>
 		    <li><a href="">소비자 리뷰</a></li>
 		    <li><a href="">상품 목록</a></li>

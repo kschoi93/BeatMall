@@ -92,7 +92,7 @@ $(function () {
 		</div>
 		<div id="title">
 			<ul>
-				<li> &nbsp;</li>
+				<li>&nbsp;</li>
 				<li>번호</li>
 				<li>유형</li>
 				<li>제목</li>
