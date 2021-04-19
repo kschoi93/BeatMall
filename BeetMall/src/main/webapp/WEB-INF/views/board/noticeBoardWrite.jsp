@@ -9,11 +9,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 <style> 
-	#box, #title{ position:relative; }
+	#box, #title, #cke_content{ position:relative; }
 	.container{position:absolute; top:200px; left:180px; width:1740px; padding:0; width:1740px; }
 	#topBar{ background-color:lightgray; float:left; width:1700px; height:50px; padding:10px 0 0 10px; margin-left:20px; }
 	#box{ border:lightgray 1px solid; width:1700px; height:500px; top:60px; left:10px; border-radius:10px; }
-	#title{ top:-20px; left:20px; border-bottom: lightgray 1px solid; width:1660px; }
+	#title{ top:-30px; left:20px; border-bottom: lightgray 1px solid; width:1660px; padding-bottom:20px;}
+	#noticeTitle{ padding-left:50px; }
+	#writeTitle{ padding-left:1150px; }
+	#cke_content{ width:1650px; left:20px; height:500px; max-height: 400px; resize_enabled:false;}
 </style> 
 <script>
 	$(function(){
@@ -29,6 +32,8 @@
 			}
 			return true;
 		});
+		
+		 
 	});
 </script>
 </head>
@@ -42,7 +47,7 @@
 		<div id="title">	
 			<form method="post" id="notiWritefrm" action="noticeWriteOk.jsp">
 		
-			번호 : 다음 번호?  제목 : <input type="text" id="notiSubject" name="noticeSubject"/> 등록일 오늘날짜?
+			번호 : 다음 번호?  <span id="noticeTitle">제목 : <input type="text" id="notiSubject" name="noticeSubject"/></span> <span id="writeTitle">등록일 오늘날짜?</span>
 			</form>
 		</div>
 		<textarea name="content" id="content"></textarea> 
