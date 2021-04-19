@@ -38,9 +38,9 @@ public class BoardController {
 		return mav;
 	}
 	
-	@RequestMapping("/boardWrite")
+	@RequestMapping("/noticeBoardWrite")
 	public String boardWrite() {
-		return "board/boardWrite";
+		return "board/noticeBoardWrite";
 	}
 	
 	@RequestMapping(value="/boardWriteOk", method=RequestMethod.POST)

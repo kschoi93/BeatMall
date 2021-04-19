@@ -12,7 +12,7 @@
 	label:visited{font-weight:normal;}
 	input { display: none; }
 	.menu ul { margin: 0; padding: 0; background: rgb(232,167,167); list-style: none; }
-	.menu ul>li>a:active, a:link, a:visited{ color:rgb(252,237,237); text-decoration:none;}
+	.menu ul>li>a:active, .menu ul>li>a:link, .menu ul>li>a:visited{ color:rgb(252,237,237); text-decoration:none;}
 	.menu li { color:rgb(74,72,72); font-size:17px; max-height: 0; overflow-y: hidden; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -ms-transition: all 0.5s; -o-transition: all 0.5s; transition: all 0.5s; }
 	.menu li:hover{ font-weight:bold; background-color:rgb(250, 122, 122); color:black; } 
 	#menu_bar01:checked ~ #links01 li, #menu_bar02:checked ~ #links02 li, #menu_bar03:checked ~ #links03 li, #menu_bar04:checked ~ #links04 li, #menu_bar05:checked ~ #links05 li, #menu_bar06:checked ~ #links06 li { max-height: 46px; opacity: 1; }

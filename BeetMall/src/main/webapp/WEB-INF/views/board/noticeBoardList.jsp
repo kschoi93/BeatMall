@@ -12,7 +12,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/>
 <style>
-	#topBar form, #selectMem, #selectSort,#title, #btns{position:relative;}
+	#topBar form, #selectMem, #noticeSearchFrm, #title, #btns{position:relative;}
 	#container{position:absolute; top:200px; left:180px; width:1740px; padding:0;}
 	#container ul{width:1700px;} 
 	#container li{list-style-type:none; float:left; width:10%; }
@@ -26,43 +26,14 @@
 	#btns{top:-110px; left:400px;}
 	#title{ width: 1700px; font-weight:bold; padding:65px 0 25px 0; margin-left:10px; border-bottom:gray 1px solid;}
 	#noticeList{padding-top:15px;}
+	.pagination{ padding:20px 0 20px 600px; }
+	.pagination a { color: black; float: left; padding: 8px 16px; text-decoration: none; transition: background-color .3s; }
+	.pagination a.active { background-color: rgb(224,102,102); color: white; }
+	.pagination a:hover:not(.active) { background-color: #ddd; }
+	#noticeSearchFrm{ top:30px; left:400px;}
 </style>
 <script>
-$(function () {
-    let container = $('#pagination');
-    container.pagination({
-        dataSource: [
-            {name: "hello1"},
-            {name: "hello2"},
-            {name: "hello3"},
-            {name: "hello4"},
-            {name: "hello5"},
-            {name: "hello6"},
-            {name: "hello7"},
-            {name: "hello8"},
-            {name: "hello9"},
-            {name: "hello10"},
-            {name: "hello11"},
-            {name: "hello12"},
-            {name: "hello13"},
-            {name: "hello14"},
-            {name: "hello15"},
-            {name: "hello16"},
-            {name: "hello17"},
-        ],
-        callback: function (data, pagination) {
-            var dataHtml = '<ul>';
-
-            $.each(data, function (index, item) {
-                dataHtml += '<li>' + item.name + '</li>';
-            });
-
-            dataHtml += '</ul>';
-
-            $("#data-container").html(dataHtml);
-        }
-    })
-})
+ 
 </script>
 </head>
 <body>
@@ -86,7 +57,7 @@ $(function () {
 				<form id="btns">
    			  		<input type="button" value="▲" name=""/>버튼?
    			  		<input type="button" value="▼" name=""/>버튼?
-   			  		<input type="button" value="추가" name="noticeAdd"/> 버튼?
+   			  		 <a href="boardWrite"> 	<input type="button" value="추가" name="noticeAdd"/> </a>버튼?
    			  		<input type="button" value="삭제" name="noticeDel"/> 버튼?
    			  	</form>
 		</div>
@@ -94,14 +65,11 @@ $(function () {
 			<ul>
 				<li>&nbsp;</li>
 				<li>번호</li>
-				<li>유형</li>
+				<li>대상</li>
 				<li>제목</li>
 				<li>등록일</li> 
 			</ul>
-		</div>
-	
-	 
-		
+		</div> 
 		<ul id="noticeList">
 		<c:forEach var="data" items="${list}">
 			<li><input type="checkbox" name="check">체크박스?</li>
@@ -110,13 +78,67 @@ $(function () {
 			<li><a href="boardView?no=${data.no}">${data.subject}</a></li>  
 			<li>${data.writedate}</li><br/>
 		</c:forEach>
-		
-		<div id="data-container"></div>
-        <div id="pagination"></div>
-		
-		
 		</ul>
-		 <a href="boardWrite">글쓰기</a>
+		<div class="pagination">
+  <a href="#">&laquo;</a>
+  <a href="#">1</a>
+  <a class="active" href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a href="#">6</a>
+  <a href="#">&raquo;</a>
+</div>
+
+	<!-- 
+	 <ul class="breadcrumb pagination-md">
+	 	 % if(nowNum>1){%>
+	 		<li class="page-item"><a href="noticeBoardList.jsp?nowNum= %=nowNum-1%> %
+	 		if(searchWord!=null && !searchWord.equals("")){
+	 			out.write("&searchKey="+searchKey+"&searchWord="+searchWord);}%>" 
+				class="page-link">Prev</a></li>
+		 % }else{%>
+			<li class="page-item disabled"><a href="#" class="page-link">Prev</a></li>
+		 % }
+	 		//페이지 번호 매기기                  
+	 		for(int p=startPage; p<startPage+onePageSize; p++){
+				if(p<=totalPage){
+		 			if(nowNum==p){//현재 보고있는 페이지에 표시하기
+		%>		 	
+	 				<li class="page-item active"><a href="noticeBoardList.jsp?nowNum= %=p%> %
+			if(searchWord!=null && !searchWord.equals("")){
+				out.write("&searchKey="+searchKey+"&searchWord="+searchWord);}%>" class="page-link"> %=p%></a></li>
+		  
+		 % 		}else{//현재 보고있는 페이지가 아닐 때 표시하기
+		    %>
+        <li class="page-item"><a href="noticeBoardList.jsp?nowNum= %=p %> %if(searchWord!=null && !searchWord.equals("")){out.write("&searchKey="+searchKey+"&searchWord="+searchWord);} %>" class="page-link"> %=p %></a></li>   
+           %   }
+          }/// totalPage
+      }
+
+	 	if(nowNum==totalPage){ //마지막 페이지
+	 	%>
+	 		<li class="page-item disabled"><a href="#" class="page-link">Next</a></li>	
+	 	 % }else{ %>
+	 	 	<li class="page-item"><a href="noticeBoardList.jsp?nowNum= %=nowNum+1%> %
+	 	if(searchWord!=null && !searchWord.equals("")){
+	 		out.write("&searchKey="+searchKey+"&searchWord="+searchWord);}%>" class="page-link">Next</a></li>
+	 	 % } %>
+	 </ul>		
+ -->
+ 
+	 <div>
+		<form method="get" id="noticeSearchFrm" action="<%=request.getContextPath() %>/board/noticeBoardList.jsp">
+			<select name="searchKey">
+				<option value="subject" selected>제목</option>
+   				<option value="공지번호">공지번호</option> 
+   				<option value="대상">대상</option> 
+   				<option value="공지일">공지일</option> 
+			</select>			
+			<input type="text" name="searchWord" id="searchWord"/>인풋박스?
+			<input type="submit" value="검색"/> 버튼?
+		</form>
+	</div>  
 		</div>
 </body>
 </html>
