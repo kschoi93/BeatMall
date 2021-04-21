@@ -1,4 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+ <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <html>
 <head> 
 <style>
@@ -16,15 +17,16 @@
 	#box3{ top:-400px; left:650px;} 
 	#box4,#box5,#box6{ top:-130px; left:300px;}
 	.last{left:30px; top:10px;}
+	#search{margin:0 0 5px 740px; border-radius:5px; }
+	#search input{border:1px solid gray;}
 </style>
 </head>
-<body> 
+<body>  
 	<%@ include file="/inc/leftBar.jspf" %>
 	<div id="total">
 		<div id="search">
 			<form>
-				input	<input type="text" name="search" id="search" placeholder="search" />인풋박스가 안나온다
-				<input type="text" id="text" name="text" placeholder="text"> 
+				<input type="text" name="search" id="search" placeholder="검색하기" />  
 			</form>
 		</div>
 		<div id="deli">

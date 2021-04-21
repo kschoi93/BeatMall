@@ -10,7 +10,7 @@
 	label { display: block; margin: 0; padding: 20px 0px; line-height: 1; font-size:20px; background: rgb(224,102,102); cursor: pointer; text-align:center; height:60px; }
 	label:hover, label:active{ font-weight:bold; color:rgb(35,35,35); }
 	label:visited{font-weight:normal;}
-	input { display: none; }
+	.menu input { display: none; }
 	.menu ul { margin: 0; padding: 0; background: rgb(232,167,167); list-style: none; }
 	.menu ul>li>a:active, .menu ul>li>a:link, .menu ul>li>a:visited{ color:rgb(252,237,237); text-decoration:none;}
 	.menu li { color:rgb(74,72,72); font-size:17px; max-height: 0; overflow-y: hidden; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -ms-transition: all 0.5s; -o-transition: all 0.5s; transition: all 0.5s; }
@@ -38,7 +38,7 @@ $(function(){
 	  <label for="menu_bar01">일반회원 관리∨</label>
 	  <input type="checkbox" id="menu_bar01" class="accordion" />
 		  <ul id="links01">
-		    <li><a href="">회원 목록</a></li>
+		    <li><a href="customerList">회원 목록</a></li>
 		    <li><a href="">탈퇴 회원</a></li>
 		    <li><a href="">블랙리스트</a></li> 
 		  </ul>
