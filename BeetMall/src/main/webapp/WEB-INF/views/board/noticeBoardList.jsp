@@ -20,12 +20,13 @@
 	#contentBox li:nth-of-type(5n-1){ width:50%; padding-left:30px; } 
 	#contentBox li:not(:nth-of-type(5n-1)){ text-align:center; } 
 	#topBar{ background-color:lightgray; float:left; height:50px; padding:10px 0 0 30px; margin-left:10px; }
-	#topBar li{ width:8%;}
-	#topBar li:nth-of-type(2){width:5%;} 
-	#topBar li:nth-of-type(3){width:9%;} 
+	#topBar li{ width:7%;}
+	#topBar li:nth-of-type(2){width:7%;} 
+	#topBar li:nth-of-type(3){width:8%;} 
 	#topBar li:nth-of-type(4){width:3%;} 
 	#topBar li:nth-of-type(5){width:55%;} 
 	#topBar>ul>li>button { top:-2px; } 
+	select{width:100px;}
 	#btns{ top:-115px; left:460px; } 
 	button{color: #444444; background: #F3F3F3; border: 1px #DADADA solid; outline: none; 
 			padding: 5px 10px; margin:0 5px; border-radius: 5px; font-weight: bold; font-size: 12pt; }

@@ -17,10 +17,10 @@
 	#container ul{ width:1700px;} 
 	#container li{ list-style-type:none; float:left; width:10%; } 
 	#topBar{ background-color:lightgray; float:left; width:1700px; height:50px; padding:10px 0 0 20px; margin-left:10px; top:-200px; left:-180px;}
-	#topBar>span{ width:150px; padding-left:10px;}  
-	#btns{ top:-65px; left:470px; } 
+	#topBar>span{ width:150px; padding-left:10px;}   
+	select{width:100px;}
 	#topBar li{ width:8%;}
-	#topBar li:nth-of-type(2){left:10px;} 
+	#topBar li:nth-of-type(2){left:-3px;} 
 	#topBar li:nth-of-type(3){left:40px;} 
 	#topBar li:nth-of-type(4){width:3%;} 
 	#topBar li:nth-of-type(5){width:55%;} 
