@@ -12,15 +12,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/>
 <style>
-	#topBar form,#noticeSearchFrm, #title, #btns, #selectCustomer, #topBar, #topBox, #delBtn, #title>ul{position:relative;}
+	#topBar form,#noticeSearchFrm, #title, #btns, #selectCustomer, #topBar, #topBox, #delBtn, #title>ul, #topBar li, #topBar button {position:relative;}
 	#container{ position:absolute; top:200px; left:180px; width:1740px; padding:0;}
 	#container ul{ width:1700px;} 
 	#container li{ list-style-type:none; float:left; width:10%; } 
 	#topBar{ background-color:lightgray; float:left; width:1700px; height:50px; padding:10px 0 0 20px; margin-left:10px; top:-200px; left:-180px;}
-	#topBar>span{ width:150px; padding-left:10px;} 
-	#topBar btns {  top:-200px; left:-180px;}
+	#topBar>span{ width:150px; padding-left:10px;}  
 	#btns{ top:-65px; left:470px; } 
-	#delBtn{top:-36px; left:218px;}
+	#topBar li{ width:8%;}
+	#topBar li:nth-of-type(2){left:10px;} 
+	#topBar li:nth-of-type(3){left:40px;} 
+	#topBar li:nth-of-type(4){width:3%;} 
+	#topBar li:nth-of-type(5){width:55%;} 
+	#topBar button { top:-2px; }  
 	button{color: #444444; background: #F3F3F3; border: 1px #DADADA solid; outline: none; 
 			padding: 5px 10px; margin:0 5px; border-radius: 5px; font-weight: bold; font-size: 12pt; }
 	button:active, button:hover, button:focus{ background-color:rgb(153,153,153)}
@@ -51,11 +55,9 @@
 	<div id="container">
 		<div id="container">
 		<div id="topBar">
-			<span><strong>일반회원 목록</strong></span>  
-		</div> 
-		<div id="topBox">
-					<form id="selectCustomer" method="get" action="?">
-					<select name="sort" > 
+			<ul>
+				<li><strong>일반회원 목록</strong></li> 
+				<li><select name="sort" > 
 		   				<option value="이름" selected>이름</option>
 		   				<option value="아이디">아이디</option>
 		   				<option value="나이">나이</option> 
@@ -63,16 +65,14 @@
 		   				<option value="생년월일">생년월일</option> 
 		   				<option value="주소">주소</option> 
 		   				<option value="가입날짜">가입날짜</option> 
-   			  		</select> 
-				</form>  
-				<div id="btns">
-					<button class="success" value="asc" name="asc">▲</button> 
-					<button class="success" value="desc" name="desc">▼</button>  
-   			  		<a href="addCustomer"> 	<button class="success" value="add" name="add" id="addBtn">추가</button></a>
-   			  		<a href="delCustomer" id="delBtnn"> <button class="success" value="del" name="del" id="delBtn">삭제</button> </a> 
-   			  	</div>
-   			  	</div>
-		</div> 
+			  		</select> 
+	   			</li> 
+				<li><button class="success" value="asc" name="asc">▲</button></li>
+				<li><button class="success" value="desc" name="desc">▼</button></li>
+				<li><button class="success" value="add" name="add" id="addBtn">추가</button></li>
+				<li><button class="success" value="del" name="del" id="delBtn">삭제</button></li>
+			</ul> 
+		</div>   
 		<div id="title">
 			<ul>
 				<li><input type="checkbox" name="check" id="allCheck"> </li>
@@ -157,6 +157,7 @@
 			<input type="submit" value="검색"/>  
 		</form>
 	</div>  
+		</div>
 		</div>
 </body>
 </html>

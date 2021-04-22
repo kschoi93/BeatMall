@@ -12,25 +12,27 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/>
 <style>
-	#topBar form, #selectMem, #noticeSearchFrm, #title, #btns,#selectSort>select, #contentBox{ position:relative; }
-	#container{ position:absolute; top:200px; left:180px; width:1740px; padding:0; }
+	#topBar form, #noticeSearchFrm, #title, button, #contentBox{ position:relative; }
+	#container{ position:absolute; top:200px; left:180px; width:1080px; padding:0; }
 	#container ul{ width:1700px; } 
 	#container li{ list-style-type:none; float:left; width:12.5%; }
-	#container li:nth-of-type(5n+1){ width:8%;} 
-	#container li:nth-of-type(5n-1){ width:50%; padding-left:30px; } 
-	#container li:not(:nth-of-type(5n-1)){ text-align:center; } 
-	#topBar{ background-color:lightgray; float:left; width:1700px; height:50px; padding:10px 0 0 30px; margin-left:10px; }
-	#selectMem{ width:100px; top: -50px; left:250px; border-radius:10px; } 
-	#selectMem>select{margin-top:9px;}
-	#topBar btns { top:-50px; left:150px; }
-	#selectSort>select{ top:-81px; left:350px; } 
+	#contentBox li:nth-of-type(5n+1){ width:8%;} 
+	#contentBox li:nth-of-type(5n-1){ width:50%; padding-left:30px; } 
+	#contentBox li:not(:nth-of-type(5n-1)){ text-align:center; } 
+	#topBar{ background-color:lightgray; float:left; height:50px; padding:10px 0 0 30px; margin-left:10px; }
+	#topBar li{ width:8%;}
+	#topBar li:nth-of-type(2){width:5%;} 
+	#topBar li:nth-of-type(3){width:9%;} 
+	#topBar li:nth-of-type(4){width:3%;} 
+	#topBar li:nth-of-type(5){width:55%;} 
+	#topBar>ul>li>button { top:-2px; } 
 	#btns{ top:-115px; left:460px; } 
 	button{color: #444444; background: #F3F3F3; border: 1px #DADADA solid; outline: none; 
 			padding: 5px 10px; margin:0 5px; border-radius: 5px; font-weight: bold; font-size: 12pt; }
 	button:active, button:hover, button:focus{ background-color:rgb(153,153,153)}
 	#btns a>button, button:nth-of-type(4){ margin-left:900px; }  
 	#addBtn, #delBtn{width:100px;}
-	#contentBox{ top:-150px; margin-left:10px;}
+	#contentBox{ top:20px; margin-left:10px;}
 	#title{ width: 1690px; font-weight:bold; padding:65px 0 25px 0; border-bottom:gray 1px solid;}
 	#title li:nth-of-type(4){ padding-left: 400px; }
 	.noticeList{ padding-top:5px;} 
@@ -39,7 +41,7 @@
 	.pagination a { color: black; float: left; padding: 8px 16px; text-decoration: none; transition: background-color .3s; }
 	.pagination a.active { background-color: rgb(224,102,102); color: white; }
 	.pagination a:hover:not(.active) { background-color: #ddd; }
-	#noticeSearchFrm{ top:30px; left:400px; margin-left:150px;}
+	#noticeSearchFrm{ top:10px; left:600px; }
 	input[type=checkbox] {zoom: 1.8;} 
 </style>
 <script>
@@ -50,32 +52,30 @@
 <%@ include file="/inc/leftBar.jspf" %>
 	<div id="container">
 		<div id="topBar">
-			 <strong>공지 목록</strong> 
-		</div>
-		<form id="selectMem" method="get" action="?">
-					<select name="sort" > 
+			<ul>
+				<li><strong>공지 목록</strong></li> 
+				<li><select name="sort" > 
 		   				<option value="all" selected>전체</option>
 		   				<option value="seller">판매자</option>
 		   				<option value="customer">소비자</option> 
-   			  		</select> 
-				</form> 
-				<form id="selectSort" >
-					<select name="sort" > 
+			  		</select> 
+	   			</li>
+				<li><select name="sort" > 
 		   				<option value="no" selected>글번호</option>
 		   				<option value="subject" >제목</option>
 		   				<option value="writedate" >등록일</option> 
-   			  		</select> 
-				</form> 
-				<form id="btns"> 
-					<button class="success" value="asc" name="asc">▲</button> 
-					<button class="success" value="desc" name="desc">▼</button>  
-   			  		 <a href="boardWrite"> 	<button class="success" value="add" name="add" id="addBtn">추가</button></a>
-   			  		 <button class="success" value="del" name="del" id="delBtn">삭제</button>  
-   			  	</form>
+	   			  	</select> 
+	   			</li>
+				<li><button class="success" value="asc" name="asc">▲</button></li>
+				<li><button class="success" value="desc" name="desc">▼</button></li>
+				<li><button class="success" value="add" name="add" id="addBtn">추가</button></li>
+				<li><button class="success" value="del" name="del" id="delBtn">삭제</button></li>
+			</ul> 
+		</div>  
    		<div id="contentBox"> 	
 		<div id="title">
 			<ul>
-				<li><input type="checkbox" name="check" id="allCheck"></li>
+				<li><input type="checkbox" name="check"  ></li>
 				<li>번호</li>
 				<li>대상</li>
 				<li>제목</li>
