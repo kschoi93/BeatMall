@@ -12,34 +12,121 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/>
 <style>
-	#topBar form, #noticeSearchFrm, #title, button, #contentBox{ position:relative; }
-	#addBtn, #delBtn{position:absolute;}
-	#container{ position:absolute; top:200px; left:190px; width:1080px; padding:0; }
-	#container ul{ width:1080px; } 
-	#container li{ list-style-type:none; float:left; width:13%; } 
-	#ascBtn, #descBtn{ top:-2px; } 
-	#contentBox{ top:20px; margin-left:10px;}
-	#contentBox li{ text-align:center; } 
-	#contentBox li:nth-of-type(8n+1){ width:4%; }
-	#title li:nth-of-type(5), #contentBox li:nth-of-type(5){ width:15%; } 
-	#topBar{ background-color:lightgray; float:left; height:50px; padding:10px 0 0 0px; margin-left:10px; width:1080px;}
-	#topBar li:nth-of-type(2){margin-left:13px; width:12%;} 
-	#topBar li:nth-of-type(3){width:5.5%;} 
-	#topBar li:nth-of-type(4){width:14%;}  
-	#addBtn{top:7px; left:845px; width:100px;}
-	#delBtn{top:7px; left:960px; width:100px;} 
-	select{width:100px;}
-	#btns{ top:-115px; left:460px; } 
-	button{color: #444444; background: #F3F3F3; border: 1px #DADADA solid; outline: none; 
-			padding: 5px 10px; margin:0 5px; border-radius: 5px; font-weight: bold; font-size: 12pt; }
-	button:active, button:hover, button:focus{ background-color:rgb(153,153,153)}
-	#btns a>button, button:nth-of-type(4){ margin-left:900px; }  
-	#title{ width: 1080px; font-weight:bold; padding:65px 0 25px 0; border-bottom:gray 1px solid;}
-	.noticeList{ padding-top:5px;} 
-	.noticeList:nth-of-type(1){ padding-top:10px;} 
-	#noticeSearchFrm{ top:30px; left:360px; }
-	input[type=checkbox] {zoom: 1.8;} 
-	#subjectLine{white-space:nowrap; overflow:hidden;text-overflow:ellipsis;}
+	body{width:1920px; padding:0; margin:0; font-family: 'Nanum Gothic', sans-serif; font-size:16px;}
+	#topBar form, #noticeSearchFrm, #title, button, #contentBox{ 
+		position:relative; 
+	}
+	#addBtn, #delBtn{
+		position:absolute;
+	}
+	#container{ 
+		position:absolute; 
+		top:200px; 
+		left:190px; 
+		width:1080px; 
+		padding:0; 
+	}
+	#container ul{ 
+		width:1080px; 
+	} 
+	#container li{ 
+		list-style-type:none;
+		float:left; width:13%; 
+	} 
+	#ascBtn, #descBtn{ 
+		top:-2px; 
+	} 
+	#contentBox{ 
+		top:20px; 
+		margin-left:10px;
+	}
+	#contentBox li{ 
+		text-align:center; 
+	} 
+	#contentBox li:nth-of-type(8n+1){ 
+		width:4%; 
+	}
+	#title li:nth-of-type(5), #contentBox li:nth-of-type(5){ 
+		width:15%; 
+	} 
+	#topBar{ 
+		background-color:lightgray; 
+		float:left; 
+		height:50px; 
+		padding:10px 0 0 0px; 
+		margin-left:10px; 
+		width:1080px;
+	}
+	#topBar li:nth-of-type(2){
+		margin-left:13px; 
+		width:12%;
+	} 
+	#topBar li:nth-of-type(3){
+		width:5.5%;
+	} 
+	#topBar li:nth-of-type(4){
+		width:14%;
+	}  
+	#addBtn{
+		top:7px; 
+		left:845px; 
+		width:100px;
+	}
+	#delBtn{top:7px; 
+		left:960px; 
+		width:100px;
+	} 
+	select{
+		width:100px;
+	}
+	#btns{ 
+		top:-115px; 
+		left:460px; 
+	} 
+	/*버튼*/
+	button{
+		padding: 3px 10px;
+		color: #666666;
+		border-radius: 8px;
+		background:#fff;
+		box-shadow: 0 0px 3px 0 rgba(0,0,0,0.5);
+		text-align: center;
+ 		text-decoration: none;
+		display: inline-block;
+		border:none;
+	}
+	/*버튼*/
+	button:hover, button:active{
+		background: gray;
+		color:white;
+		display: inline-block;
+	} 
+	#btns a>button, button:nth-of-type(4){ 
+		margin-left:900px; 
+	}  
+	#title{ 
+		width: 1080px; 
+		font-weight:bold; 
+		padding:65px 0 25px 0; 
+		border-bottom:gray 1px solid;
+	}
+	.noticeList{ 
+		padding-top:5px;
+	} 
+	.noticeList:nth-of-type(1){ 
+		padding-top:10px;
+	} 
+	#noticeSearchFrm{ 
+		top:30px; left:360px; 
+		}
+	input[type=checkbox] {
+		zoom: 1.8;
+	} 
+	#subjectLine{
+		white-space:nowrap; 
+		overflow:hidden;
+		text-overflow:ellipsis;
+	}
 	/* 페이징처리부분 */
 	.page_wrap {
 		text-align:center;
