@@ -15,7 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <style>
 	body{width:1920px; padding:0; margin:0; font-family: 'Nanum Gothic', sans-serif; font-size:16px;}
-	#topBar form, #noticeSearchFrm, #title, button, #contentBox{ 
+	#topBar, #topBar form, #noticeSearchFrm, #title, button, #contentBox{ 
 		position:relative; 
 	}
 	#addBtn, #delBtn{
@@ -55,12 +55,12 @@
 		background-color:lightgray; 
 		float:left; 
 		height:50px; 
-		padding:10px 0 0 0px; 
-		margin-left:10px; 
-		width:1080px;
+		padding:10px 0 0 0px;  
+		width:1280px;
+		left:-200px;
 	}
 	#topBar li:nth-of-type(2){
-		margin-left:13px; 
+		margin-left:70px; 
 		width:12%;
 	} 
 	#topBar li:nth-of-type(3){
@@ -71,12 +71,12 @@
 	}  
 	#addBtn{
 		top:10px; 
-		left:845px; 
+		left:1040px; 
 		width:100px;
 	}
 	#delBtn{
 		top:10px; 
-		left:960px; 
+		left:1150px; 
 		width:100px;
 	} 
 	select{
@@ -244,7 +244,7 @@
 		</div>	 
 		<div class="page_wrap">
 			<div class="page_nation">
-			   <a class="arrow pprev" href="<%=request.getContextPath()%>/img/kpage_pprev.png"></a>
+			   <a class="arrow pprev" href=""></a>
 			   <a class="arrow prev" href="#"></a>
 			   <a href="#" class="active">1</a>
 			   <a href="#">2</a>

@@ -15,22 +15,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <style>
 	body{width:1920px; padding:0; margin:0; font-family: 'Nanum Gothic', sans-serif; font-size:16px;}
-	#topBar form, #noticeSearchFrm, #title, button, #contentBox{ position:relative; }
+	#topBar, #topBar form, #noticeSearchFrm, #title, button, #contentBox{ position:relative; }
 	#addBtn, #delBtn{position:absolute;}
 	#container{ position:absolute; top:200px; left:190px; width:1080px; padding:0; }
 	#container ul{ width:1080px; } 
 	#container li{ list-style-type:none; float:left; width:10%; } 
 	#ascBtn, #descBtn{ top:-2px; } 
-	#contentBox{ top:20px; margin-left:10px;}
+	#contentBox{ top:20px; margin-left:10px; }
 	#contentBox li{ text-align:center; } 
 	#contentBox li:nth-of-type(8n+1){ width:0%; }
-	#title li:nth-of-type(8n-1), #contentBox li:nth-of-type(8n-1){  width:30%; padding-left:20px; } 
+	#title li:nth-of-type(8n-1), #contentBox li:nth-of-type(8n-1){ width:30%; padding-left:20px; } 
 	#title li:nth-of-type(5), #contentBox li:nth-of-type(5){ width:15%; }
-	#title li:nth-of-type(6){margin-left:18px;} 
-	#topBar{ background-color:lightgray; float:left; height:50px; padding:10px 0 0 0px; margin-left:10px; width:1080px;}
-	#topBar li:nth-of-type(2){margin-left:13px; width:12%;} 
-	#topBar li:nth-of-type(3){width:5.5%;} 
-	#topBar li:nth-of-type(4){width:14%;}   
+	#title li:nth-of-type(6){margin-left:18px; } 
+	#topBar{ 
+		background-color:lightgray; 
+		float:left; 
+		height:50px; 
+		padding:10px 0 0 0px;  
+		width:1280px;
+		left:-200px;
+	}
+	#topBar li:nth-of-type(2){
+		margin-left:70px; 
+		width:12%;
+	} 
+	#topBar li:nth-of-type(3){ width:5.5%; } 
+	#topBar li:nth-of-type(4){ width:14%; }   
 	select{width:100px;}
 	#btns{ top:-115px; left:460px; } 
 		/*버튼*/
@@ -56,15 +66,14 @@
 	}
 	#addBtn{
 		top:10px; 
-		left:845px; 
+		left:1040px; 
 		width:100px;
 	}
 	#delBtn{
 		top:10px; 
-		left:960px; 
+		left:1150px; 
 		width:100px;
-	}
-
+	} 
 	#btns a>button, button:nth-of-type(4){ margin-left:900px; }  
 	#title{ width: 1080px; font-weight:bold; padding:65px 0 25px 0; border-bottom:gray 1px solid;}
 	.noticeList{ padding-top:5px;} 

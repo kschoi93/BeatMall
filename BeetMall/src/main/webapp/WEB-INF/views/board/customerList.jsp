@@ -15,7 +15,7 @@
 
 <style>
 	body{width:1920px; padding:0; margin:0; font-family: 'Nanum Gothic', sans-serif; font-size:16px;}
-	#topBar form, #noticeSearchFrm, #title, button, #contentBox{ position:relative; }
+	#topBar, #topBar form, #noticeSearchFrm, #title, button, #contentBox{ position:relative; }
 	#addBtn, #delBtn{position:absolute;}
 	#container{ position:absolute; top:200px; left:190px; width:1080px; padding:0; }
 	#container ul{ width:1080px; } 
@@ -27,8 +27,18 @@
 	#title li:nth-of-type(8n-1), #contentBox li:nth-of-type(8n-1){  width:30%; padding-left:20px; } 
 	#title li:nth-of-type(5), #contentBox li:nth-of-type(5){ width:15%; }
 	#title li:nth-of-type(6){margin-left:18px;} 
-	#topBar{ background-color:lightgray; float:left; height:50px; padding:10px 0 0 0px; margin-left:10px; width:1080px;}
-	#topBar li:nth-of-type(2){margin-left:13px; width:12%;} 
+	#topBar{ 
+		background-color:lightgray; 
+		float:left; 
+		height:50px; 
+		padding:10px 0 0 0px;  
+		width:1280px;
+		left:-200px;
+	}
+	#topBar li:nth-of-type(2){
+		margin-left:70px; 
+		width:12%;
+	}
 	#topBar li:nth-of-type(3){width:5.5%;} 
 	#topBar li:nth-of-type(4){width:14%;}   
 	select{width:100px;}
@@ -65,18 +75,17 @@
 		background: gray;
 		color:white;
 		display: inline-block;
-	}
+	} 
 	#addBtn{
 		top:10px; 
-		left:845px; 
+		left:1040px; 
 		width:100px;
 	}
 	#delBtn{
 		top:10px; 
-		left:960px; 
+		left:1150px; 
 		width:100px;
-	}
-	
+	} 	
 	/* 페이징처리부분 */
 	.page_wrap {
 		text-align:center;
