@@ -16,6 +16,7 @@
 	.menu li { color:rgb(74,72,72); font-size:17px; max-height: 0; overflow-y: hidden; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; -ms-transition: all 0.5s; -o-transition: all 0.5s; transition: all 0.5s; }
 	.menu li:hover{ font-weight:bold; background-color:rgb(250, 122, 122); color:black; } 
 	#menu_bar01:checked ~ #links01 li, #menu_bar02:checked ~ #links02 li, #menu_bar03:checked ~ #links03 li, #menu_bar04:checked ~ #links04 li, #menu_bar05:checked ~ #links05 li, #menu_bar06:checked ~ #links06 li { max-height: 46px; opacity: 1; }
+	.menu span{font-size:13px; color:rgb(53,53,53); position:relative; top:-2px;}
 </style>  
 <script>
 $(function(){	  
@@ -35,33 +36,33 @@ $(function(){
 </head>
 <body>  
 	<div class="menu">
-	  <label for="menu_bar01">일반회원 관리∨</label>
+	  <label for="menu_bar01">일반회원 관리 <span>▼</span></label>
 	  <input type="checkbox" id="menu_bar01" class="accordion" />
 		  <ul id="links01">
 		    <li><a href="customerList">회원 목록</a></li>
-		    <li><a href="">탈퇴 회원</a></li>
+		    <li><a href="customerLeaveList">탈퇴 회원</a></li>
 		    <li><a href="">블랙리스트</a></li> 
 		  </ul>
-	  <label for="menu_bar02">판매자 관리∨</label>
+	  <label for="menu_bar02">판매자 관리 <span>▼</span></label>
 	  <input type="checkbox" id="menu_bar02" class="accordion" />
 		  <ul id="links02">
 		    <li><a href="">회원 목록</a></li>
 		    <li><a href="">탈퇴 회원</a></li>
 		    <li><a href="">블랙리스트</a></li> 
 		  </ul> 
-	  <label for="menu_bar03">매출 관리∨</label>
+	  <label for="menu_bar03">매출 관리 <span>▼</span></label>
 	  <input type="checkbox" id="menu_bar03" class="accordion" />
 		  <ul id="links03">
 		    <li><a href="">수익 매출분석</a></li>
 		    <li><a href="">카테고리별 매출분석</a></li>
 		    <li><a href="">판매내역</a></li> 
 		  </ul> 
-	  <label for="menu_bar04">정산 관리∨</label>
+	  <label for="menu_bar04">정산 관리 <span>▼</span></label>
 	  <input type="checkbox" id="menu_bar04" class="accordion" />
 		  <ul id="links04">
 		    <li><a href="">정산관리</a></li> 
 		  </ul> 
-	  <label for="menu_bar05">게시글 관리∨</label>
+	  <label for="menu_bar05">게시글 관리 <span>▼</span></label>
 	  <input type="checkbox" id="menu_bar05" class="accordion" />
 		  <ul id="links05">
 		    <li><a href="noticeBoardList">공지 관리</a></li>
@@ -70,7 +71,7 @@ $(function(){
 		    <li><a href="">상품 목록</a></li>
 		    <li><a href="">디자인 관리</a></li> 
 		  </ul> 
-	  <label for="menu_bar06">고객센터∨</label>
+	  <label for="menu_bar06">고객센터 <span>▼</span></label>
 	  <input type="checkbox" id="menu_bar06" class="accordion" />
 		  <ul id="links06">
 		    <li><a href="">고객 문의</a></li>

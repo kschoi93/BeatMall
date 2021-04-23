@@ -20,7 +20,7 @@ public class BoardController {
 	BoardService BoardService;
 	//////////////////////일반회원 관리////////////////////////////////
 	
-	
+	//목록보기
 	@RequestMapping("/customerList")
 	public ModelAndView customerList() {
 		ModelAndView mav = new ModelAndView();
@@ -29,8 +29,23 @@ public class BoardController {
 		return mav;
 	}
 	
+	//탈퇴회원보기
+	@RequestMapping("/customerLeaveList")
+	public ModelAndView customerLeaveList() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", boardService.boardAllRecord());
+		mav.setViewName("/board/customerLeaveList");
+		return mav;
+	}
 	
-	
+	//블랙리스트 보기
+	@RequestMapping("/customerBlackList")
+	public ModelAndView customerBlackList() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", boardService.boardAllRecord());
+		mav.setViewName("/board/customerBlackList");
+		return mav;
+	}
 	
 	
 	//////////////////////공지 관리///////////////////////////////////// 

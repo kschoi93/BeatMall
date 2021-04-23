@@ -10,24 +10,26 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet"> 
 <style>
-	body{ width:1920px; }
+	body{ width:1280px; font-family: 'Nanum Gothic', sans-serif;   }
 	#topBox{ height:200px; margin:0 auto; }
-	#top{ margin-left:500px; padding:25px 0px 0px 1100px; }
+	#top{ padding:25px 0px 0px 1000px; }
 	#dot{ font-size:18px; color:red; position:relative; top:-4px; left:-10px; }
 	#logout{ background-color:black; border-radius:100px; color:white; width:70px; margin-left:20px; padding:0px 10px; }
 	#topBox>h2{ text-align:center; font-weight:bold; margin-top:30px; } 
 	#topBox>h2 a{ color:black; }
-	#topBox>h2 a:link, a:visited, a:hover, a:active{ text-decoration:none; color:black; }    
+	#topBox>h2 a:link, a:visited, a:hover, a:active{ text-decoration:none; color:black; } 
 </style>
 </head>
 <body>
 	<div id="topBox">
 		<div id="top">
 			<span id="dot">●</span> 관리자 님 
-				<c:if test="${logStatus=='Y'}">
+				 
 					<span id="logout">로그아웃</span>
-				</c:if>
+				 
 		</div> 
 		<h2><a href="<%=request.getContextPath()%>/">관리자 페이지</a></h2>
 	</div> 

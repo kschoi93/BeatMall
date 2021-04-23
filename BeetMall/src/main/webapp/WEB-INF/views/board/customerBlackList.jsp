@@ -15,16 +15,17 @@
 	#topBar form, #noticeSearchFrm, #title, button, #contentBox{ position:relative; }
 	#addBtn, #delBtn{position:absolute;}
 	#container{ position:absolute; top:200px; left:190px; width:1080px; padding:0; }
-	#container ul{ width:1700px; } 
-	#container li{ list-style-type:none; float:left; width:8%; }
-	#contentBox li:nth-of-type(5n+1){ width:2%;} 
-	#contentBox li:nth-of-type(5n-1){ width:35%; padding-left:30px; } 
-	#contentBox li:not(:nth-of-type(5n-1)){ text-align:center; } 
-	#topBar{ background-color:lightgray; float:left; height:50px; padding:10px 0 0 0px; margin-left:10px; width:1080px;}
-	#topBar li{ width:7%;}   
-	#topBar li:nth-of-type(4){width:3%;} 
-	#topBar li:nth-of-type(5){width:24%;} 
+	#container ul{ width:1080px; } 
+	#container li{ list-style-type:none; float:left; width:13%; } 
 	#ascBtn, #descBtn{ top:-2px; } 
+	#contentBox{ top:20px; margin-left:10px;}
+	#contentBox li{ text-align:center; } 
+	#contentBox li:nth-of-type(8n+1){ width:4%; }
+	#title li:nth-of-type(5), #contentBox li:nth-of-type(5){ width:15%; } 
+	#topBar{ background-color:lightgray; float:left; height:50px; padding:10px 0 0 0px; margin-left:10px; width:1080px;}
+	#topBar li:nth-of-type(2){margin-left:13px; width:12%;} 
+	#topBar li:nth-of-type(3){width:5.5%;} 
+	#topBar li:nth-of-type(4){width:14%;}  
 	#addBtn{top:7px; left:845px; width:100px;}
 	#delBtn{top:7px; left:960px; width:100px;} 
 	select{width:100px;}
@@ -32,10 +33,8 @@
 	button{color: #444444; background: #F3F3F3; border: 1px #DADADA solid; outline: none; 
 			padding: 5px 10px; margin:0 5px; border-radius: 5px; font-weight: bold; font-size: 12pt; }
 	button:active, button:hover, button:focus{ background-color:rgb(153,153,153)}
-	#btns a>button, button:nth-of-type(4){ margin-left:900px; }   
-	#contentBox{ top:20px; margin-left:10px;}
+	#btns a>button, button:nth-of-type(4){ margin-left:900px; }  
 	#title{ width: 1080px; font-weight:bold; padding:65px 0 25px 0; border-bottom:gray 1px solid;}
-	#title li:nth-of-type(4){ padding-left: 250px; }
 	.noticeList{ padding-top:5px;} 
 	.noticeList:nth-of-type(1){ padding-top:10px;}
 	.pagination{ padding:20px 0 20px 400px; }
@@ -55,19 +54,17 @@
 	<div id="container">
 		<div id="topBar">
 			<ul>
-				<li><strong>공지 목록</strong></li> 
+				<li><strong>블랙리스트</strong></li> 
 				<li><select name="sort" > 
-		   				<option value="all" selected>전체</option>
-		   				<option value="seller">판매자</option>
-		   				<option value="customer">소비자</option> 
+		   				<option value="아이디" selected>아이디</option>
+		   				<option value="이름">이름</option>
+		   				<option value="신고번호">신고번호</option> 
+		   				<option value="신고자">신고자</option> 
+		   				<option value="신고유형">신고유형</option> 
+		   				<option value="신고일">신고일</option> 
+		   				<option value="처리일">처리일</option> 
 			  		</select> 
-	   			</li>
-				<li><select name="sort" > 
-		   				<option value="no" selected>글번호</option>
-		   				<option value="subject" >제목</option>
-		   				<option value="writedate" >등록일</option> 
-	   			  	</select> 
-	   			</li>
+	   			</li> 
 				<li><button class="success" value="asc" name="asc" id="ascBtn">▲</button></li>
 				<li><button class="success" value="desc" name="desc" id="descBtn">▼</button></li>
 				<li><button class="success" value="add" name="add" id="addBtn">추가</button></li>
@@ -77,20 +74,26 @@
    		<div id="contentBox"> 	
 		<div id="title">
 			<ul>
-				<li><input type="checkbox" name="check"  ></li>
-				<li>번호</li>
-				<li>대상</li>
-				<li>제목</li>
-				<li>등록일</li> 
+				<li><input type="checkbox" name="check"></li>
+				<li>신고번호</li>
+				<li>이름</li>
+				<li>아이디</li>
+				<li>신고자</li>
+				<li>신고유형</li>
+				<li>신고일</li>
+				<li>처리일</li> 
 			</ul>
 		</div>  
 		<c:forEach var="data" items="${list}">
 			<ul class="noticeList">
-				<li><input type="checkbox" name="check"></li>
-				<li>${data.no}?</li>
-				<li>판매자?</li>
-				<li id="subjectLine"><a href="boardView?no=${data.no}">${data.subject}?</a></li>  
-				<li>${data.writedate}등록일?</li><br/>
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li><a href="신고번호?">no?</a></li>
+				<li>name?</li>
+				<li>id?</li>
+				<li>repoter</li>  
+				<li>type</li>
+				<li>date</li>
+				<li>donedate<br/></li> 
 			</ul>
 		</c:forEach>
 		</div>	 

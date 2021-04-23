@@ -12,39 +12,40 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/>
 <style>
-	#topBar form,#noticeSearchFrm, #title, #btns, #selectCustomer, #topBar, #topBox, #delBtn, #title>ul, #topBar li, #topBar button {position:relative;}
-	#container{ position:absolute; top:200px; left:180px; width:1740px; padding:0;}
-	#container ul{ width:1700px;} 
+	#topBar form, #noticeSearchFrm, #title, button, #contentBox{ position:relative; }
+	#addBtn, #delBtn{position:absolute;}
+	#container{ position:absolute; top:200px; left:190px; width:1080px; padding:0; }
+	#container ul{ width:1080px; } 
 	#container li{ list-style-type:none; float:left; width:10%; } 
-	#topBar{ background-color:lightgray; float:left; width:1700px; height:50px; padding:10px 0 0 20px; margin-left:10px; top:-200px; left:-180px;}
-	#topBar>span{ width:150px; padding-left:10px;}   
+	#ascBtn, #descBtn{ top:-2px; } 
+	#contentBox{ top:20px; margin-left:10px;}
+	#contentBox li{ text-align:center; } 
+	#contentBox li:nth-of-type(8n+1){ width:3%; }
+	#title li:nth-of-type(8n-1), #contentBox li:nth-of-type(8n-1){  width:30%; padding-left:20px; } 
+	#title li:nth-of-type(5), #contentBox li:nth-of-type(5){ width:15%; }
+	#title li:nth-of-type(6){margin-left:18px;} 
+	#topBar{ background-color:lightgray; float:left; height:50px; padding:10px 0 0 0px; margin-left:10px; width:1080px;}
+	#topBar li:nth-of-type(2){margin-left:13px; width:12%;} 
+	#topBar li:nth-of-type(3){width:5.5%;} 
+	#topBar li:nth-of-type(4){width:14%;}  
+	#addBtn{top:7px; left:845px; width:100px;}
+	#delBtn{top:7px; left:960px; width:100px;} 
 	select{width:100px;}
-	#topBar li{ width:8%;}
-	#topBar li:nth-of-type(2){left:-3px;} 
-	#topBar li:nth-of-type(3){left:40px;} 
-	#topBar li:nth-of-type(4){width:3%;} 
-	#topBar li:nth-of-type(5){width:55%;} 
-	#topBar button { top:-2px; }  
+	#btns{ top:-115px; left:460px; } 
 	button{color: #444444; background: #F3F3F3; border: 1px #DADADA solid; outline: none; 
 			padding: 5px 10px; margin:0 5px; border-radius: 5px; font-weight: bold; font-size: 12pt; }
 	button:active, button:hover, button:focus{ background-color:rgb(153,153,153)}
 	#btns a>button, button:nth-of-type(4){ margin-left:900px; }  
-	#addBtn, #delBtn{width:100px;}
-	#title{ width: 1690px; font-weight:bold; padding:65px 0 25px 0; margin-left:10px; border-bottom:gray 1px solid; }
-	#title>ul{left:-10px;}
-	#customerList{ padding-top:20px; }
-	#customerList li, #title li{ line-height:30px; width:10%; text-align:center;}
-	#customerList li:nth-of-type(8n+1), #title li:nth-of-type(1){ width:5%;}
-	#customerList li:nth-of-type(8n-3), #title li:nth-of-type(5){ width:17%;}
-	#customerList li:nth-of-type(8n-1), #title li:nth-of-type(7){ width:28%;}
-	.pagination{ padding:20px 0 20px 600px; }
+	#title{ width: 1080px; font-weight:bold; padding:65px 0 25px 0; border-bottom:gray 1px solid;}
+	.noticeList{ padding-top:5px;} 
+	.noticeList:nth-of-type(1){ padding-top:10px;}
+	.pagination{ padding:20px 0 20px 400px; }
 	.pagination a { color: black; float: left; padding: 8px 16px; text-decoration: none; transition: background-color .3s; }
 	.pagination a.active { background-color: rgb(224,102,102); color: white; }
 	.pagination a:hover:not(.active) { background-color: #ddd; }
-	#noticeSearchFrm{ top:30px; left:550px;}
-	#selectCustomer{ top:-30px; left:260px;}
-	#topBox{ top:-210px; left:-190px;}
+	#noticeSearchFrm{ top:10px; left:400px; }
 	input[type=checkbox] {zoom: 1.8;} 
+	#subjectLine{white-space:nowrap; overflow:hidden;text-overflow:ellipsis;}
 </style>
 <script>
  
@@ -53,10 +54,9 @@
 <body>
 <%@ include file="/inc/leftBar.jspf" %>
 	<div id="container">
-		<div id="container">
 		<div id="topBar">
 			<ul>
-				<li><strong>일반회원 목록</strong></li> 
+				<li><strong>일반회원</strong></li> 
 				<li><select name="sort" > 
 		   				<option value="이름" selected>이름</option>
 		   				<option value="아이디">아이디</option>
@@ -67,15 +67,16 @@
 		   				<option value="가입날짜">가입날짜</option> 
 			  		</select> 
 	   			</li> 
-				<li><button class="success" value="asc" name="asc">▲</button></li>
-				<li><button class="success" value="desc" name="desc">▼</button></li>
+				<li><button class="success" value="asc" name="asc" id="ascBtn">▲</button></li>
+				<li><button class="success" value="desc" name="desc" id="descBtn">▼</button></li>
 				<li><button class="success" value="add" name="add" id="addBtn">추가</button></li>
 				<li><button class="success" value="del" name="del" id="delBtn">삭제</button></li>
 			</ul> 
-		</div>   
+		</div>  
+   		<div id="contentBox"> 	
 		<div id="title">
 			<ul>
-				<li><input type="checkbox" name="check" id="allCheck"> </li>
+				<li><input type="checkbox" name="check"  ></li>
 				<li>이름</li>
 				<li>아이디</li>
 				<li>나이</li>
@@ -84,29 +85,30 @@
 				<li>주소</li>
 				<li>가입일</li> 
 			</ul>
-		</div> 
-		<ul id="customerList">
-			<c:forEach var="data" items="${list}">
+		</div>  
+		<c:forEach var="data" items="${list}">
+			<ul class="noticeList">
 				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>${data.no}</li>
-				<li><a href="회원정보?no=${data.no}">${data.userid}</a></li>
+				<li> name?</li>
+				<li><a href="회원정보?">id?</a></li>
 				<li>나이?</li>
 				<li>{member.email}</li>  
 				<li>{data.birthday}</li>
 				<li>{data.addr}</li>
 				<li>{data.writedate}<br/></li> 
-			</c:forEach>
-		</ul>
+			</ul>
+		</c:forEach>
+		</div>	 
 		<div class="pagination">
-  <a href="#">&laquo;</a>
-  <a href="#">1</a>
-  <a class="active" href="#">2</a>
-  <a href="#">3</a>
-  <a href="#">4</a>
-  <a href="#">5</a>
-  <a href="#">6</a>
-  <a href="#">&raquo;</a>
-</div>
+		  <a href="#">&laquo;</a>
+		  <a href="#">1</a>
+		  <a class="active" href="#">2</a>
+		  <a href="#">3</a>
+		  <a href="#">4</a>
+		  <a href="#">5</a>
+		  <a href="#">6</a>
+		  <a href="#">&raquo;</a>
+		</div>
 
 	<!-- 
 	 <ul class="breadcrumb pagination-md">
@@ -149,15 +151,15 @@
 		<form method="get" id="noticeSearchFrm" action="<%=request.getContextPath() %>/board/noticeBoardList.jsp">
 			<select name="searchKey">
 				<option value="subject" selected>제목</option>
-   				<option value="공지번호">공지번호</option> 
-   				<option value="대상">대상</option> 
-   				<option value="공지일">공지일</option> 
+   				<option value="no">공지번호</option> 
+   				<option value="who">대상</option> 
+   				<option value="writedate">공지일</option> 
 			</select>			
-			<input type="text" name="searchWord" id="searchWord"/> 
-			<input type="submit" value="검색"/>  
+			<input type="text" name="searchWord" id="searchWord"/>
+			<input type="submit" value="검색"/> 
 		</form>
+		
 	</div>  
-		</div>
 		</div>
 </body>
 </html>
