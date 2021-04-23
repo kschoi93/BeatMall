@@ -47,6 +47,15 @@ public class BoardController {
 		return mav;
 	}
 	
+	//////////////////////판매자 관리////////////////////////////////
+	//목록보기
+		@RequestMapping("/sellerList")
+		public ModelAndView sellerList() {
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("list", boardService.boardAllRecord());
+			mav.setViewName("/board/sellerList");
+			return mav;
+		}
 	
 	//////////////////////공지 관리///////////////////////////////////// 
 	@RequestMapping("/noticeBoardList")

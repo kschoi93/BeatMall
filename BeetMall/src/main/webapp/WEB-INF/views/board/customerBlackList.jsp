@@ -37,17 +37,17 @@
 	#title{ width: 1080px; font-weight:bold; padding:65px 0 25px 0; border-bottom:gray 1px solid;}
 	.noticeList{ padding-top:5px;} 
 	.noticeList:nth-of-type(1){ padding-top:10px;} 
-	#noticeSearchFrm{ top:10px; left:400px; }
+	#noticeSearchFrm{ top:30px; left:360px; }
 	input[type=checkbox] {zoom: 1.8;} 
 	#subjectLine{white-space:nowrap; overflow:hidden;text-overflow:ellipsis;}
 	/* 페이징처리부분 */
 	.page_wrap {
 		text-align:center;
-		font-size:0;
-		padding-bottom: 30px;
+		font-size:0; 
 	}
 	.page_nation {
 		display:inline-block;
+		padding-top:60px;
 	}
 	.page_nation .none {
 		display:none;
@@ -70,19 +70,19 @@
 		border:1px solid #ccc;
 	}
 	.page_nation .pprev {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_pprev.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_pprev.png') no-repeat center center;
 		margin-left:0;
 	}
 	.page_nation .prev {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_prev.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_prev.png') no-repeat center center;
 		margin-right:7px;
 	}
 	.page_nation .next {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_next.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_next.png') no-repeat center center;
 		margin-left:7px;
 	}
 	.page_nation .nnext {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_nnext.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_nnext.png') no-repeat center center;
 		margin-right:0;
 	}
 	.page_nation a.active {

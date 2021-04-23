@@ -38,13 +38,60 @@
 	#title li:nth-of-type(4){ padding-left: 250px; }
 	.noticeList{ padding-top:5px;} 
 	.noticeList:nth-of-type(1){ padding-top:10px;}
-	.pagination{ padding:20px 0 20px 400px; }
-	.pagination a { color: black; float: left; padding: 8px 16px; text-decoration: none; transition: background-color .3s; }
-	.pagination a.active { background-color: rgb(224,102,102); color: white; }
-	.pagination a:hover:not(.active) { background-color: #ddd; }
-	#noticeSearchFrm{ top:10px; left:400px; }
+	#noticeSearchFrm{ top:30px; left:360px; }
 	input[type=checkbox] {zoom: 1.8;} 
 	#subjectLine{white-space:nowrap; overflow:hidden;text-overflow:ellipsis;}
+	/* 페이징처리부분 */
+	.page_wrap {
+		text-align:center;
+		font-size:0; 
+	}
+	.page_nation {
+		display:inline-block;
+		padding-top:60px;
+	}
+	.page_nation .none {
+		display:none;
+	}
+	.page_nation a {
+		display:block;
+		margin:0 3px;
+		float:left;
+		border:1px solid #e6e6e6;
+		width:35px;
+		height:35px;
+		line-height:35px;
+		text-align:center;
+		background-color:#fff;
+		font-size:13px;
+		color:#999999;
+		text-decoration:none;
+	}
+	.page_nation .arrow {
+		border:1px solid #ccc;
+	}
+	.page_nation .pprev {
+		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_pprev.png') no-repeat center center;
+		margin-left:0;
+	}
+	.page_nation .prev {
+		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_prev.png') no-repeat center center;
+		margin-right:7px;
+	}
+	.page_nation .next {
+		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_next.png') no-repeat center center;
+		margin-left:7px;
+	}
+	.page_nation .nnext {
+		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_nnext.png') no-repeat center center;
+		margin-right:0;
+	}
+	.page_nation a.active {
+		background-color:#42454c;
+		color:#fff;
+		border:1px solid #42454c;
+	}
+	/* 페이징처리끝 */
 </style>
 <script>
  
@@ -94,16 +141,24 @@
 			</ul>
 		</c:forEach>
 		</div>	 
-		<div class="pagination">
-		  <a href="#">&laquo;</a>
-		  <a href="#">1</a>
-		  <a class="active" href="#">2</a>
-		  <a href="#">3</a>
-		  <a href="#">4</a>
-		  <a href="#">5</a>
-		  <a href="#">6</a>
-		  <a href="#">&raquo;</a>
-		</div>
+		<div class="page_wrap">
+			<div class="page_nation">
+			   <a class="arrow pprev" href="<%=request.getContextPath()%>/img/kpage_pprev.png"></a>
+			   <a class="arrow prev" href="#"></a>
+			   <a href="#" class="active">1</a>
+			   <a href="#">2</a>
+			   <a href="#">3</a>
+			   <a href="#">4</a>
+			   <a href="#">5</a>
+			   <a href="#">6</a>
+			   <a href="#">7</a>
+			   <a href="#">8</a>
+			   <a href="#">9</a>
+			   <a href="#">10</a>
+			   <a class="arrow next" href="#"></a>
+			   <a class="arrow nnext" href="#"></a>
+			</div>
+		 </div>
 
 	<!-- 
 	 <ul class="breadcrumb pagination-md">
