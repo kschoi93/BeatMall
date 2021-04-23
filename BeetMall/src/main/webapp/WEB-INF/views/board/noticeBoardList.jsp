@@ -41,6 +41,30 @@
 	#noticeSearchFrm{ top:30px; left:360px; }
 	input[type=checkbox] {zoom: 1.8;} 
 	#subjectLine{white-space:nowrap; overflow:hidden;text-overflow:ellipsis;}
+	
+	 	/*버튼*/
+	button, .btn{
+		padding: 3px 10px;
+		color: #666666;
+		border-radius: 8px;
+		background:#fff;
+		box-shadow: 0 0px 3px 0 rgba(0,0,0,0.5);
+		text-align: center;
+ 		text-decoration: none;
+		display: inline-block;
+		border:none;
+	}
+	/*버튼*/
+	button:hover{
+		background: gray;
+		color:white;
+		display: inline-block;
+	}
+
+	#topBar Button:nth-of-type(1),#topBar Button:nth-of-type(2),#topBar Button:nth-of-type(3),#topBar Button:nth-of-type(4){
+		padding:2px 7px;
+	}
+	 
 	/* 페이징처리부분 */
 	.page_wrap {
 		text-align:center;

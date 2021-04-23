@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8"> 
 <style>
-	.menu { margin: 0px 20px 0px 0px;padding: 0; width:180px;  }
+	.menu { margin: 50px 20px 0px 0px;padding: 0; width:180px;  }
 	.menu ul a { display: block; padding: 10px; color:gray; line-height: 1; text-align:center; }
 	label { display: block; margin: 0; padding: 20px 0px; line-height: 1; font-size:20px; background: rgb(224,102,102); cursor: pointer; text-align:center; height:60px; }
 	label:hover, label:active{ font-weight:bold; color:rgb(35,35,35); }
@@ -41,14 +41,14 @@ $(function(){
 		  <ul id="links01">
 		    <li><a href="customerList">회원 목록</a></li>
 		    <li><a href="customerLeaveList">탈퇴 회원</a></li>
-		    <li><a href="">블랙리스트</a></li> 
+		    <li><a href="customerBlackList">블랙리스트</a></li> 
 		  </ul>
 	  <label for="menu_bar02">판매자 관리 <span>▼</span></label>
 	  <input type="checkbox" id="menu_bar02" class="accordion" />
 		  <ul id="links02">
-		    <li><a href="">회원 목록</a></li>
-		    <li><a href="">탈퇴 회원</a></li>
-		    <li><a href="">블랙리스트</a></li> 
+		    <li><a href="sellerList">회원 목록</a></li>
+		    <li><a href="sellerLeaveList">탈퇴 회원</a></li>
+		    <li><a href="sellerBlackList">블랙리스트</a></li> 
 		  </ul> 
 	  <label for="menu_bar03">매출 관리 <span>▼</span></label>
 	  <input type="checkbox" id="menu_bar03" class="accordion" />

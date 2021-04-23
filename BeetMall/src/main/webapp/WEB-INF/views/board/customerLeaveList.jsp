@@ -11,7 +11,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <style>
+	body{width:1920px; padding:0; margin:0; font-family: 'Nanum Gothic', sans-serif; font-size:16px;}
 	#topBar form, #noticeSearchFrm, #title, button, #contentBox{ position:relative; }
 	#addBtn, #delBtn{position:absolute;}
 	#container{ position:absolute; top:200px; left:190px; width:1080px; padding:0; }
@@ -20,21 +23,48 @@
 	#ascBtn, #descBtn{ top:-2px; } 
 	#contentBox{ top:20px; margin-left:10px;}
 	#contentBox li{ text-align:center; } 
-	#contentBox li:nth-of-type(8n+1){ width:3%; }
+	#contentBox li:nth-of-type(8n+1){ width:0%; }
 	#title li:nth-of-type(8n-1), #contentBox li:nth-of-type(8n-1){  width:30%; padding-left:20px; } 
 	#title li:nth-of-type(5), #contentBox li:nth-of-type(5){ width:15%; }
 	#title li:nth-of-type(6){margin-left:18px;} 
 	#topBar{ background-color:lightgray; float:left; height:50px; padding:10px 0 0 0px; margin-left:10px; width:1080px;}
 	#topBar li:nth-of-type(2){margin-left:13px; width:12%;} 
 	#topBar li:nth-of-type(3){width:5.5%;} 
-	#topBar li:nth-of-type(4){width:14%;}  
-	#addBtn{top:7px; left:845px; width:100px;}
-	#delBtn{top:7px; left:960px; width:100px;} 
+	#topBar li:nth-of-type(4){width:14%;}   
 	select{width:100px;}
 	#btns{ top:-115px; left:460px; } 
-	button{color: #444444; background: #F3F3F3; border: 1px #DADADA solid; outline: none; 
-			padding: 5px 10px; margin:0 5px; border-radius: 5px; font-weight: bold; font-size: 12pt; }
-	button:active, button:hover, button:focus{ background-color:rgb(153,153,153)}
+		/*버튼*/
+	button, .btn{
+		padding: 3px 10px;
+		color: #666666;
+		border-radius: 8px;
+		background:#fff;
+		box-shadow: 0 0px 3px 0 rgba(0,0,0,0.5);
+		text-align: center;
+ 		text-decoration: none;
+		display: inline-block;
+		border:none;
+	}
+	#topBar Button:nth-of-type(1),#topBar Button:nth-of-type(2),#topBar Button:nth-of-type(3),#topBar Button:nth-of-type(4){
+		padding:2px 7px;
+	}
+	/*버튼*/
+	button:hover{
+		background: gray;
+		color:white;
+		display: inline-block;
+	}
+	#addBtn{
+		top:10px; 
+		left:845px; 
+		width:100px;
+	}
+	#delBtn{
+		top:10px; 
+		left:960px; 
+		width:100px;
+	}
+
 	#btns a>button, button:nth-of-type(4){ margin-left:900px; }  
 	#title{ width: 1080px; font-weight:bold; padding:65px 0 25px 0; border-bottom:gray 1px solid;}
 	.noticeList{ padding-top:5px;} 
@@ -42,6 +72,13 @@
 	#noticeSearchFrm{ top:30px; left:360px; }
 	input[type=checkbox] {zoom: 1.8;} 
 	#subjectLine{white-space:nowrap; overflow:hidden;text-overflow:ellipsis;}
+	#content input, textarea, select, #noticeSearchFrm input{
+		border:1px solid lightgray; 
+		border-radius: 8px;
+	}
+	#content li, label{list-style-type:none; padding-bottom:10px;}
+	#content select{height:28px;}
+	
 	/* 페이징처리부분 */
 	.page_wrap {
 		text-align:center;
@@ -103,7 +140,7 @@
 	<div id="container">
 		<div id="topBar">
 			<ul>
-				<li><strong>탈퇴회원</strong></li> 
+				<li><h5><strong>탈퇴회원</strong></h5></li> 
 				<li><select name="sort" > 
 		   				<option value="이름" selected>이름</option>
 		   				<option value="아이디">아이디</option>
@@ -111,7 +148,7 @@
 		   				<option value="이메일">이메일</option> 
 		   				<option value="생년월일">생년월일</option> 
 		   				<option value="주소">주소</option> 
-		   				<option value="가입날짜">가입날짜</option> 
+		   				<option value="탈퇴일">탈퇴일</option> 
 			  		</select> 
 	   			</li> 
 				<li><button class="success" value="asc" name="asc" id="ascBtn">▲</button></li>
@@ -130,7 +167,7 @@
 				<li>이메일</li>
 				<li>생년월일</li>
 				<li>주소</li>
-				<li>가입일</li> 
+				<li>탈퇴일</li> 
 			</ul>
 		</div>  
 		<c:forEach var="data" items="${list}">
@@ -142,7 +179,7 @@
 				<li>{member.email}</li>  
 				<li>{data.birthday}</li>
 				<li>{data.addr}</li>
-				<li>{data.writedate}<br/></li> 
+				<li>탈퇴일?<br/></li> 
 			</ul>
 		</c:forEach>
 		</div>	 

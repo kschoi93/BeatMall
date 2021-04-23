@@ -56,7 +56,23 @@ public class BoardController {
 			mav.setViewName("/board/sellerList");
 			return mav;
 		}
-	
+		
+	//탈퇴 판매자 목록보기
+		@RequestMapping("/sellerLeaveList")
+		public ModelAndView sellerLeaveList() {
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("list", boardService.boardAllRecord());
+			mav.setViewName("/board/sellerLeaveList");
+			return mav;
+		}
+	//판매자 블랙리스트 보기
+		@RequestMapping("/sellerBlackList")
+		public ModelAndView sellerBlackList() {
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("list", boardService.boardAllRecord());
+			mav.setViewName("/board/sellerBlackList");
+			return mav;
+		}
 	//////////////////////공지 관리///////////////////////////////////// 
 	@RequestMapping("/noticeBoardList")
 	public ModelAndView noticeBoardList() {

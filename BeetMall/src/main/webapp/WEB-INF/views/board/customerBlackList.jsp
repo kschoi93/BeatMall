@@ -11,6 +11,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <style>
 	body{width:1920px; padding:0; margin:0; font-family: 'Nanum Gothic', sans-serif; font-size:16px;}
 	#topBar form, #noticeSearchFrm, #title, button, #contentBox{ 
@@ -44,7 +46,7 @@
 		text-align:center; 
 	} 
 	#contentBox li:nth-of-type(8n+1){ 
-		width:4%; 
+		width:0%; 
 	}
 	#title li:nth-of-type(5), #contentBox li:nth-of-type(5){ 
 		width:15%; 
@@ -68,11 +70,12 @@
 		width:14%;
 	}  
 	#addBtn{
-		top:7px; 
+		top:10px; 
 		left:845px; 
 		width:100px;
 	}
-	#delBtn{top:7px; 
+	#delBtn{
+		top:10px; 
 		left:960px; 
 		width:100px;
 	} 
@@ -127,6 +130,13 @@
 		overflow:hidden;
 		text-overflow:ellipsis;
 	}
+	#content input, textarea, select, #noticeSearchFrm input{
+		border:1px solid lightgray; 
+		border-radius: 8px;
+	}
+	#content li, label{list-style-type:none; padding-bottom:10px;}
+	#content select{height:28px;}
+	
 	/* 페이징처리부분 */
 	.page_wrap {
 		text-align:center;
@@ -189,7 +199,7 @@
 	<div id="container">
 		<div id="topBar">
 			<ul>
-				<li><strong>블랙리스트</strong></li> 
+				<li><h5><strong>블랙리스트</strong></h5></li> 
 				<li><select name="sort" > 
 		   				<option value="아이디" selected>아이디</option>
 		   				<option value="이름">이름</option>
