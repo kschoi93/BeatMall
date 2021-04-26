@@ -53,9 +53,11 @@
 	<!-- jsp config include  -->
 	<jsp-config>
 		<jsp-property-group>
-			<url-pattern>*.jsp</url-pattern>
+			<url-pattern>*.jsp</url-pattern> 
 			<page-encoding>UTF-8</page-encoding> 
-			<include-prelude>/inc/top.jspf</include-prelude>
+			<include-prelude>/inc/top.jspf</include-prelude>  
+			<include-prelude>/WEB-INF/views/inc/header.jspf</include-prelude>
+			<include-coda>/WEB-INF/views/inc/footer.jspf</include-coda> 
 		</jsp-property-group>
 	</jsp-config>
 </web-app>

@@ -11,7 +11,7 @@
  - Choi Kyung-Sik 
  - Kim Yun-Su 
  - Lee Kang-San 
- - Cha Yoon-Joo
+ - Cha Yoon-Ju
 
 > 팀 협업 툴
  - Notion : https://www.notion.so/1-bfa2de9b5d1243109d53a8dcbdf0b0c9
@@ -34,7 +34,7 @@
 구매자 페이지
  - Kim Yun-Su 
  - Lee Kang-San 
- - Cha Yoon-Joo
+ - Cha Yoon-Ju
 ```
 ```
 판매자 페이지
