@@ -21,11 +21,11 @@ public class BoardController {
 	//////////////////////일반회원 관리////////////////////////////////
 	
 	//목록보기
-	@RequestMapping("/customerList")
-	public ModelAndView customerList() {
+	@RequestMapping("/customerListA")
+	public ModelAndView customerListA() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", boardService.boardAllRecord());
-		mav.setViewName("/board/customerList");
+		mav.setViewName("/board/customerListA");
 		return mav;
 	}
 	
@@ -45,15 +45,16 @@ public class BoardController {
 		mav.addObject("list", boardService.boardAllRecord());
 		mav.setViewName("/board/customerBlackList");
 		return mav;
-	}
+	} 
+	
 	
 	//////////////////////판매자 관리////////////////////////////////
 	//목록보기
-		@RequestMapping("/sellerList")
-		public ModelAndView sellerList() {
+		@RequestMapping("/sellerListA")
+		public ModelAndView sellerListA() {
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("list", boardService.boardAllRecord());
-			mav.setViewName("/board/sellerList");
+			mav.setViewName("/board/sellerListA");
 			return mav;
 		}
 		
@@ -72,7 +73,8 @@ public class BoardController {
 			mav.addObject("list", boardService.boardAllRecord());
 			mav.setViewName("/board/sellerBlackList");
 			return mav;
-		}
+		} 
+		
 	//////////////////////공지 관리///////////////////////////////////// 
 	@RequestMapping("/noticeBoardList")
 	public ModelAndView noticeBoardList() {
@@ -87,22 +89,65 @@ public class BoardController {
 		 return "/board/noticeBoardWrite"; 
 	}
 	
-	@RequestMapping("/productList")
-	public ModelAndView productList() {
+	@RequestMapping("/productListA")
+	public ModelAndView productListA() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", boardService.boardAllRecord());
-		mav.setViewName("/board/productList");
+		mav.setViewName("/board/productListA");
+		return mav;
+	}
+	
+	@RequestMapping("/reviewListA")
+	public ModelAndView reviewListA() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", boardService.boardAllRecord());
+		mav.setViewName("/board/reviewListA");
+		return mav;
+	}
+	
+	@RequestMapping("/recipeListA")
+	public ModelAndView recipeListA() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", boardService.boardAllRecord());
+		mav.setViewName("/board/recipeListA");
+		return mav;
+	}
+	
+	@RequestMapping("/reportListA")
+	public ModelAndView reportListA() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", boardService.boardAllRecord());
+		mav.setViewName("/board/reportListA");
+		return mav;
+	}
+	
+	/////////////////////////고객센터//////////////////////
+ @RequestMapping("/csQuestionA")
+	public ModelAndView csQuestionA() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", boardService.boardAllRecord());
+		mav.setViewName("/board/csQuestionA");
+		return mav;
+	}
+ @RequestMapping("/csQuestionBrowse")
+	public ModelAndView csQuestionBrowse() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", boardService.boardAllRecord());
+		mav.setViewName("/board/csQuestionBrowse");
+		return mav;
+	}
+ @RequestMapping("/csFAQ")
+	public ModelAndView csFAQ() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", boardService.boardAllRecord());
+		mav.setViewName("/board/csFAQ");
 		return mav;
 	}
 	
 	
 	
 	
-	
-	
-	
-	
-	
+ 
 	
 	
 	

@@ -78,7 +78,7 @@
 		top:10px; 
 		left:1150px; 
 		width:100px;
-	} 
+	}
 	select{
 		width:100px;
 	}
@@ -234,7 +234,7 @@
 				<li><input type="checkbox" name="check" id="check"> </li>
 				<li><a href="신고번호?">no?</a></li>
 				<li>name?</li>
-				<li><a href="reportList?id=?">id?</a></li>
+				<li>id?</li>
 				<li>repoter</li>  
 				<li>type</li>
 				<li>date</li>
@@ -244,7 +244,7 @@
 		</div>	 
 		<div class="page_wrap">
 			<div class="page_nation">
-			   <a class="arrow pprev" href=""></a>
+			   <a class="arrow pprev" href="<%=request.getContextPath()%>/img/kpage_pprev.png"></a>
 			   <a class="arrow prev" href="#"></a>
 			   <a href="#" class="active">1</a>
 			   <a href="#">2</a>

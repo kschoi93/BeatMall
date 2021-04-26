@@ -13,159 +13,58 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+<link rel ="stylesheet" href="<%=request.getContextPath() %>/resources/css/sshj_admin.css" type="text/css"> 
 <style>
-	body{width:1920px; padding:0; margin:0; font-family: 'Nanum Gothic', sans-serif; font-size:16px;}
-	#topBar, #topBar form, #noticeSearchFrm, #title, button, #contentBox{ 
-		position:relative; 
-	}
-	#addBtn, #delBtn{
-		position:absolute;
-	}
-	#container{ 
-		position:absolute; 
-		top:200px; 
-		left:190px; 
-		width:1080px; 
-		padding:0; 
-	}
-	#container ul{ 
-		width:1080px; 
-	} 
-	#container li{ 
-		list-style-type:none;
-		float:left; width:13%; 
-	} 
-	#ascBtn, #descBtn{ 
-		top:-2px; 
-	} 
-	#contentBox{ 
-		top:20px; 
-		margin-left:10px;
-	}
-	#contentBox li{ 
-		text-align:center; 
-	} 
-	#contentBox li:nth-of-type(8n+1){ 
-		width:0%; 
-	}
-	#title li:nth-of-type(5), #contentBox li:nth-of-type(5){ 
-		width:15%; 
-	} 
-	#topBar{ 
-		background-color:lightgray; 
-		float:left; 
-		height:50px; 
-		padding:10px 0 0 0px;  
-		width:1280px;
-		left:-200px;
-	}
+	/*맨 위 회색 top Bar*/
 	#topBar li:nth-of-type(2){
-		margin-left:70px; 
-		width:12%;
-	} 
-	#topBar li:nth-of-type(3){
-		width:5.5%;
-	} 
+		margin-left:60px;
+	}  
 	#topBar li:nth-of-type(4){
-		width:14%;
+		margin-left:60px;
 	}  
-	#addBtn{
-		top:10px; 
-		left:1040px; 
-		width:100px;
-	}
-	#delBtn{
-		top:10px; 
-		left:1150px; 
-		width:100px;
-	} 
-	select{
-		width:100px;
-	}
-	#btns{ 
-		top:-115px; 
-		left:460px; 
-	} 
-	/*버튼*/
-	button{
-		padding: 3px 10px;
-		color: #666666;
-		border-radius: 8px;
-		background:#fff;
-		box-shadow: 0 0px 3px 0 rgba(0,0,0,0.5);
-		text-align: center;
- 		text-decoration: none;
-		display: inline-block;
-		border:none;
-	}
-	/*버튼*/
-	button:hover, button:active{
-		background: gray;
-		color:white;
-		display: inline-block;
-	} 
-	#btns a>button, button:nth-of-type(4){ 
-		margin-left:900px; 
+	#topBar li:nth-of-type(5){
+		margin-left:-90px;
 	}  
-	#title{ 
-		width: 1080px; 
-		font-weight:bold; 
-		padding:65px 0 25px 0; 
-		border-bottom:gray 1px solid;
+	#topBar li:nth-of-type(6){
+		position:relative;
+		left:-550px;
+		top:-10px;
+	}  
+	/*내용 전체 정렬*/
+	#topBar li:nth-of-type(7){
+		position:relative; left:-80px;
+	}   
+	#contentBox li:nth-of-type(9n-2) {
+    	width: 8%;
 	}
-	.noticeList{ 
-		padding-top:5px;
+	#contentBox li:nth-of-type(9n+1) {
+    	width: 2%;
+	}  
+	#container li:nth-of-type(4):not(#topBar li:nth-of-type(4)){
+		width:20%;	
+	}
+	#title>ul,.productList{
+		position:relative; left:-20px;
+	}
+	#container li:nth-of-type(2):not(#topBar li:nth-of-type(2)){
+		margin-left:20px;
 	} 
-	.noticeList:nth-of-type(1){ 
-		padding-top:10px;
-	} 
-	#noticeSearchFrm{ 
-		top:30px; left:360px; 
-		}
-	input[type=checkbox] {
-		zoom: 1.8;
-	} 
-	#subjectLine{
-		white-space:nowrap; 
-		overflow:hidden;
-		text-overflow:ellipsis;
-	}
-	#content input, textarea, select, #noticeSearchFrm input{
-		border:1px solid lightgray; 
-		border-radius: 8px;
-	}
-	#content li, label{list-style-type:none; padding-bottom:10px;}
-	#content select{height:28px;}
-	
-	/* 페이징처리부분 */
-	.page_wrap {
-		text-align:center;
-		font-size:0; 
-	}
-	.page_nation {
-		display:inline-block;
-		padding-top:60px;
-	}
-	.page_nation .none {
-		display:none;
-	}
-	.page_nation a {
-		display:block;
-		margin:0 3px;
+	 
+	/* 본문 정렬*/
+	#container li{ 
+		width:13%; 
+		list-style-type:none;
 		float:left;
-		border:1px solid #e6e6e6;
-		width:35px;
-		height:35px;
-		line-height:35px;
-		text-align:center;
-		background-color:#fff;
-		font-size:13px;
-		color:#999999;
-		text-decoration:none;
+	} 
+	.productList:nth-of-type(1){ 
+		margin-top:10px;
 	}
-	.page_nation .arrow {
-		border:1px solid #ccc;
+	#contentList>ul{
+		float:left;
+		margin-bottom:0px;
 	}
+	
+	/*페이징 이미지 링크*/
 	.page_nation .pprev {
 		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_pprev.png') no-repeat center center;
 		margin-left:0;
@@ -181,14 +80,7 @@
 	.page_nation .nnext {
 		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_nnext.png') no-repeat center center;
 		margin-right:0;
-	}
-	.page_nation a.active {
-		background-color:#42454c;
-		color:#fff;
-		border:1px solid #42454c;
-	}
-	/* 페이징처리끝 */
-	
+	}  
 </style>
 <script>
  
@@ -199,52 +91,55 @@
 	<div id="container">
 		<div id="topBar">
 			<ul>
-				<li><h5><strong>블랙리스트</strong></h5></li> 
+				<li><h5><strong>문의 열람</strong></h5></li> 
 				<li><select name="sort" > 
-		   				<option value="아이디" selected>아이디</option>
-		   				<option value="이름">이름</option>
-		   				<option value="신고번호">신고번호</option> 
-		   				<option value="신고자">신고자</option> 
-		   				<option value="신고유형">신고유형</option> 
-		   				<option value="신고일">신고일</option> 
-		   				<option value="처리일">처리일</option> 
-			  		</select> 
+				<option value="전체" selected>전체</option>
+		   				<option value="미답변">미답변</option>
+		   				<option value="답변완료">답변완료</option>
+		   			</select>
 	   			</li> 
-				<li><button class="success" value="asc" name="asc" id="ascBtn">▲</button></li>
-				<li><button class="success" value="desc" name="desc" id="descBtn">▼</button></li>
-				<li><button class="success" value="add" name="add" id="addBtn">추가</button></li>
-				<li><button class="success" value="del" name="del" id="delBtn">삭제</button></li>
+	   			<li><select name="sortReport" > 
+				<option value="전체" selected>전체</option>
+		   				<option value="신고">신고</option>
+		   				<option value="일반">일반</option>
+		   			</select>
+	   			</li> 
+	   			<li><button class="success" value="asc" name="asc" id="ascBtn">▲</button></li>
+				<li><button class="success" value="desc" name="desc" id="descBtn">▼</button></li> 
+	   			<li><button class="success" value="add" name="add" id="blind">비공개</button></li> 
 			</ul> 
 		</div>  
    		<div id="contentBox"> 	
 		<div id="title">
 			<ul>
 				<li><input type="checkbox" name="check"></li>
-				<li>신고번호</li>
-				<li>이름</li>
-				<li>아이디</li>
-				<li>신고자</li>
-				<li>신고유형</li>
-				<li>신고일</li>
-				<li>처리일</li> 
+				<li>문의번호</li>
+				<li>제목</li>
+				<li>답변여부</li>
+				<li>구매자</li>
+				<li>판매자</li>
+				<li>신고여부</li>
+				<li>문의일</li> 
 			</ul>
 		</div>  
-		<c:forEach var="data" items="${list}">
-			<ul class="noticeList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li><a href="신고번호?">no?</a></li>
-				<li>name?</li>
-				<li><a href="reportList?id=?">id?</a></li>
-				<li>repoter</li>  
-				<li>type</li>
-				<li>date</li>
-				<li>donedate<br/></li> 
-			</ul>
-		</c:forEach>
+		<div id="contentList">
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>QNo?</li>
+					<li><a href="answer?">title?</a></li>
+					<li>answer?</li>
+					<li>customer?</li>  
+					<li>seller?</li>
+					<li>report?</li>
+					<li>Qdate?</li> 
+				</ul>
+			</c:forEach>
+			</div>
 		</div>	 
 		<div class="page_wrap">
 			<div class="page_nation">
-			   <a class="arrow pprev" href=""></a>
+			   <a class="arrow pprev" href="<%=request.getContextPath()%>/img/kpage_pprev.png"></a>
 			   <a class="arrow prev" href="#"></a>
 			   <a href="#" class="active">1</a>
 			   <a href="#">2</a>
@@ -303,9 +198,10 @@
 		<form method="get" id="noticeSearchFrm" action="<%=request.getContextPath() %>/board/noticeBoardList.jsp">
 			<select name="searchKey">
 				<option value="subject" selected>제목</option>
-   				<option value="no">공지번호</option> 
-   				<option value="who">대상</option> 
-   				<option value="writedate">공지일</option> 
+   				<option value="content">내용</option> 
+   				<option value="qnumber">문의번호</option> 
+   				<option value="customer">구매자</option> 
+   				<option value="seller">판매자</option>  
 			</select>			
 			<input type="text" name="searchWord" id="searchWord"/>
 			<input type="submit" value="검색"/> 

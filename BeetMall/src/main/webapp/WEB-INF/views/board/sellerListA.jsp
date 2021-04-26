@@ -15,42 +15,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <style>
 	body{width:1920px; padding:0; margin:0; font-family: 'Nanum Gothic', sans-serif; font-size:16px;}
-	#topBar, #topBar form, #noticeSearchFrm, #title, button, #contentBox{ 
-		position:relative; 
-	}
-	#addBtn, #delBtn{
-		position:absolute;
-	}
-	#container{ 
-		position:absolute; 
-		top:200px; 
-		left:190px; 
-		width:1080px; 
-		padding:0; 
-	}
-	#container ul{ 
-		width:1080px; 
-	} 
-	#container li{ 
-		list-style-type:none;
-		float:left; width:13%; 
-	} 
-	#ascBtn, #descBtn{ 
-		top:-2px; 
-	} 
-	#contentBox{ 
-		top:20px; 
-		margin-left:10px;
-	}
-	#contentBox li{ 
-		text-align:center; 
-	} 
-	#contentBox li:nth-of-type(8n+1){ 
-		width:0%; 
-	}
-	#title li:nth-of-type(5), #contentBox li:nth-of-type(5){ 
-		width:15%; 
-	} 
+	#topBar, #topBar form, #noticeSearchFrm, #title, button, #contentBox{ position:relative; }
+	#container{ position:absolute; top:200px; left:190px; width:1080px; padding:0; }
+	#container ul{ width:1080px; } 
+	#container li{ list-style-type:none; float:left; width:10%; } 
+	#ascBtn, #descBtn{ top:-2px; } 
+	#contentBox{ top:20px; margin-left:10px;}
+	#contentBox li{ text-align:center; } 
+	#contentBox li:nth-of-type(8n+1){ width:0%; }
+	#title li:nth-of-type(8n-1), #contentBox li:nth-of-type(8n-1){  width:30%; padding-left:20px; } 
+	#title li:nth-of-type(5), #contentBox li:nth-of-type(5){ width:15%; }
+	#title li:nth-of-type(6){margin-left:18px;} 
 	#topBar{ 
 		background-color:lightgray; 
 		float:left; 
@@ -59,35 +34,36 @@
 		width:1280px;
 		left:-200px;
 	}
+	#topBar li:nth-of-type(1){
+		width:180px;
+	}	
 	#topBar li:nth-of-type(2){
 		margin-left:70px; 
 		width:12%;
-	} 
-	#topBar li:nth-of-type(3){
-		width:5.5%;
-	} 
-	#topBar li:nth-of-type(4){
-		width:14%;
-	}  
-	#addBtn{
-		top:10px; 
-		left:1040px; 
-		width:100px;
 	}
-	#delBtn{
-		top:10px; 
-		left:1150px; 
-		width:100px;
-	} 
-	select{
-		width:100px;
+	#topBar li:nth-of-type(2){margin-left:13px;} 
+	#topBar li:nth-of-type(3),#topBar li:nth-of-type(6){width:5%;} 
+	#topBar li:nth-of-type(4){width:8%;}    
+	select{width:100px;}
+	#btns{ top:-115px; left:460px; } 
+	button{color: #444444; background: #F3F3F3; border: 1px #DADADA solid; outline: none; 
+			padding: 5px 10px; margin:0 5px; border-radius: 5px; font-weight: bold; font-size: 12pt; }
+	button:active, button:hover, button:focus{ background-color:rgb(153,153,153)}
+	#btns a>button, button:nth-of-type(4){ margin-left:900px; }  
+	#title{ width: 1080px; font-weight:bold; padding:65px 0 25px 0; border-bottom:gray 1px solid;}
+	.noticeList{ padding-top:5px;} 
+	.noticeList:nth-of-type(1){ padding-top:10px;}
+	#noticeSearchFrm{ top:30px; left:360px; }
+	input[type=checkbox] {zoom: 1.8;} 
+	#subjectLine{white-space:nowrap; overflow:hidden;text-overflow:ellipsis;}
+	#content input, textarea, select, #noticeSearchFrm input{
+		border:1px solid lightgray; 
+		border-radius: 8px;
 	}
-	#btns{ 
-		top:-115px; 
-		left:460px; 
-	} 
+	#content li, label{list-style-type:none; padding-bottom:10px;}
+	#content select{height:28px;}
 	/*버튼*/
-	button{
+	button, .btn{
 		padding: 3px 10px;
 		color: #666666;
 		border-radius: 8px;
@@ -98,46 +74,29 @@
 		display: inline-block;
 		border:none;
 	}
+	#topBar Button:nth-of-type(1),#topBar Button:nth-of-type(2),#topBar Button:nth-of-type(3),#topBar Button:nth-of-type(4){
+		padding:2px 7px;
+	} 
+
 	/*버튼*/
-	button:hover, button:active{
+	button:hover{
 		background: gray;
 		color:white;
 		display: inline-block;
-	} 
-	#btns a>button, button:nth-of-type(4){ 
-		margin-left:900px; 
-	}  
-	#title{ 
-		width: 1080px; 
-		font-weight:bold; 
-		padding:65px 0 25px 0; 
-		border-bottom:gray 1px solid;
 	}
-	.noticeList{ 
-		padding-top:5px;
-	} 
-	.noticeList:nth-of-type(1){ 
-		padding-top:10px;
-	} 
-	#noticeSearchFrm{ 
-		top:30px; left:360px; 
-		}
-	input[type=checkbox] {
-		zoom: 1.8;
-	} 
-	#subjectLine{
-		white-space:nowrap; 
-		overflow:hidden;
-		text-overflow:ellipsis;
+	#addBtn, #delBtn{position:absolute;}
+	#addBtn{
+		top:10px; 
+		left:1040px; 
+		width:100px;
 	}
-	#content input, textarea, select, #noticeSearchFrm input{
-		border:1px solid lightgray; 
-		border-radius: 8px;
-	}
-	#content li, label{list-style-type:none; padding-bottom:10px;}
-	#content select{height:28px;}
-	
-	/* 페이징처리부분 */
+	#delBtn{
+		top:10px; 
+		left:1150px; 
+		width:100px;
+	}	 
+
+	 /* 페이징처리부분 */
 	.page_wrap {
 		text-align:center;
 		font-size:0; 
@@ -198,53 +157,64 @@
 <%@ include file="/inc/leftBar.jspf" %>
 	<div id="container">
 		<div id="topBar">
-			<ul>
-				<li><h5><strong>블랙리스트</strong></h5></li> 
+			<ul id="sortType">
+				<li><h5><strong>판매자회원</strong></h5></li> 
 				<li><select name="sort" > 
-		   				<option value="아이디" selected>아이디</option>
-		   				<option value="이름">이름</option>
-		   				<option value="신고번호">신고번호</option> 
-		   				<option value="신고자">신고자</option> 
-		   				<option value="신고유형">신고유형</option> 
-		   				<option value="신고일">신고일</option> 
-		   				<option value="처리일">처리일</option> 
+		   				<option value="이름" selected>이름</option>
+		   				<option value="아이디">아이디</option>
+		   				<option value="나이">나이</option> 
+		   				<option value="이메일">이메일</option> 
+		   				<option value="생년월일">생년월일</option> 
+		   				<option value="법인명">법인명</option> 
+		   				<option value="주소">주소</option> 
+		   				<option value="가입날짜">가입날짜</option>  
+			  		</select> 
+	   			</li> 
+				<li><button class="success" value="asc" name="asc" id="ascBtn">▲</button></li>
+				<li><button class="success" value="desc" name="desc" id="descBtn">▼</button></li>
+				<li><select name="sortAccept" > 
+		   				<option value="전체" selected>전체</option>
+		   				<option value="대기중">대기중</option>
+		   				<option value="승인">승인</option> 
+		   				<option value="미승인">미승인</option> 
 			  		</select> 
 	   			</li> 
 				<li><button class="success" value="asc" name="asc" id="ascBtn">▲</button></li>
 				<li><button class="success" value="desc" name="desc" id="descBtn">▼</button></li>
 				<li><button class="success" value="add" name="add" id="addBtn">추가</button></li>
 				<li><button class="success" value="del" name="del" id="delBtn">삭제</button></li>
+				
 			</ul> 
 		</div>  
    		<div id="contentBox"> 	
 		<div id="title">
 			<ul>
-				<li><input type="checkbox" name="check"></li>
-				<li>신고번호</li>
+				<li><input type="checkbox" name="check"  ></li>
 				<li>이름</li>
 				<li>아이디</li>
-				<li>신고자</li>
-				<li>신고유형</li>
-				<li>신고일</li>
-				<li>처리일</li> 
+				<li>나이</li>
+				<li>이메일</li>
+				<li>생년월일</li>
+				<li>주소</li>
+				<li>가입일</li> 
 			</ul>
 		</div>  
 		<c:forEach var="data" items="${list}">
 			<ul class="noticeList">
 				<li><input type="checkbox" name="check" id="check"> </li>
-				<li><a href="신고번호?">no?</a></li>
-				<li>name?</li>
-				<li><a href="reportList?id=?">id?</a></li>
-				<li>repoter</li>  
-				<li>type</li>
-				<li>date</li>
-				<li>donedate<br/></li> 
+				<li> name?</li>
+				<li><a href="회원정보?">id?</a></li>
+				<li>나이?</li>
+				<li>{member.email}</li>  
+				<li>{data.birthday}</li>
+				<li>{data.addr}</li>
+				<li>{data.writedate}<br/></li> 
 			</ul>
 		</c:forEach>
 		</div>	 
 		<div class="page_wrap">
 			<div class="page_nation">
-			   <a class="arrow pprev" href=""></a>
+			   <a class="arrow pprev" href="#"></a>
 			   <a class="arrow prev" href="#"></a>
 			   <a href="#" class="active">1</a>
 			   <a href="#">2</a>
@@ -260,7 +230,6 @@
 			   <a class="arrow nnext" href="#"></a>
 			</div>
 		 </div>
-
 
 	<!-- 
 	 <ul class="breadcrumb pagination-md">

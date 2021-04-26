@@ -83,10 +83,8 @@
 				<li><h5><strong>상품 목록</strong></h5></li> 
 				<li><select name="sort" > 
 				<option value="상품번호" selected>번호</option>
-		   				<option value="">제목</option> 
-		   				<option value="">법인명</option> 
-		   				<option value="제목">제목</option>
-		   				 <option value="법인명">법인명</option>
+		   				<option value="제목">제목</option> 
+		   				<option value="법인명">법인명</option>   
 		   				 <option value="작성자">작성자</option>
 		   				 <option value="장바구니">장바구니</option>
 		   				 <option value="cart">장바구니</option>

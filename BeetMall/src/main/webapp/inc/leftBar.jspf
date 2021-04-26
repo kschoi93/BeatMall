@@ -41,14 +41,14 @@ $(function(){
 	  <label for="menu_bar01">일반회원 관리 <span>▼</span></label>
 	  <input type="checkbox" id="menu_bar01" class="accordion" />
 		  <ul id="links01">
-		    <li><a href="customerList">회원 목록</a></li>
+		    <li><a href="customerListA">회원 목록</a></li>
 		    <li><a href="customerLeaveList">탈퇴 회원</a></li>
 		    <li><a href="customerBlackList">블랙리스트</a></li> 
 		  </ul>
 	  <label for="menu_bar02">판매자 관리 <span>▼</span></label>
 	  <input type="checkbox" id="menu_bar02" class="accordion" />
 		  <ul id="links02">
-		    <li><a href="sellerList">회원 목록</a></li>
+		    <li><a href="sellerListA">회원 목록</a></li>
 		    <li><a href="sellerLeaveList">탈퇴 회원</a></li>
 		    <li><a href="sellerBlackList">블랙리스트</a></li> 
 		  </ul> 
@@ -68,17 +68,18 @@ $(function(){
 	  <input type="checkbox" id="menu_bar05" class="accordion" />
 		  <ul id="links05">
 		    <li><a href="noticeBoardList">공지 관리</a></li>
-		    <li><a href="productList">상품 목록</a></li>
-		    <li><a href="reviewList">소비자 리뷰</a></li>
-		    <li><a href="receipeList">레시피 관리</a></li>
+		    <li><a href="productListA">상품 목록</a></li>
+		    <li><a href="reviewListA">소비자 리뷰</a></li>
+		    <li><a href="receipeListA">레시피 관리</a></li>
+		    <li><a href="reportListA">신고 관리</a></li> 
 		    <li><a href="designList">디자인 관리</a></li> 
 		  </ul> 
 	  <label for="menu_bar06">고객센터 <span>▼</span></label>
 	  <input type="checkbox" id="menu_bar06" class="accordion" />
 		  <ul id="links06">
-		    <li><a href="">고객 문의</a></li>
-		    <li><a href="">상품문의 열람</a></li>
-		    <li><a href="">자주 묻는 질문</a></li>
+		    <li><a href="csQuestionA">고객 문의</a></li>
+		    <li><a href="csQuestionBrowse">상품문의 열람</a></li>
+		    <li><a href="csFAQ">자주 묻는 질문</a></li>
 		    <li><a href="">1:1 채팅</a></li> 
 		  </ul>
 </div>

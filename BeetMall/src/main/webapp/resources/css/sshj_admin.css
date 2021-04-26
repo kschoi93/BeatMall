@@ -81,6 +81,7 @@
  		text-decoration: none;
 		display: inline-block;
 		border:none;
+		width:100px;
 	}
 	/*버튼*/
 	button:hover, button:active{
@@ -114,7 +115,7 @@
 		overflow:hidden;
 		text-overflow:ellipsis;
 	}
-	#content input, textarea, select, #noticeSearchFrm input{
+	#content input, textarea, select,#topBar input, #noticeSearchFrm input{
 		border:1px solid lightgray; 
 		border-radius: 8px;
 	}
