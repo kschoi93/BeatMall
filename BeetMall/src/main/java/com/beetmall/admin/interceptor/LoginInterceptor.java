@@ -1,4 +1,4 @@
-package com.beetmall.sshj.interceptor;
+package com.beetmall.admin.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

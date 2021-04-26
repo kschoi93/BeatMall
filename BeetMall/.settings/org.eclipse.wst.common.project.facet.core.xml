@@ -5,4 +5,8 @@
   <fixed facet="jst.java"/>
   <installed facet="jst.web" version="2.5"/>
   <installed facet="jst.java" version="14"/>
+<<<<<<< HEAD
+  <installed facet="wst.jsdt.web" version="1.0"/>
+=======
+>>>>>>> refs/remotes/origin/develop
 </faceted-project>

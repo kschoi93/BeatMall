@@ -6,8 +6,7 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
-		
+	
 	<!-- Head에 Mybatis-spring 추가 -->
 	
 	<!-- DataSource -->
@@ -26,4 +25,5 @@
 	</bean>
 	
 	<mybatis-spring:scan base-package="com.beetmall.sshj.dao"/>
+
 </beans>

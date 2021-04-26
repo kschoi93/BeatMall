@@ -1,4 +1,4 @@
-package com.beetmall.sshj.interceptor;
+package com.beetmall.admin.interceptor;
 /* 트랜잭션 예시
  * package com.beetmall.sshj.interceptor;
  * 
