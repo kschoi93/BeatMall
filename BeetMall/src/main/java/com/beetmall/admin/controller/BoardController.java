@@ -87,7 +87,13 @@ public class BoardController {
 		 return "/board/noticeBoardWrite"; 
 	}
 	
-	
+	@RequestMapping("/productList")
+	public ModelAndView productList() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", boardService.boardAllRecord());
+		mav.setViewName("/board/productList");
+		return mav;
+	}
 	
 	
 	
