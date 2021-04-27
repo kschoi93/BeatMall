@@ -1,6 +1,6 @@
-package com.beetmall.admin.vo;
+package com.beetmall.sshj.vo;
 
-public class BoardVO {
+public class AdminBoardVO {
 	private int no;
 	private String subject;
 	private String content;

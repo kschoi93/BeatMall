@@ -2,22 +2,31 @@ package com.beetmall.admin.controller;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession; 
- 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.beetmall.admin.service.BoardService;
-import com.beetmall.admin.vo.BoardVO;
-import com.beetmall.admin.vo.MemberVO;
+import com.beetmall.sshj.vo.MemberVO;
+import com.beetmall.sshj.service.AdminBoardService;
+import com.beetmall.sshj.vo.AdminBoardVO;
 
 @Controller
-public class BoardController {
-	@Inject
-	BoardService BoardService;
+public class AdminController {
+	@Autowired
+	AdminBoardService BoardService;
+	
+	////admin HomePage//// 
+	@RequestMapping("/adminHome")
+	public String adminHome() { 
+		System.out.println("aaaa");
+		 return "adminHome"; 
+	}
+	
 	//////////////////////일반회원 관리////////////////////////////////
 	
 	//목록보기
@@ -25,7 +34,7 @@ public class BoardController {
 	public ModelAndView customerListA() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", boardService.boardAllRecord());
-		mav.setViewName("/board/customerListA");
+		mav.setViewName("/admin/customerListA");
 		return mav;
 	}
 	
@@ -34,7 +43,7 @@ public class BoardController {
 	public ModelAndView customerLeaveList() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", boardService.boardAllRecord());
-		mav.setViewName("/board/customerLeaveList");
+		mav.setViewName("/admin/customerLeaveList");
 		return mav;
 	}
 	
@@ -43,7 +52,7 @@ public class BoardController {
 	public ModelAndView customerBlackList() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", boardService.boardAllRecord());
-		mav.setViewName("/board/customerBlackList");
+		mav.setViewName("/admin/customerBlackList");
 		return mav;
 	} 
 	
@@ -54,7 +63,7 @@ public class BoardController {
 		public ModelAndView sellerListA() {
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("list", boardService.boardAllRecord());
-			mav.setViewName("/board/sellerListA");
+			mav.setViewName("/admin/sellerListA");
 			return mav;
 		}
 		
@@ -63,7 +72,7 @@ public class BoardController {
 		public ModelAndView sellerLeaveList() {
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("list", boardService.boardAllRecord());
-			mav.setViewName("/board/sellerLeaveList");
+			mav.setViewName("/admin/sellerLeaveList");
 			return mav;
 		}
 	//판매자 블랙리스트 보기
@@ -71,7 +80,7 @@ public class BoardController {
 		public ModelAndView sellerBlackList() {
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("list", boardService.boardAllRecord());
-			mav.setViewName("/board/sellerBlackList");
+			mav.setViewName("/admin/sellerBlackList");
 			return mav;
 		} 
 		
@@ -80,20 +89,20 @@ public class BoardController {
 	public ModelAndView noticeBoardList() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", boardService.boardAllRecord());
-		mav.setViewName("/board/noticeBoardList");
+		mav.setViewName("/admin/noticeBoardList");
 		return mav;
 	}
 	
 	@RequestMapping("/noticeBoardWrite")
 	public String noticeBoardWrite() { 
-		 return "/board/noticeBoardWrite"; 
+		 return "/admin/noticeBoardWrite"; 
 	}
 	
 	@RequestMapping("/productListA")
 	public ModelAndView productListA() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", boardService.boardAllRecord());
-		mav.setViewName("/board/productListA");
+		mav.setViewName("/admin/productListA");
 		return mav;
 	}
 	
@@ -101,7 +110,7 @@ public class BoardController {
 	public ModelAndView reviewListA() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", boardService.boardAllRecord());
-		mav.setViewName("/board/reviewListA");
+		mav.setViewName("/admin/reviewListA");
 		return mav;
 	}
 	
@@ -109,7 +118,7 @@ public class BoardController {
 	public ModelAndView recipeListA() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", boardService.boardAllRecord());
-		mav.setViewName("/board/recipeListA");
+		mav.setViewName("/admin/recipeListA");
 		return mav;
 	}
 	
@@ -117,7 +126,7 @@ public class BoardController {
 	public ModelAndView reportListA() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", boardService.boardAllRecord());
-		mav.setViewName("/board/reportListA");
+		mav.setViewName("/admin/reportListA");
 		return mav;
 	}
 	
@@ -126,21 +135,21 @@ public class BoardController {
 	public ModelAndView csQuestionA() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", boardService.boardAllRecord());
-		mav.setViewName("/board/csQuestionA");
+		mav.setViewName("/admin/csQuestionA");
 		return mav;
 	}
  @RequestMapping("/csQuestionBrowse")
 	public ModelAndView csQuestionBrowse() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", boardService.boardAllRecord());
-		mav.setViewName("/board/csQuestionBrowse");
+		mav.setViewName("/admin/csQuestionBrowse");
 		return mav;
 	}
  @RequestMapping("/csFAQ")
 	public ModelAndView csFAQ() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", boardService.boardAllRecord());
-		mav.setViewName("/board/csFAQ");
+		mav.setViewName("/admin/csFAQ");
 		return mav;
 	}
 	
@@ -157,24 +166,24 @@ public class BoardController {
 	
 	
 	@Inject
-	BoardService boardService;
+	AdminBoardService boardService;
 	
 	@RequestMapping("/boardList")
 	public ModelAndView boardList() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", boardService.boardAllRecord());
-		mav.setViewName("/board/boardList");
+		mav.setViewName("/admin/boardList");
 		return mav;
 	}
 	
 	
 	@RequestMapping("/boardWrite")
 	public String boardWrite() { 
-		 return "/board/boardWrite"; 
+		 return "/admin/boardWrite"; 
 	}
 	
 	@RequestMapping(value="/boardWriteOk", method=RequestMethod.POST)
-	public ModelAndView boardWriteOk(BoardVO vo, HttpSession session, HttpServletRequest req) {
+	public ModelAndView boardWriteOk(AdminBoardVO vo, HttpSession session, HttpServletRequest req) {
 		vo.setIp(req.getRemoteAddr());
 			
 		vo.setUserid(((MemberVO)session.getAttribute("logVo")).getUserid()); 
@@ -195,7 +204,7 @@ public class BoardController {
 	public ModelAndView boardView(int no) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("vo", boardService.boardSelect(no));
-		mav.setViewName("board/boardView");
+		mav.setViewName("admin/boardView");
 		return mav;
 	}
 	
@@ -203,11 +212,11 @@ public class BoardController {
 	@RequestMapping("/boardEdit")
 	public String boardEdit(int no, Model model) {
 		model.addAttribute("vo", boardService.boardSelect(no));
-		return "board/boardEdit"; 
+		return "admin/boardEdit"; 
 	}
 	
 	@RequestMapping(value="/board/boardEditOk", method=RequestMethod.POST)
-	public ModelAndView boardEditOk(BoardVO vo, HttpSession session) {
+	public ModelAndView boardEditOk(AdminBoardVO vo, HttpSession session) {
 		vo.setUserid(((MemberVO)session.getAttribute("logVo")).getUserid()); 
 		ModelAndView mav = new ModelAndView();
 		

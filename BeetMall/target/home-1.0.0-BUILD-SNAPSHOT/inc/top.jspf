@@ -50,5 +50,5 @@
 					<span id="logout">로그아웃</span>
 				 
 		</div> 
-		<h2><a href="<%=request.getContextPath()%>/adminHome">관리자 페이지</a></h2>
+		<h2><a href="<%=request.getContextPath()%>/">관리자 페이지</a></h2>
 	</div> 
