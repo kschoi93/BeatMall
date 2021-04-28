@@ -460,4 +460,3 @@
 			<div class="reciptList"><div><img src="/sshj/img/pi.gif"/></div><div>파를 이용한 요리</div><div><div class="unlike"></div><span class="likeCount">999+</span></div></div>
 		</div>
 	</div>
-</div>
