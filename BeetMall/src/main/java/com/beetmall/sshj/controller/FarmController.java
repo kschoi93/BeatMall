@@ -50,7 +50,6 @@ public class FarmController {
 	public String noticeView() {
 		return "seller/notice_view";
 	}
-<<<<<<< HEAD
 	
 	@RequestMapping("/getListData") // seller_sales 페이지에서 차트와 엑셀 데이터 가져오는 dao
 	@ResponseBody
@@ -59,7 +58,7 @@ public class FarmController {
 		
 		return service.salesDataList(vo);
 	}
-=======
+	
 	@RequestMapping("/ask_admin_list")
 	public String ask_admin_list() {
 		return "seller/ask_admin_list";
@@ -81,5 +80,4 @@ public class FarmController {
 		return "seller/faq";
 	}
 	
->>>>>>> fbf9bb938c3e3175aeab1363a636b70971930054
 }
