@@ -123,11 +123,6 @@
 		    <artifactId>spring-jdbc</artifactId>
 		    <version>5.2.13.RELEASE</version>
 		</dependency>
-		 <dependency>
-	        <groupId>org.springframework</groupId>
-	        <artifactId>spring-context</artifactId>
-	        <version>4.3.7.RELEASE</version>
-	    </dependency>
 		<!--2 mybatis- spring -->
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
 		<dependency>
@@ -143,7 +138,7 @@
 		    <version>3.5.6</version>
 		</dependency>      
 	</dependencies>
-    <build> 
+    <build>
         <plugins>
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
@@ -179,6 +174,6 @@
                     <mainClass>org.test.int1.Main</mainClass>
                 </configuration>
             </plugin>
-        </plugins> 
-    </build> 
+        </plugins>
+    </build>
 </project>
