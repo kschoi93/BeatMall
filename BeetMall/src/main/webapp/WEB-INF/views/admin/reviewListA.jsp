@@ -57,19 +57,19 @@
 	
 	/*페이징 이미지 링크*/
 	.page_nation .pprev {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_pprev.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_pprev.png') no-repeat center center;
 		margin-left:0;
 	}
 	.page_nation .prev {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_prev.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_prev.png') no-repeat center center;
 		margin-right:7px;
 	}
 	.page_nation .next {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_next.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_next.png') no-repeat center center;
 		margin-left:7px;
 	}
 	.page_nation .nnext {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_nnext.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_nnext.png') no-repeat center center;
 		margin-right:0;
 	}
 </style>
@@ -126,16 +126,175 @@
 			<c:forEach var="data" items="${list}">
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
-					<li>reviewNo?</li>
-					<li>cate?</li>
-					<li>productName?</li>  
-					<li>farm?</li>  
-					<li><a href="내용?">content?</a></li>
-					<li>now?</li>
-					<li>userid?</li> 
-					<li>writedate?</li>
+					<li>2496</li>
+					<li>채소</li>
+					<li>정성으로 따온 천혜향</li>  
+					<li>제주천혜향</li>  
+					<li><a href="내용?">천혜향 향이 진짜 좋아요</a></li>
+					<li>답변완료</li>
+					<li>userid</li> 
+					<li>2021/01/26</li>
 				</ul>
 			</c:forEach>
+			
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>2496</li>
+					<li>채소</li>
+					<li>정성으로 따온 천혜향</li>  
+					<li>제주천혜향</li>  
+					<li><a href="내용?">천혜향 향이 진짜 좋아요</a></li>
+					<li>답변완료</li>
+					<li>userid</li> 
+					<li>2021/01/26</li>
+				</ul>
+			</c:forEach><c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>2496</li>
+					<li>채소</li>
+					<li>정성으로 따온 천혜향</li>  
+					<li>제주천혜향</li>  
+					<li><a href="내용?">천혜향 향이 진짜 좋아요</a></li>
+					<li>답변완료</li>
+					<li>userid</li> 
+					<li>2021/01/26</li>
+				</ul>
+			</c:forEach><c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>2496</li>
+					<li>채소</li>
+					<li>정성으로 따온 천혜향</li>  
+					<li>제주천혜향</li>  
+					<li><a href="내용?">천혜향 향이 진짜 좋아요</a></li>
+					<li>답변완료</li>
+					<li>userid</li> 
+					<li>2021/01/26</li>
+				</ul>
+			</c:forEach><c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>2496</li>
+					<li>채소</li>
+					<li>정성으로 따온 천혜향</li>  
+					<li>제주천혜향</li>  
+					<li><a href="내용?">천혜향 향이 진짜 좋아요</a></li>
+					<li>답변완료</li>
+					<li>userid</li> 
+					<li>2021/01/26</li>
+				</ul>
+			</c:forEach><c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>2496</li>
+					<li>채소</li>
+					<li>정성으로 따온 천혜향</li>  
+					<li>제주천혜향</li>  
+					<li><a href="내용?">천혜향 향이 진짜 좋아요</a></li>
+					<li>답변완료</li>
+					<li>userid</li> 
+					<li>2021/01/26</li>
+				</ul>
+			</c:forEach><c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>2496</li>
+					<li>채소</li>
+					<li>정성으로 따온 천혜향</li>  
+					<li>제주천혜향</li>  
+					<li><a href="내용?">천혜향 향이 진짜 좋아요</a></li>
+					<li>답변완료</li>
+					<li>userid</li> 
+					<li>2021/01/26</li>
+				</ul>
+			</c:forEach><c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>2496</li>
+					<li>채소</li>
+					<li>정성으로 따온 천혜향</li>  
+					<li>제주천혜향</li>  
+					<li><a href="내용?">천혜향 향이 진짜 좋아요</a></li>
+					<li>답변완료</li>
+					<li>userid</li> 
+					<li>2021/01/26</li>
+				</ul>
+			</c:forEach><c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>2496</li>
+					<li>채소</li>
+					<li>정성으로 따온 천혜향</li>  
+					<li>제주천혜향</li>  
+					<li><a href="내용?">천혜향 향이 진짜 좋아요</a></li>
+					<li>답변완료</li>
+					<li>userid</li> 
+					<li>2021/01/26</li>
+				</ul>
+			</c:forEach><c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>2496</li>
+					<li>채소</li>
+					<li>정성으로 따온 천혜향</li>  
+					<li>제주천혜향</li>  
+					<li><a href="내용?">천혜향 향이 진짜 좋아요</a></li>
+					<li>답변완료</li>
+					<li>userid</li> 
+					<li>2021/01/26</li>
+				</ul>
+			</c:forEach><c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>2496</li>
+					<li>채소</li>
+					<li>정성으로 따온 천혜향</li>  
+					<li>제주천혜향</li>  
+					<li><a href="내용?">천혜향 향이 진짜 좋아요</a></li>
+					<li>답변완료</li>
+					<li>userid</li> 
+					<li>2021/01/26</li>
+				</ul>
+			</c:forEach><c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>2496</li>
+					<li>채소</li>
+					<li>정성으로 따온 천혜향</li>  
+					<li>제주천혜향</li>  
+					<li><a href="내용?">천혜향 향이 진짜 좋아요</a></li>
+					<li>답변완료</li>
+					<li>userid</li> 
+					<li>2021/01/26</li>
+				</ul>
+			</c:forEach><c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>2496</li>
+					<li>채소</li>
+					<li>정성으로 따온 천혜향</li>  
+					<li>제주천혜향</li>  
+					<li><a href="내용?">천혜향 향이 진짜 좋아요</a></li>
+					<li>답변완료</li>
+					<li>userid</li> 
+					<li>2021/01/26</li>
+				</ul>
+			</c:forEach><c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>2496</li>
+					<li>채소</li>
+					<li>정성으로 따온 천혜향</li>  
+					<li>제주천혜향</li>  
+					<li><a href="내용?">천혜향 향이 진짜 좋아요</a></li>
+					<li>답변완료</li>
+					<li>userid</li> 
+					<li>2021/01/26</li>
+				</ul>
+			</c:forEach>
+			
 			</div>
 		</div>	 
 		<div class="page_wrap">

@@ -66,19 +66,19 @@
 	
 	/*페이징 이미지 링크*/
 	.page_nation .pprev {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_pprev.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_pprev.png') no-repeat center center;
 		margin-left:0;
 	}
 	.page_nation .prev {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_prev.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_prev.png') no-repeat center center;
 		margin-right:7px;
 	}
 	.page_nation .next {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_next.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_next.png') no-repeat center center;
 		margin-left:7px;
 	}
 	.page_nation .nnext {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_nnext.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_nnext.png') no-repeat center center;
 		margin-right:0;
 	}  
 </style>
@@ -114,30 +114,185 @@
 		<div id="title">
 			<ul>
 				<li><input type="checkbox" name="check"></li>
-				<li>리뷰번호</li>
-				<li>게시판</li>
-				<li>내용</li>
-				<li>신고일</li>
-				<li>처리일</li>
-				<li>신고유형</li>
-				<li>신고인</li>
-				<li>신고받은이</li> 
+				<li>문의번호</li>
+				<li>문의유형</li>
+				<li>제목</li>
+				<li>작성자</li>
+				<li>등록일</li> 
 			</ul>
 		</div>  
 		<div id="contentList">
 			<c:forEach var="data" items="${list}">
 				<ul class="productList">
-					<li><input type="checkbox" name="check" id="check"> </li>
-					<li>productNo?</li>
-					<li>cate?</li>
-					<li><a href="제목?">title?</a></li>
-					<li>farm?</li>  
-					<li>userid?</li>
-					<li>cart?</li>
-					<li>hit?</li>
-					<li>writedate?</li>
+					<li><input type="checkbox" name="check"></li>
+					<li>135925</li>
+					<li>소비자</li>
+					<li>왜 배송이 안오나요?</li>
+					<li>orangelover</li>
+					<li>2021/03/26</li> 
 				</ul>
 			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check"></li>
+					<li>135925</li>
+					<li>소비자</li>
+					<li>왜 배송이 안오나요?</li>
+					<li>orangelover</li>
+					<li>2021/03/26</li> 
+				</ul>
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check"></li>
+					<li>135925</li>
+					<li>소비자</li>
+					<li>왜 배송이 안오나요?</li>
+					<li>orangelover</li>
+					<li>2021/03/26</li> 
+				</ul>
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check"></li>
+					<li>135925</li>
+					<li>소비자</li>
+					<li>왜 배송이 안오나요?</li>
+					<li>orangelover</li>
+					<li>2021/03/26</li> 
+				</ul>
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check"></li>
+					<li>135925</li>
+					<li>소비자</li>
+					<li>왜 배송이 안오나요?</li>
+					<li>orangelover</li>
+					<li>2021/03/26</li> 
+				</ul>
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check"></li>
+					<li>135925</li>
+					<li>소비자</li>
+					<li>왜 배송이 안오나요?</li>
+					<li>orangelover</li>
+					<li>2021/03/26</li> 
+				</ul>
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check"></li>
+					<li>135925</li>
+					<li>소비자</li>
+					<li>왜 배송이 안오나요?</li>
+					<li>orangelover</li>
+					<li>2021/03/26</li> 
+				</ul>
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check"></li>
+					<li>135925</li>
+					<li>소비자</li>
+					<li>왜 배송이 안오나요?</li>
+					<li>orangelover</li>
+					<li>2021/03/26</li> 
+				</ul>
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check"></li>
+					<li>135925</li>
+					<li>소비자</li>
+					<li>왜 배송이 안오나요?</li>
+					<li>orangelover</li>
+					<li>2021/03/26</li> 
+				</ul>
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check"></li>
+					<li>135925</li>
+					<li>소비자</li>
+					<li>왜 배송이 안오나요?</li>
+					<li>orangelover</li>
+					<li>2021/03/26</li> 
+				</ul>
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check"></li>
+					<li>135925</li>
+					<li>소비자</li>
+					<li>왜 배송이 안오나요?</li>
+					<li>orangelover</li>
+					<li>2021/03/26</li> 
+				</ul>
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check"></li>
+					<li>135925</li>
+					<li>소비자</li>
+					<li>왜 배송이 안오나요?</li>
+					<li>orangelover</li>
+					<li>2021/03/26</li> 
+				</ul>
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check"></li>
+					<li>135925</li>
+					<li>소비자</li>
+					<li>왜 배송이 안오나요?</li>
+					<li>orangelover</li>
+					<li>2021/03/26</li> 
+				</ul>
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check"></li>
+					<li>135925</li>
+					<li>소비자</li>
+					<li>왜 배송이 안오나요?</li>
+					<li>orangelover</li>
+					<li>2021/03/26</li> 
+				</ul>
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check"></li>
+					<li>135925</li>
+					<li>소비자</li>
+					<li>왜 배송이 안오나요?</li>
+					<li>orangelover</li>
+					<li>2021/03/26</li> 
+				</ul>
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check"></li>
+					<li>135925</li>
+					<li>소비자</li>
+					<li>왜 배송이 안오나요?</li>
+					<li>orangelover</li>
+					<li>2021/03/26</li> 
+				</ul>
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check"></li>
+					<li>135925</li>
+					<li>소비자</li>
+					<li>왜 배송이 안오나요?</li>
+					<li>orangelover</li>
+					<li>2021/03/26</li> 
+				</ul>
+			</c:forEach>
+			
 			</div>
 		</div>	 
 		<div class="page_wrap">

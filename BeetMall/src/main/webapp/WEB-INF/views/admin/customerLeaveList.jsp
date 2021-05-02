@@ -12,125 +12,44 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/>
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap" rel="stylesheet">
+<link rel ="stylesheet" href="<%=request.getContextPath() %>/resources/css/sshj_admin.css" type="text/css"> 
 <style>
-	body{width:1920px; padding:0; margin:0; font-family: 'Nanum Gothic', sans-serif; font-size:16px;}
-	#topBar, #topBar form, #noticeSearchFrm, #title, button, #contentBox{ position:relative; }
-	#addBtn, #delBtn{position:absolute;}
-	#container{ position:absolute; top:200px; left:190px; width:1080px; padding:0; }
-	#container ul{ width:1080px; } 
-	#container li{ list-style-type:none; float:left; width:10%; } 
-	#ascBtn, #descBtn{ top:-2px; } 
-	#contentBox{ top:20px; margin-left:10px; }
-	#contentBox li{ text-align:center; } 
+	 #container li{ 
+		 list-style-type:none; 
+		 float:left; 
+		 width:10%; 
+	 } 
+	  #container li:not(#topBar li:nth-of-type(2)){
+		 margin-top:3px;
+	  }
+	#ascBtn, #descBtn{ 
+		top:-2px; 
+	} #contentBox{ 
+		top:20px; 
+		margin-left:10px;
+	} 
 	#contentBox li:nth-of-type(8n+1){ width:0%; }
 	#title li:nth-of-type(8n-1), #contentBox li:nth-of-type(8n-1){ width:30%; padding-left:20px; } 
 	#title li:nth-of-type(5), #contentBox li:nth-of-type(5){ width:15%; }
 	#title li:nth-of-type(6){margin-left:18px; } 
-	#topBar{ 
-		background-color:lightgray; 
-		float:left; 
-		height:50px; 
-		padding:10px 0 0 0px;  
-		width:1280px;
-		left:-200px;
-	}
-	#topBar li:nth-of-type(2){
-		margin-left:70px; 
-		width:12%;
-	} 
-	#topBar li:nth-of-type(3){ width:5.5%; } 
-	#topBar li:nth-of-type(4){ width:14%; }   
-	select{width:100px;}
-	#btns{ top:-115px; left:460px; } 
-		/*버튼*/
-	button, .btn{
-		padding: 3px 10px;
-		color: #666666;
-		border-radius: 8px;
-		background:#fff;
-		box-shadow: 0 0px 3px 0 rgba(0,0,0,0.5);
-		text-align: center;
- 		text-decoration: none;
-		display: inline-block;
-		border:none;
-	}
-	#topBar Button:nth-of-type(1),#topBar Button:nth-of-type(2),#topBar Button:nth-of-type(3),#topBar Button:nth-of-type(4){
-		padding:2px 7px;
-	}
-	/*버튼*/
-	button:hover{
-		background: gray;
-		color:white;
-		display: inline-block;
-	}
-	#addBtn{
-		top:10px; 
-		left:1040px; 
-		width:100px;
-	}
-	#delBtn{
-		top:10px; 
-		left:1150px; 
-		width:100px;
-	} 
+	 
 	#btns a>button, button:nth-of-type(4){ margin-left:900px; }  
-	#title{ width: 1080px; font-weight:bold; padding:65px 0 25px 0; border-bottom:gray 1px solid;}
-	.noticeList{ padding-top:5px;} 
-	.noticeList:nth-of-type(1){ padding-top:10px;}
-	#noticeSearchFrm{ top:30px; left:360px; }
-	input[type=checkbox] {zoom: 1.8;} 
-	#subjectLine{white-space:nowrap; overflow:hidden;text-overflow:ellipsis;}
-	#content input, textarea, select, #noticeSearchFrm input{
-		border:1px solid lightgray; 
-		border-radius: 8px;
-	}
-	#content li, label{list-style-type:none; padding-bottom:10px;}
-	#content select{height:28px;}
-	
-	/* 페이징처리부분 */
-	.page_wrap {
-		text-align:center;
-		font-size:0; 
-	}
-	.page_nation {
-		display:inline-block;
-		padding-top:60px;
-	}
-	.page_nation .none {
-		display:none;
-	}
-	.page_nation a {
-		display:block;
-		margin:0 3px;
-		float:left;
-		border:1px solid #e6e6e6;
-		width:35px;
-		height:35px;
-		line-height:35px;
-		text-align:center;
-		background-color:#fff;
-		font-size:13px;
-		color:#999999;
-		text-decoration:none;
-	}
-	.page_nation .arrow {
-		border:1px solid #ccc;
-	}
+	 
 	.page_nation .pprev {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_pprev.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_pprev.png') no-repeat center center;
 		margin-left:0;
 	}
 	.page_nation .prev {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_prev.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_prev.png') no-repeat center center;
 		margin-right:7px;
 	}
 	.page_nation .next {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_next.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_next.png') no-repeat center center;
 		margin-left:7px;
 	}
 	.page_nation .nnext {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_nnext.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_nnext.png') no-repeat center center;
 		margin-right:0;
 	}
 	.page_nation a.active {
@@ -180,6 +99,191 @@
 				<li>탈퇴일</li> 
 			</ul>
 		</div>  
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		
 		<c:forEach var="data" items="${list}">
 			<ul class="noticeList">
 				<li><input type="checkbox" name="check" id="check"> </li>

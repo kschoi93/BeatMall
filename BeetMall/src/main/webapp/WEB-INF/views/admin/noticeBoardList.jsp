@@ -47,19 +47,19 @@
 	
 	
 	.page_nation .pprev {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_pprev.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_pprev.png') no-repeat center center;
 		margin-left:0;
 	}
 	.page_nation .prev {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_prev.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_prev.png') no-repeat center center;
 		margin-right:7px;
 	}
 	.page_nation .next {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_next.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_next.png') no-repeat center center;
 		margin-left:7px;
 	}
 	.page_nation .nnext {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_nnext.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_nnext.png') no-repeat center center;
 		margin-right:0;
 	}
 	.page_nation a.active {
@@ -111,12 +111,70 @@
 		<c:forEach var="data" items="${list}">
 			<ul class="noticeList">
 				<li><input type="checkbox" name="check"></li>
-				<li>${data.no}?</li>
-				<li>판매자?</li>
-				<li id="subjectLine"><a href="boardView?no=${data.no}">${data.subject}?</a></li>  
-				<li>${data.writedate}등록일?</li><br/>
+				<li>${data.no}50</li>
+				<li>seller</li>
+				<li id="subjectLine"><a href="boardView?no=${data.no}">${data.subject}[시스템 공지] 긴급 점검 확인 부탁드립니다</a></li>  
+				<li>${data.writedate}2021/03/21</li>
 			</ul>
 		</c:forEach>
+		<c:forEach var="data" items="${list}">
+			<ul class="noticeList">
+				<li><input type="checkbox" name="check"></li>
+				<li>${data.no}50</li>
+				<li>seller</li>
+				<li id="subjectLine"><a href="boardView?no=${data.no}">${data.subject}[시스템 공지] 긴급 점검 확인 부탁드립니다</a></li>  
+				<li>${data.writedate}2021/03/21</li>
+			</ul>
+		</c:forEach>
+		<c:forEach var="data" items="${list}">
+			<ul class="noticeList">
+				<li><input type="checkbox" name="check"></li>
+				<li>${data.no}50</li>
+				<li>seller</li>
+				<li id="subjectLine"><a href="boardView?no=${data.no}">${data.subject}[시스템 공지] 긴급 점검 확인 부탁드립니다</a></li>  
+				<li>${data.writedate}2021/03/21</li>
+			</ul>
+		</c:forEach>
+		<c:forEach var="data" items="${list}">
+			<ul class="noticeList">
+				<li><input type="checkbox" name="check"></li>
+				<li>${data.no}50</li>
+				<li>seller</li>
+				<li id="subjectLine"><a href="boardView?no=${data.no}">${data.subject}[시스템 공지] 긴급 점검 확인 부탁드립니다</a></li>  
+				<li>${data.writedate}2021/03/21</li>
+			</ul>
+		</c:forEach>
+		<c:forEach var="data" items="${list}">
+			<ul class="noticeList">
+				<li><input type="checkbox" name="check"></li>
+				<li>${data.no}50</li>
+				<li>seller</li>
+				<li id="subjectLine"><a href="boardView?no=${data.no}">${data.subject}[시스템 공지] 긴급 점검 확인 부탁드립니다</a></li>  
+				<li>${data.writedate}2021/03/21</li>
+			</ul>
+		</c:forEach>
+		<c:forEach var="data" items="${list}">
+			<ul class="noticeList">
+				<li><input type="checkbox" name="check"></li>
+				<li>${data.no}50</li>
+				<li>seller</li>
+				<li id="subjectLine"><a href="boardView?no=${data.no}">${data.subject}[시스템 공지] 긴급 점검 확인 부탁드립니다</a></li>  
+				<li>${data.writedate}2021/03/21</li>
+			</ul>
+		</c:forEach>
+		<c:forEach var="data" items="${list}">
+			<ul class="noticeList">
+				<li><input type="checkbox" name="check"></li>
+				<li>${data.no}50</li>
+				<li>seller</li>
+				<li id="subjectLine"><a href="boardView?no=${data.no}">${data.subject}[시스템 공지] 긴급 점검 확인 부탁드립니다</a></li>  
+				<li>${data.writedate}2021/03/21</li>
+			</ul>
+		</c:forEach>
+		
+		
+		
+		
 		</div>	 
 		<div class="page_wrap">
 			<div class="page_nation">

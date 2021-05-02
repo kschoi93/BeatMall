@@ -69,19 +69,19 @@
 	
 	/*페이징 이미지 링크*/
 	.page_nation .pprev {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_pprev.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_pprev.png') no-repeat center center;
 		margin-left:0;
 	}
 	.page_nation .prev {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_prev.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_prev.png') no-repeat center center;
 		margin-right:7px;
 	}
 	.page_nation .next {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_next.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_next.png') no-repeat center center;
 		margin-left:7px;
 	}
 	.page_nation .nnext {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_nnext.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_nnext.png') no-repeat center center;
 		margin-right:0;
 	}  
 </style>
@@ -142,16 +142,241 @@
 			<c:forEach var="data" items="${list}">
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
-					<li>productNo?</li>
-					<li>cate?</li>
-					<li><a href="제목?">title?</a></li>
-					<li>farm?</li>  
-					<li>userid?</li>
-					<li>cart?</li>
-					<li>hit?</li>
-					<li>writedate?</li>
+					<li>1286</li>
+					<li>과일</li>
+					<li><a href="제목?">과일 상태 왜이래요</a></li>
+					<li>최고상점</li>  
+					<li>userid</li>
+					<li>비방</li>
+					<li>1236</li>
+					<li>2021/08/29</li>
 				</ul>
 			</c:forEach>
+			
+			
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>1286</li>
+					<li>과일</li>
+					<li><a href="제목?">과일 상태 왜이래요</a></li>
+					<li>최고상점</li>  
+					<li>userid</li>
+					<li>비방</li>
+					<li>1236</li>
+					<li>2021/08/29</li>
+				</ul>
+			</c:forEach>
+		<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>1286</li>
+					<li>과일</li>
+					<li><a href="제목?">과일 상태 왜이래요</a></li>
+					<li>최고상점</li>  
+					<li>userid</li>
+					<li>비방</li>
+					<li>1236</li>
+					<li>2021/08/29</li>
+				</ul>
+			</c:forEach>
+		<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>1286</li>
+					<li>과일</li>
+					<li><a href="제목?">과일 상태 왜이래요</a></li>
+					<li>최고상점</li>  
+					<li>userid</li>
+					<li>비방</li>
+					<li>1236</li>
+					<li>2021/08/29</li>
+				</ul>
+			</c:forEach>
+		<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>1286</li>
+					<li>과일</li>
+					<li><a href="제목?">과일 상태 왜이래요</a></li>
+					<li>최고상점</li>  
+					<li>userid</li>
+					<li>비방</li>
+					<li>1236</li>
+					<li>2021/08/29</li>
+				</ul>
+			</c:forEach>
+		<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>1286</li>
+					<li>과일</li>
+					<li><a href="제목?">과일 상태 왜이래요</a></li>
+					<li>최고상점</li>  
+					<li>userid</li>
+					<li>비방</li>
+					<li>1236</li>
+					<li>2021/08/29</li>
+				</ul>
+			</c:forEach>
+		<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>1286</li>
+					<li>과일</li>
+					<li><a href="제목?">과일 상태 왜이래요</a></li>
+					<li>최고상점</li>  
+					<li>userid</li>
+					<li>비방</li>
+					<li>1236</li>
+					<li>2021/08/29</li>
+				</ul>
+			</c:forEach>
+		<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>1286</li>
+					<li>과일</li>
+					<li><a href="제목?">과일 상태 왜이래요</a></li>
+					<li>최고상점</li>  
+					<li>userid</li>
+					<li>비방</li>
+					<li>1236</li>
+					<li>2021/08/29</li>
+				</ul>
+			</c:forEach>
+		<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>1286</li>
+					<li>과일</li>
+					<li><a href="제목?">과일 상태 왜이래요</a></li>
+					<li>최고상점</li>  
+					<li>userid</li>
+					<li>비방</li>
+					<li>1236</li>
+					<li>2021/08/29</li>
+				</ul>
+			</c:forEach>
+		<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>1286</li>
+					<li>과일</li>
+					<li><a href="제목?">과일 상태 왜이래요</a></li>
+					<li>최고상점</li>  
+					<li>userid</li>
+					<li>비방</li>
+					<li>1236</li>
+					<li>2021/08/29</li>
+				</ul>
+			</c:forEach>
+		<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>1286</li>
+					<li>과일</li>
+					<li><a href="제목?">과일 상태 왜이래요</a></li>
+					<li>최고상점</li>  
+					<li>userid</li>
+					<li>비방</li>
+					<li>1236</li>
+					<li>2021/08/29</li>
+				</ul>
+			</c:forEach>
+		<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>1286</li>
+					<li>과일</li>
+					<li><a href="제목?">과일 상태 왜이래요</a></li>
+					<li>최고상점</li>  
+					<li>userid</li>
+					<li>비방</li>
+					<li>1236</li>
+					<li>2021/08/29</li>
+				</ul>
+			</c:forEach>
+		<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>1286</li>
+					<li>과일</li>
+					<li><a href="제목?">과일 상태 왜이래요</a></li>
+					<li>최고상점</li>  
+					<li>userid</li>
+					<li>비방</li>
+					<li>1236</li>
+					<li>2021/08/29</li>
+				</ul>
+			</c:forEach>
+		<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>1286</li>
+					<li>과일</li>
+					<li><a href="제목?">과일 상태 왜이래요</a></li>
+					<li>최고상점</li>  
+					<li>userid</li>
+					<li>비방</li>
+					<li>1236</li>
+					<li>2021/08/29</li>
+				</ul>
+			</c:forEach>
+		<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>1286</li>
+					<li>과일</li>
+					<li><a href="제목?">과일 상태 왜이래요</a></li>
+					<li>최고상점</li>  
+					<li>userid</li>
+					<li>비방</li>
+					<li>1236</li>
+					<li>2021/08/29</li>
+				</ul>
+			</c:forEach>
+		<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>1286</li>
+					<li>과일</li>
+					<li><a href="제목?">과일 상태 왜이래요</a></li>
+					<li>최고상점</li>  
+					<li>userid</li>
+					<li>비방</li>
+					<li>1236</li>
+					<li>2021/08/29</li>
+				</ul>
+			</c:forEach>
+		<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>1286</li>
+					<li>과일</li>
+					<li><a href="제목?">과일 상태 왜이래요</a></li>
+					<li>최고상점</li>  
+					<li>userid</li>
+					<li>비방</li>
+					<li>1236</li>
+					<li>2021/08/29</li>
+				</ul>
+			</c:forEach>
+		<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>1286</li>
+					<li>과일</li>
+					<li><a href="제목?">과일 상태 왜이래요</a></li>
+					<li>최고상점</li>  
+					<li>userid</li>
+					<li>비방</li>
+					<li>1236</li>
+					<li>2021/08/29</li>
+				</ul>
+			</c:forEach>
+		
+			
 			</div>
 		</div>	 
 		<div class="page_wrap">

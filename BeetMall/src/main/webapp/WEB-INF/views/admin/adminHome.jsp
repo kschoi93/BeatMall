@@ -1,27 +1,106 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap" rel="stylesheet">
+<link rel ="stylesheet" href="<%=request.getContextPath() %>/resources/css/sshj_admin.css" type="text/css"> 
 <html>
 <head> 
 <style>
-	div[id^=box],img,.last,#imgs,#claim,#secondBox {position:relative; }
-	#claim,#secondBox{top:-120px;} 
-	#imgs{list-style-type:none; display:flex; top:100px; left:-500px;}
-	#imgs>li{margin-right:150px;}
-	#imgs>li:nth-of-type(2){margin-right:200px;}
-	#total{position:absolute; top:240px; left:175px; width:1080px; margin-left:20px;}
-	img{width:100px; height:100px; }    
-	#deli, #claim, #sta, #noti, #ques, #accept, #rep{border: gray 1px solid; width:48.5%; height:350px; float:left; margin:7px; border-radius:10px;}
-	#ques, #accept, #rep{width:32%;}
-	#total>div p{border-bottom:gray 2px solid; padding:10px 0 10px 20px;}
-	#box0{ padding:150px 0 0 50px; }
-	#box1,#box2{ top:-140px; }
-	#box1{ left:300px; padding-top:75px;}
-	#box2{ left:70px; padding-top:255px;}
-	#box3{ top:-220px; left:320px;} 
-	#box4,#box5,#box6{ top:25px; left:100px;}
-	.last{left:120px; top:-10px;}   
-	div[id^=box]>div{display:contents;}
-	div[id^=box]{width:300px;}
+	body{
+		font-size:14px; 
+		font-family: 'Noto Sans KR', sans-serif;
+	}
+	div[id^=box],img,.last,#imgs,#claim,#secondBox,#imgs>li:nth-of-type(2) {
+		position:relative; 
+	}
+	#claim,#secondBox{
+		top:-120px;
+	} 
+	#imgs{
+		list-style-type:none; 
+		display:flex; 
+		top:100px; 
+		left:-500px;
+	}
+	#imgs>li{
+		margin-right:150px;
+	}
+	#imgs>li:nth-of-type(2){
+		margin-right:200px;
+		left:-15px;
+	}
+	#total{
+		position:absolute; 
+		top:240px; 
+		left:175px; 
+		width:1080px; 
+		margin-left:20px;
+	}
+	img{
+		width:100px; 
+		height:100px; 
+	}    
+	#deli, #claim, #sta, #noti, #ques, #accept, #rep{
+		border: gray 1px solid; 
+		width:48.5%; 
+		height:350px; 
+		float:left; 
+		margin:7px; 
+		border-radius:1px;
+	}
+	#ques, #accept, #rep{
+		width:32%;
+	}
+	#total>div p{
+		border-bottom:gray 2px solid; 
+		padding:10px 0 10px 20px;
+	}
+	#box0{ 
+		padding:150px 0 0 60px; 
+	}
+	#box1,#box2{ 
+		top:-120px; 
+	}
+	#box1{ 
+		left:300px; 
+		padding-top:75px;
+	}
+	#box2{ 
+		left:85px; 
+		padding-top:255px;
+	}
+	#box3{ 
+		top:-185px; 
+		left:320px;
+	} 
+	#box4,#box5,#box6{ 
+		top:45px; left:110px;
+	}
+	.last{
+		left:120px; top:10px;
+	}   
+	div[id^=box]>div{
+		display:contents;
+	}
+	div[id^=box]{
+		width:300px;
+	}
+	#deli{
+		position:relative; 
+		top:3px;
+	}
+	#claim{
+		position:relative; 
+		top:-114px;
+	}
+	#sta{
+		position:relative; 
+		top:4px;
+	}
+	#noti{
+		position:relative; 
+		top:4px;
+	}
 </style>
 </head>
 <body>  

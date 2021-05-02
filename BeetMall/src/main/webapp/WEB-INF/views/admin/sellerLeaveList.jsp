@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+<link rel ="stylesheet" href="<%=request.getContextPath() %>/resources/css/sshj_admin.css" type="text/css"> 
 <style>
 	body{width:1920px; padding:0; margin:0; font-family: 'Nanum Gothic', sans-serif; font-size:16px;}
 	#topBar, #topBar form, #noticeSearchFrm, #title, button, #contentBox{ position:relative; }
@@ -130,19 +131,19 @@
 		border:1px solid #ccc;
 	}
 	.page_nation .pprev {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_pprev.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_pprev.png') no-repeat center center;
 		margin-left:0;
 	}
 	.page_nation .prev {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_prev.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_prev.png') no-repeat center center;
 		margin-right:7px;
 	}
 	.page_nation .next {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_next.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_next.png') no-repeat center center;
 		margin-left:7px;
 	}
 	.page_nation .nnext {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_nnext.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_nnext.png') no-repeat center center;
 		margin-right:0;
 	}
 	.page_nation a.active {
@@ -203,6 +204,240 @@
 				<li>탈퇴일</li> 
 			</ul>
 		</div>  
+		
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		<ul class="noticeList">
+				<li><input type="checkbox" name="check" id="check"> </li>
+				<li> 홍길동</li>
+				<li><a href="회원정보?">id</a></li>
+				<li>23</li>
+				<li>abc@email.com</li>  
+				<li>93-02-21</li>
+				<li>서울시 마포구 백범로</li>
+				<li>2021-02-16<br/></li> 
+			</ul> 
+		
+		
+		
 		<c:forEach var="data" items="${list}">
 			<ul class="noticeList">
 				<li><input type="checkbox" name="check" id="check"> </li>

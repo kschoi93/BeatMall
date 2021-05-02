@@ -85,19 +85,19 @@
 	
 	/*페이징 이미지 링크*/
 	.page_nation .pprev {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_pprev.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_pprev.png') no-repeat center center;
 		margin-left:0;
 	}
 	.page_nation .prev {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_prev.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_prev.png') no-repeat center center;
 		margin-right:7px;
 	}
 	.page_nation .next {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_next.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_next.png') no-repeat center center;
 		margin-left:7px;
 	}
 	.page_nation .nnext {
-		background:#f8f8f8 url('<%=request.getContextPath()%>/resources/img/kpage_nnext.png') no-repeat center center;
+		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_nnext.png') no-repeat center center;
 		margin-right:0;
 	}  
 </style>
@@ -147,12 +147,102 @@
 			<c:forEach var="data" items="${list}">
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
-					<li>QNo?</li>
-					<li>cate?</li>
-					<li>who?</li>
-					<li><a href="answer?">title?</a></li>  
-					<li>Qdate?</li> 
-				</ul>
+					<li>5695</li>
+					<li>주문결제</li>
+					<li>구매자</li>
+					<li><a href="answer?">무통장 결제가 안돼요</a></li>  
+					<li>2021/12/03</li> 
+				</ul> 
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>5695</li>
+					<li>주문결제</li>
+					<li>구매자</li>
+					<li><a href="answer?">무통장 결제가 안돼요</a></li>  
+					<li>2021/12/03</li> 
+				</ul> 
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>5695</li>
+					<li>주문결제</li>
+					<li>구매자</li>
+					<li><a href="answer?">무통장 결제가 안돼요</a></li>  
+					<li>2021/12/03</li> 
+				</ul> 
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>5695</li>
+					<li>주문결제</li>
+					<li>구매자</li>
+					<li><a href="answer?">무통장 결제가 안돼요</a></li>  
+					<li>2021/12/03</li> 
+				</ul> 
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>5695</li>
+					<li>주문결제</li>
+					<li>구매자</li>
+					<li><a href="answer?">무통장 결제가 안돼요</a></li>  
+					<li>2021/12/03</li> 
+				</ul> 
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>5695</li>
+					<li>주문결제</li>
+					<li>구매자</li>
+					<li><a href="answer?">무통장 결제가 안돼요</a></li>  
+					<li>2021/12/03</li> 
+				</ul> 
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>5695</li>
+					<li>주문결제</li>
+					<li>구매자</li>
+					<li><a href="answer?">무통장 결제가 안돼요</a></li>  
+					<li>2021/12/03</li> 
+				</ul> 
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>5695</li>
+					<li>주문결제</li>
+					<li>구매자</li>
+					<li><a href="answer?">무통장 결제가 안돼요</a></li>  
+					<li>2021/12/03</li> 
+				</ul> 
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>5695</li>
+					<li>주문결제</li>
+					<li>구매자</li>
+					<li><a href="answer?">무통장 결제가 안돼요</a></li>  
+					<li>2021/12/03</li> 
+				</ul> 
+			</c:forEach>
+			<c:forEach var="data" items="${list}">
+				<ul class="productList">
+					<li><input type="checkbox" name="check" id="check"> </li>
+					<li>5695</li>
+					<li>주문결제</li>
+					<li>구매자</li>
+					<li><a href="answer?">무통장 결제가 안돼요</a></li>  
+					<li>2021/12/03</li> 
+				</ul> 
 			</c:forEach>
 			</div>
 		</div>	 

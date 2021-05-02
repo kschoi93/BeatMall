@@ -3,13 +3,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"> 
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script><link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-<script src=" https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-ko-KR.min.js"></script>
+	<meta charset="UTF-8">  
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>	
+	<!-- include libraries(jQuery, bootstrap) -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- include summernote css/js --> 
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+	<!-- font -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+	<!-- font-family: 'Nanum Gothic', sans-serif; -->
+		
+	<link rel ="stylesheet" href="<%=request.getContextPath() %>/resources/css/sshj_admin.css" type="text/css"> 
 <style> 
 	#box, #title, #content, #notiSubject, .note-editor note-frame panel panel-default{ position:relative; }
 	.container{position:absolute; top:200px; left:180px; width:1080px; padding:0; }
@@ -30,23 +39,15 @@
 	#submit{margin-left:750px;}
 	input[type=checkbox] {zoom: 1.5;} 
 </style> 
-<script>
-
-		$(document).ready(function() { 
-			$('#summer').summernote({
-				  height: 500,                  
-				  minHeight: null,              
-				  maxHeight: null,    
-				  width: 1600,
-				  focus: false,                   
-				  lang: "ko-KR", 
-				  placeholder: '공지 내용을 입력하세요',
-				  disableResizeEditor: true 
-			}); 
-			$.summernote.options.lang = 'ko-KR'; 
-            $.summernote.options.airMode = false; 
+<script>  
+	$(document).ready(function() {
+		  $('#summernote').summernote({
+			  height: 500  ,
+			  lang: 'ko-KR'
+		  });
 		});
-		
+
+				
 		$(function(){	
 			 
 			
