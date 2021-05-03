@@ -18,13 +18,7 @@
 		 list-style-type:none; 
 		 float:left; 
 		 width:10%; 
-	 } 
-	  #container li:not(#topBar li:nth-of-type(2)){
-		 margin-top:3px;
-	  }
-	#ascBtn, #descBtn{ 
-		top:-2px; 
-	} 
+	 }  
 	#contentBox{ 
 		top:20px; 
 		margin-left:10px;
@@ -35,13 +29,7 @@
 	#title li:nth-of-type(8n-1), #contentBox li:nth-of-type(8n-1){  
 		width:30%; 
 		padding-left:20px; 
-	} 
-	#title li:nth-of-type(5), #contentBox li:nth-of-type(5){ 
-		width:15%; 
-	}
-	#title li:nth-of-type(6){
-		padding-left:18px;
-	} 
+	}   
 	#topBar{ 
 		background-color:lightgray; 
 		float:left; 
@@ -49,51 +37,13 @@
 		padding:10px 0 0 0px;  
 		width:1280px;
 		left:-200px;
-	}
-	#topBar li:nth-of-type(2){
-		margin-left:70px; 
-		width:12%;
-	}
+	}   
 	#topBar li:nth-of-type(3){
 		width:5.5%;
 	} 
 	#topBar li:nth-of-type(4){
 		width:14%;
-	}   
-	select{
-		width:100px;
-	}
-	#btns{ 
-		top:-115px; 
-		left:460px; 
-	} 
-	#btns a>button, button:nth-of-type(4){ 
-		margin-left:900px; 
-	}  
-	#title{ 
-		width: 1080px; 
-		font-weight:bold; 
-		padding:65px 0 25px 0; 
-		border-bottom:gray 1px solid;
-	}
-	.noticeList{ 
-		padding-top:5px; 
-		position:relative; 
-		left:-20px;
-	} 
-	.noticeList:nth-of-type(1){ 
-		padding-top:10px;
-	}
-	.noticeList:nth-child(2){ 
-		margin-left:10px;
-	}
-	#noticeSearchFrm{ 
-		top:30px; 
-		left:360px; 
-	}
-	input[type=checkbox] {
-		zoom: 1.8;
-	} 
+	}      
 	#subjectLine{
 		white-space:nowrap; 
 		overflow:hidden;
@@ -108,14 +58,21 @@
 	}
 	#content select{
 		height:28px;
-	}
-		
+	} 
+	/*버튼*/
+	#btns{ 
+		top:-115px; 
+		left:460px; 
+	} 
+	#btns a>button, button:nth-of-type(4){ 
+		margin-left:900px; 
+	} 
 	#topBar Button:nth-of-type(1),
 	#topBar Button:nth-of-type(2),
 	#topBar Button:nth-of-type(3),
 	#topBar Button:nth-of-type(4){
 		padding:2px 7px;
-	}
+	}  
 	
 	/* 페이징처리부분 */ 
 	.page_nation .pprev {
@@ -140,14 +97,10 @@
 		border:1px solid #42454c;
 	}
 	/* 페이징처리끝 */
-</style>
-<script>
- 
-</script>
-</head>
-<body>
+</style> 
 <%@ include file="/inc/top.jspf" %>
 <%@ include file="/inc/leftBar.jspf" %>
+<div id="body1">
 	<div id="container">
 		<div id="topBar">
 			<ul>
@@ -417,19 +370,18 @@
 	 </ul>		
  -->
  
-	 <div>
-		<form method="get" id="noticeSearchFrm" action="<%=request.getContextPath() %>/board/noticeBoardList.jsp">
-			<select name="searchKey">
-				<option value="subject" selected>제목</option>
-   				<option value="no">공지번호</option> 
-   				<option value="who">대상</option> 
-   				<option value="writedate">공지일</option> 
-			</select>			
-			<input type="text" name="searchWord" id="searchWord"/>
-			<input type="submit" value="검색"/> 
-		</form>
-		
-	</div>  
-		</div>
-</body>
+		 <div>
+			<form method="get" id="noticeSearchFrm" action="<%=request.getContextPath() %>/board/noticeBoardList.jsp">
+				<select name="searchKey">
+					<option value="subject" selected>제목</option>
+	   				<option value="no">공지번호</option> 
+	   				<option value="who">대상</option> 
+	   				<option value="writedate">공지일</option> 
+				</select>			
+				<input type="text" name="searchWord" id="searchWord"/>
+				<input type="submit" value="검색"/> 
+			</form> 
+		</div>  
+	</div>
+</div> 
 </html>

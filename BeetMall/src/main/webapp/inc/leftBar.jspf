@@ -138,7 +138,7 @@ $(function(){
 		    <li><a href="noticeBoardList">공지 관리</a></li>
 		    <li><a href="productListA">상품 목록</a></li>
 		    <li><a href="reviewListA">소비자 리뷰</a></li>
-		    <li><a href="receipeListA">레시피 관리</a></li>
+		    <li><a href="recipeListA">레시피 관리</a></li>
 		    <li><a href="reportListA">신고 관리</a></li> 
 		    <li><a href="designList">디자인 관리</a></li> 
 		  </ul> 

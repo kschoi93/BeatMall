@@ -19,20 +19,13 @@
 		 list-style-type:none; 
 		 float:left; 
 		 width:10%; 
-	 } 
-	  #container li:not(#topBar li:nth-of-type(2)){
-		 margin-top:3px;
-	  }
-	#ascBtn, #descBtn{ 
-		top:-2px; 
-	} #contentBox{ 
+	 }  
+	 #contentBox{ 
 		top:20px; 
 		margin-left:10px;
-	} 
+	}   
 	#contentBox li:nth-of-type(8n+1){ width:0%; }
 	#title li:nth-of-type(8n-1), #contentBox li:nth-of-type(8n-1){ width:30%; padding-left:20px; } 
-	#title li:nth-of-type(5), #contentBox li:nth-of-type(5){ width:15%; }
-	#title li:nth-of-type(6){margin-left:18px; } 
 	 
 	#btns a>button, button:nth-of-type(4){ margin-left:900px; }  
 	 
@@ -62,10 +55,11 @@
 <script>
  
 </script>
-</head>
-<body>
+ 
+ 
 <%@ include file="/inc/top.jspf" %>
 <%@ include file="/inc/leftBar.jspf" %>
+<div id="body1">
 	<div id="container">
 		<div id="topBar">
 			<ul>
@@ -108,8 +102,7 @@
 				<li>93-02-21</li>
 				<li>서울시 마포구 백범로</li>
 				<li>2021-02-16<br/></li> 
-			</ul> 
-		
+			</ul>  
 		<ul class="noticeList">
 				<li><input type="checkbox" name="check" id="check"> </li>
 				<li> 홍길동</li>
@@ -119,8 +112,7 @@
 				<li>93-02-21</li>
 				<li>서울시 마포구 백범로</li>
 				<li>2021-02-16<br/></li> 
-			</ul> 
-		
+			</ul>  
 		<ul class="noticeList">
 				<li><input type="checkbox" name="check" id="check"> </li>
 				<li> 홍길동</li>
@@ -130,7 +122,7 @@
 				<li>93-02-21</li>
 				<li>서울시 마포구 백범로</li>
 				<li>2021-02-16<br/></li> 
-			</ul> 
+			</ul>  
 		
 		<ul class="noticeList">
 				<li><input type="checkbox" name="check" id="check"> </li>
@@ -353,19 +345,19 @@
 	 </ul>		
  -->
  
-	 <div>
-		<form method="get" id="noticeSearchFrm" action="<%=request.getContextPath() %>/board/noticeBoardList.jsp">
-			<select name="searchKey">
-				<option value="subject" selected>제목</option>
-   				<option value="no">공지번호</option> 
-   				<option value="who">대상</option> 
-   				<option value="writedate">공지일</option> 
-			</select>			
-			<input type="text" name="searchWord" id="searchWord"/>
-			<input type="submit" value="검색"/> 
-		</form>
-		
-	</div>  
-		</div>
+		 <div>
+			<form method="get" id="noticeSearchFrm" action="<%=request.getContextPath() %>/board/noticeBoardList.jsp">
+				<select name="searchKey">
+					<option value="subject" selected>제목</option>
+	   				<option value="no">공지번호</option> 
+	   				<option value="who">대상</option> 
+	   				<option value="writedate">공지일</option> 
+				</select>			
+				<input type="text" name="searchWord" id="searchWord"/>
+				<input type="submit" value="검색"/> 
+			</form> 
+		</div>  
+	</div>
+</div>
 </body>
 </html>

@@ -10,7 +10,7 @@
 		font-size:14px; 
 		font-family: 'Noto Sans KR', sans-serif;
 	}
-	div[id^=box],img,.last,#imgs,#claim,#secondBox,#imgs>li:nth-of-type(2) {
+	div[id^=box],img,.last,#imgs,#claim,#secondBox,#imgs>li:nth-of-type(2),#sta,#noti,#deli,#claim {
 		position:relative; 
 	}
 	#claim,#secondBox{
@@ -20,13 +20,17 @@
 		list-style-type:none; 
 		display:flex; 
 		top:100px; 
-		left:-500px;
+		left:-460px;
 	}
 	#imgs>li{
 		margin-right:150px;
 	}
 	#imgs>li:nth-of-type(2){
 		margin-right:200px;
+		left:-15px;
+	}
+	#imgs>li:nth-of-type(3){
+		margin-right:150px;
 		left:-15px;
 	}
 	#total{
@@ -56,22 +60,22 @@
 		padding:10px 0 10px 20px;
 	}
 	#box0{ 
-		padding:150px 0 0 60px; 
+		padding:160px 0 0 86px; 
 	}
 	#box1,#box2{ 
 		top:-120px; 
 	}
 	#box1{ 
-		left:300px; 
-		padding-top:75px;
+		left:320px; 
+		padding-top:95px;
 	}
 	#box2{ 
-		left:85px; 
-		padding-top:255px;
+		left:105px; 
+		padding-top:270px;
 	}
 	#box3{ 
-		top:-185px; 
-		left:320px;
+		top:-160px; 
+		left:325px;
 	} 
 	#box4,#box5,#box6{ 
 		top:45px; left:110px;
@@ -86,20 +90,16 @@
 		width:300px;
 	}
 	#deli{
-		position:relative; 
 		top:3px;
 	}
-	#claim{
-		position:relative; 
-		top:-114px;
+	#claim{ 
+		top:-108px;
 	}
-	#sta{
-		position:relative; 
-		top:4px;
-	}
-	#noti{
-		position:relative; 
-		top:4px;
+	#sta,#noti{ 
+		top:7px;
+	} 
+	#notiContent{
+		padding:5px 20px;
 	}
 </style>
 </head>
@@ -138,10 +138,12 @@
 		</div>
 		<div id="noti">
 			 <p>공지사항</p><br/>
-			 <span>  [시스템 공지]보안 업데이트로 인한 알림 21/05/02</span><br/>
-			 <span>  [시스템 공지]보안 업데이트로 인한 알림 21/05/02</span><br/>
-			 <span>  [시스템 공지]보안 업데이트로 인한 알림 21/05/02</span><br/>
-			 <span>  [시스템 공지]보안 업데이트로 인한 알림 21/05/02</span><br/>
+			 <div id="notiContent">
+				 <span>  [시스템 공지]보안 업데이트로 인한 알림 21/05/02</span><br/>
+				 <span>  [시스템 공지]보안 업데이트로 인한 알림 21/05/02</span><br/>
+				 <span>  [시스템 공지]보안 업데이트로 인한 알림 21/05/02</span><br/>
+				 <span>  [시스템 공지]보안 업데이트로 인한 알림 21/05/02</span><br/>
+			 </div>
 		</div>
 		<div id="ques">
 			<p>미답변 문의/리뷰</p><br/>

@@ -2,18 +2,22 @@
 	header,footer{
 		display:none !important;
 	}
-	body{
+	#body1{
 		width:1080px; 
 		padding:0; 
 		margin:0; 
-		font-family: 'Nanum Gothic', sans-serif; 
-		font-size:16px;
+		font-family: 'Noto Sans KR', sans-serif;
+		font-size:15px;
 	}
-	#topBar, #topBar form, #noticeSearchFrm, #title, button, #contentBox{ 
+	#topBar, #topBar form, #noticeSearchFrm, #title, button, #contentBox, input[type=checkbox]{ 
 		position:relative; 
 	}
 	#blind, #edit{
 		position:absolute;
+	}
+	h5>strong{
+		font-size:20px;
+		letter-spacing:2px;
 	}
 	#container{ 
 		position:absolute; 
@@ -28,24 +32,27 @@
 	#container ul>li>a:link{
 		color:black;
 	}
-	#ascBtn, #descBtn{ 
-		top:-2px; 
+	#ascBtn, #descBtn{  
 		width:40px;
 	} 
 	#contentBox{ 
 		top:20px; 
 		margin-left:10px;
 	}
+	#contentBox ul{
+		margin-left:30px;
+	}
 	#contentBox li{ 
 		text-align:center; 
-	}  
+	}   
 	#title li:nth-of-type(5), #contentBox li:nth-of-type(5){ 
 		width:15%; 
 	} 
 	
 	/*회색 topBar*/
 	#topBar h5{
-		margin-left:20px;
+		margin:3px 0 0 62px;
+		width:100px;
 	}
 	#topBar{ 
 		background-color:lightgray; 
@@ -54,9 +61,9 @@
 		padding:10px 0 0 0px;  
 		width:1280px;
 		left:-200px;
-	}
-	#topBar li:nth-of-type(2){
-		margin-left:70px; 
+	} 
+	#topBar li:nth-of-type(2){ 
+		margin-left:130px; 
 		width:12%;
 	} 
 	#topBar li:nth-of-type(3){
@@ -110,8 +117,7 @@
 	  width: auto;	   	  
 	  cursor: pointer;	  
 	  transition: 0.5s;
-	}
-	 
+	} 
 	button:active,
 	button:hover,
 	button:focus {
@@ -122,6 +128,9 @@
 	}
 	button:disabled {
 	  opacity: 0.5;
+	}
+	button:not(.page_wrap), input{
+		height:28px;
 	}
 	#addBtn, #delBtn{
 		position:absolute;
@@ -135,31 +144,42 @@
 	#btns a>button, button:nth-of-type(4){ 
 		margin-left:900px; 
 	}  
-	form {
-	  display: flex;
-	  justify-content: space-evenly;
-	  align-items: center;
-	  height: 100vh;
-	}
-	
 	#title{ 
 		width: 1070px; 
 		font-weight:bold; 
 		padding:65px 0 25px 0; 
 		border-bottom:gray 1px solid;
 	}
-	.noticeList{ 
+	.noticeList{
+		height:20px; 
+		position:relative;  
+		margin-bottom:10px;
 		padding-top:5px;
-	} 
+	}
 	.noticeList:nth-of-type(1){ 
-		padding-top:10px;
+		margin-top:10px;
 	} 
 	#noticeSearchFrm{ 
-		top:30px; left:360px; 
-		}
+		top:30px; left:252px; 
+		} 
+	form {
+	  display: flex; 
+	  align-items: center; 
+	}
+	form>select, form>input{
+		margin-right:10px;
+	}
+	
+	input[type=text]{
+		width:408px;
+	}
 	input[type=checkbox] {
 		zoom: 1.8;
-	} 
+		top:-11px;		
+	}  
+	input[type=submit]{
+		width:50px;
+	}  
 	#subjectLine{
 		white-space:nowrap; 
 		overflow:hidden;
