@@ -22,10 +22,14 @@
 	#contentBox{ 
 		top:20px; 
 		margin-left:10px;
-	}
+	} 
 	#contentBox li:nth-of-type(9n-8){ 
 		width:0%; 
 	}
+	#contentBox li:nth-of-type(2){ 
+		width:11%; 
+		padding-left:30px;
+	}  
 	#contentBox li:nth-of-type(4){ 
 		width:15%; 
 	}  

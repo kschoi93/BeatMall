@@ -26,11 +26,11 @@ public class admin_customerController {
 		mav.setViewName("/admin/customerListA");
 		return mav;
 	}
-	//목록보기
-		@RequestMapping("/customerInfoA")
-		public ModelAndView customerInfoA() {
+	//회원정보 수정
+		@RequestMapping("/customerInfoEditA")
+		public ModelAndView customerInfoEditA() {
 			ModelAndView mav = new ModelAndView(); 
-			mav.setViewName("/admin/customerInfoA");
+			mav.setViewName("/admin/customerInfoEditA");
 			return mav;
 		}
 	

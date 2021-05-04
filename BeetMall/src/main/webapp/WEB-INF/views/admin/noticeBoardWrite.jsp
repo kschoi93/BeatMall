@@ -1,99 +1,212 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">  
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>	
-	<!-- include libraries(jQuery, bootstrap) -->
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-	
-	<!-- include summernote css/js --> 
-	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-	<!-- font -->
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-	<!-- font-family: 'Nanum Gothic', sans-serif; -->
-		
-	<link rel ="stylesheet" href="<%=request.getContextPath() %>/resources/css/sshj_admin.css" type="text/css"> 
-<style> 
-	#box, #title, #content, #notiSubject, .note-editor note-frame panel panel-default{ position:relative; }
-	.container{position:absolute; top:200px; left:180px; width:1080px; padding:0; }
-	#topBar{ background-color:lightgray; float:left; width:1700px; height:50px; padding:10px 0 0 10px; margin-left:20px; }
-	#box{ border:lightgray 1px solid; width:1700px; height:800px; top:60px; left:10px; border-radius:10px; }
-	#title{ top:-30px; left:30px; border-bottom: lightgray 1px solid; width:1650px; padding-bottom:20px;}
-	#noticeTitle{ padding-left:50px; }
-	#writeTitle{ padding-left:1150px; }
-	#summer{ display:none; }
-	button{color: #444444; background: #F3F3F3; border: 1px #DADADA solid; outline: none; 
-			padding: 5px 10px; margin:0 5px; border-radius: 5px; font-weight: bold; font-size: 12pt; }
-	button:active, button:hover, button:focus{ background-color:rgb(153,153,153)}
-	#notiSubject{ top:-30px; left:100px; height:30px; }
-	.note-editor { top:10px; width:1700px; left:45px; }
-	#who{ padding-left:1400px; }
-	#who>input{margin-left:10px;} 
-	.lbl{padding-bottom:10px;} 
-	#submit{margin-left:750px;}
-	input[type=checkbox] {zoom: 1.5;} 
-</style> 
-<script>  
-	$(document).ready(function() {
-		  $('#summernote').summernote({
-			  height: 500  ,
-			  lang: 'ko-KR'
-		  });
-		});
-
-				
-		$(function(){	
-			 
-			
-		$("#notiWritefrm").submit(function(){
-			if($("#notiSubject").val()==""){
-				alert("제목을 입력하세요");
-				return false;
-			}
-			if(summernote.instances.content.getData()==""){
-				alert("글 내용을 입력하세요");
-				return false;
-			}
-			return true;
-		});
-		
-		 
-	});
-</script>
-</head>
-<body>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ include file="/inc/top.jspf" %>
 <%@ include file="/inc/leftBar.jspf" %> 
-	<div class="container">
+<link rel ="stylesheet" href="<%=request.getContextPath() %>/resources/css/sshj_admin.css" type="text/css"> 
+
+<!-- include libraries(jQuery, bootstrap) -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+<!-- font -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet"> 
+
+<style>
+	#mypageMenubar{
+		display:block;
+	}
+	
+	*{margin:0px; padding:0px; list-style-type :none; font-family: 'Nanum Gothic', sans-serif; }
+
+	a:hover, a:active, a:visited, a:link {
+   		color: black;
+    }
+    a{color:black;}
+	answer_line{width:100%; 	background-color:#f6f6f6; height:20px; }
+	#qmtitle, select{border:none;}
+	#qmtitle{width:300px; color:lightgray;}
+	#qmtitle{width:500px}
+	#write_btn{width:150px; margin-left:20px;}
+	a{color:black;}
+  	/*왼쪽 메뉴바*/
+  	label{
+  		margin-bottom:0;
+  		display:block;
+  	}
+  	/*제목 바*/
+  	#topBar{ 
+	  	position:relative;
+	  	top:-3310px;
+	  	left:-25px;
+	  	font-size:20px;
+  	}
+  	#topBar>p{
+  		padding-left:60px;
+  	}
+  	input{
+  		border:none;
+  		font-weight:normal;
+  	}
+   /*표*/
+   form{
+   	position:relative;
+   	top:-3310px;
+   	left:165px;
+   	width:1365px;
+   }
+   
+   th, .th{
+   		background-color:#E9E9E9;
+	}
+	table{
+		width:100%;	
+		border-spacing: 0;
+		text-indent: initial;	
+		border-top:2px solid lightgray;
+		border-bottom:2px solid lightgray;
+		font-size:15px;
+	}
+	th, .th{
+		height:40px;
+		font-size:15px;
+		width:80px; text-align:center;
+		display: table-cell;
+	    vertical-align: inherit;
+	    font-weight: bold;
+	    text-align: -internal-center; 
+	}
+	thead, .answer_content, .td{
+		border-bottom: 1px solid #ccc;
+	    border-top: 1px solid #ccc;
+	    width:100%;
+	}
+	tr{
+		display: table-row;
+	    vertical-align: inherit;
+	    border-color: inherit;
+	    height:40px;
+	}
+	.td, .qmcontent{
+		padding-left:20px;
+		
+	}
+	.qmcontent{
+		margin: 20px 0 20px;
+	}
+	td, .td{
+		height:40px;
+	}
+	.tr_head{
+		font-weight:bold;
+	}
+	.tr_head li{
+		float:left;
+	}
+	.td, .th{ line-height:40px;}
+	.td{
+		width:30%; line-height:40px;
+	}
+	#bottommm{
+		text-align:center; 
+		margin-bottom:30px;
+		margin-top: 30px;
+	}
+	.td{
+		width:0;
+	}
+</style>
+<div id="body1">
+<div class="container">
 	<div id="topBar">
 		<p><strong>공지 작성</strong></p>   
 	</div>
-	<div id="box"> 
-		<form method="post" id="notiWritefrm" action="noticeWriteOk.jsp">
-			<div id="title">
-			번호 : 다음번호?  <span id="noticeTitle">제목 : <input type="text" id="notiSubject" name="noticeSubject" placeholder="제목을 입력하세요"/> </span> <span id="writeTitle">등록일 today?</span>
-			</div>
-			<textarea name="summer" id="summer"></textarea>  
-			<div id="who">
-				<input type="checkbox" name="all" value="all"/><label class="lbl">전체?</label> 
-				<input type="checkbox" name="customer" value="customer"/><label class="lbl">소비자?</label> 
-				<input type="checkbox" name="seller" value="seller"/><label class="lbl">판매자?</label>
-			</div>
-			<div id="submit">
-			<input type="submit" value="등록"/> 
-				<input type="reset" value="다시쓰기"/> 
+	<div id="box"> 	
+	<form method="post" action="noticeWriteOk">
+		<table>
+			<tbody>
+				<tr>
+					<th colspan="4">새 공지 작성</th>
+				</tr>
+				<tr class="tr_head">
+					<th class="menu" >공지 번호</th>
+					<td class="td" colspan="3"><input type="text" name="qmtitle" id="qmtitle" placeholder=""/></td>
+				</tr>
+				<tr class="tr_head">
+					<th class="menu">제목</th>
+					<td  class="td"><input type="text" name="noticeSubject" id="noticeSubject" placeholder="공지 제목을 입력하세요"/></td>
+				</tr>
+				<tr class="tr_head">
+					<th class="menu">등록일</th>
+					<td  class="td"><input type="text" placeholder="" style="width: 500px;"></td>
+				</tr>
+				<tr class="tr_head">
+					<th class="menu">첨부파일</th>
+					<td  class="td"><input type="file" value="파일첨부하기" style="width: 500px;"></td>
+				</tr>
+				
+				<tr>
+					<th colspan="4">레시피 내용</th>
+				</tr>
+				<tr>
+					<td class="question_content" colspan="4">
+						<textarea id="qmcontent" name="qmcontent" class="summernote" placeholder="문의내용을 입력해주세요."></textarea>
+					</td>	
+				</tr>
+			</tbody>
+		</table>
+			<div id="bottommm">
+				<input type="button" value="취소" class="btn" id="write_btn" onClick="location.href='<%=request.getContextPath() %>/recipeView'"/>
+				<input type="submit" value="작성하기" class="btn" id="write_btn"/>				
 			</div>
 		</form>
-		
-	</div>
-	
-	 
-	</div> 
-</body>
-</html>
+		</div>
+</div>
+</div>
+<script>
+$(document).ready(function() {
+	  $('.summernote').summernote({
+		  height: 500,                 // 에디터 높이 
+		  focus: true,
+		  callbacks: {	//여기 부분이 이미지를 첨부하는 부분
+				onImageUpload : function(files) {
+					uploadSummernoteImageFile(files[0],this);
+				},
+				onPaste: function (e) {
+					var clipboardData = e.originalEvent.clipboardData;
+					if (clipboardData && clipboardData.items && clipboardData.items.length) {
+						var item = clipboardData.items[0];
+						if (item.kind === 'file' && item.type.indexOf('image/') !== -1) {
+							e.preventDefault();
+						}
+					}
+				}
+			}
+	  });
+	});
+/**
+* 이미지 파일 업로드
+*/
+function uploadSummernoteImageFile(file, editor) {
+	data = new FormData();
+	data.append("file", file);
+	$.ajax({
+		data : data,
+		type : "POST",
+		url : "/uploadSummernoteImageFile",
+		contentType : false,
+		processData : false,
+		success : function(data) {
+        	//항상 업로드된 파일의 url이 있어야 한다.
+			$(editor).summernote('insertImage', data.url);
+		}
+	});
+}
+
+
+</script>

@@ -66,15 +66,15 @@
 		top:-120px; 
 	}
 	#box1{ 
-		left:320px; 
-		padding-top:95px;
+		left:305px; 
+		padding-top:75px;
 	}
 	#box2{ 
-		left:105px; 
-		padding-top:270px;
+		left:85px; 
+		padding-top:260px;
 	}
 	#box3{ 
-		top:-160px; 
+		top:-170px; 
 		left:325px;
 	} 
 	#box4,#box5,#box6{ 
@@ -101,11 +101,10 @@
 	#notiContent{
 		padding:5px 20px;
 	}
-</style>
-</head>
-<body>  
+</style> 
 	<%@ include file="/inc/top.jspf" %>
 	<%@ include file="/inc/leftBar.jspf" %>
+<div id="body1"> 
 	<div id="total"> 
 		<div id="deli"> 
 			<p>주문/배송</p><br/> 
@@ -165,5 +164,5 @@
 			</div>
 		</div> 
 	</div> 
-</body>
+</div>
 </html>

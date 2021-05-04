@@ -36,7 +36,13 @@ public class admin_csController {
 		mav.setViewName("/admin/csFAQ");
 		return mav;
 	}
-	
+ @RequestMapping("/csQBrowse")
+	public ModelAndView csQBrowse() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", adminService.noticeList());
+		mav.setViewName("/admin/csQBrowse");
+		return mav;
+	}	
 	
 	
 	

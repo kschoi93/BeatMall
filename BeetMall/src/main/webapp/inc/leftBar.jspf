@@ -146,6 +146,7 @@ $(function(){
 	  <input type="checkbox" id="menu_bar06" class="accordion" />
 		  <ul id="links06">
 		    <li><a href="csQuestionA">고객 문의</a></li> 
+		    <li><a href="csQBrowse">상품 문의</a></li> 
 		    <li><a href="csFAQ">자주 묻는 질문</a></li>
 		    <li><a href="">1:1 채팅</a></li> 
 		  </ul>

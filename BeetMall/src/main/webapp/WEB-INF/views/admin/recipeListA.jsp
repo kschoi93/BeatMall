@@ -33,12 +33,11 @@
 		left:-8px;
 	}
 	#topBar li:nth-of-type(2){   
-		position:relative;
-		left:-38px;
+		margin-left:56px;
 	}
 	#topBar li:nth-of-type(4){
 		width:6%;
-	} 
+	}  
 	/*전체*/
 	 #container li{ 
 		 list-style-type:none; 
@@ -48,17 +47,20 @@
 		top:20px; 
 		margin-left:10px;
 	}
-	#contentBox li{ 
+	#contentBox li, #contentBox li:nth-of-type(5){ 
 		width:11%;
 	}
 	#contentBox li:nth-of-type(9n-8){ 
 		width:0%; 
 	}
-	#contentBox li:nth-of-type(4){ 
-		width:20%; 
-	} 
+	#contentBox li:nth-of-type(3){ 
+		width:28%; 
+	}  
+	#contentBox li:nth-of-type(2){ 
+		width:13%; 
+	}   
 	/*데이터 내용*/
-	#subjectLine{
+	.subjectLine{
 		white-space:nowrap; 
 		overflow:hidden;
 		text-overflow:ellipsis;
@@ -154,15 +156,15 @@
 			</ul>
 		</div>  
 		
-		 
+		  
 			<ul class="noticeList">
 				<li><input type="checkbox" name="check" id="check"> </li>
 				<li>1569723</li>
-				<li class="subjectLine">채소</li>
+				<li class="subjectLine"><a href="회원정보?">우리집 봄여름 나물 더 맛있게 먹는 레시피 공유합니다...!!</a> </li>
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -173,7 +175,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -184,7 +186,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -195,7 +197,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -206,7 +208,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -217,7 +219,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -228,7 +230,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -239,7 +241,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -250,7 +252,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -261,7 +263,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -272,7 +274,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -283,7 +285,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -294,7 +296,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -305,7 +307,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -316,7 +318,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -327,7 +329,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -338,7 +340,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -349,7 +351,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -360,7 +362,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -371,7 +373,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 
@@ -382,18 +384,7 @@
 				<li>12</li>
 				<li>1362</li>
 				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
-				<li>greenlike</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="noticeList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li class="subjectLine"><a href="회원정보?">우리집 봄여름 나물 더 맛있게 먹는 레시피 공유합니다...!!</a> </li>
-				<li>12</li>
-				<li>1362</li>
-				<li>123<img class="cartImg" src="./img/y_heart.png" ></li>
-				<li>28<img class="cartImg" src="./img/y_cart.png" ></li>
+			
 				<li>greenlike</li>
 				<li>2021/04/26</li> 
 			</ul> 

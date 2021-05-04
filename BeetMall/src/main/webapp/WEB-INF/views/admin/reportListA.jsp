@@ -16,14 +16,24 @@
 <link rel ="stylesheet" href="<%=request.getContextPath() %>/resources/css/sshj_admin.css" type="text/css"> 
 <style>
 	/*맨 위 회색 top Bar*/
+	#topBar h5{
+		margin-left:50px;
+	}
+	#topBar li:nth-of-type(1){
+	 	margin-left:10px;
+	}
 	#topBar li:nth-of-type(2){
-		margin-left:60px;
+		margin-left:110px;
 	}
 	#topBar li:nth-of-type(4){
 		width:7%;
 	}
+		#topBar li:nth-of-type(8){
+		position:relative;
+		left:-80px;
+	}
 	#search{
-		margin-left:60px;
+		margin-left:40px;
 	}
 	#from{
 		width:80px;
@@ -42,6 +52,9 @@
 	}
 	#contentBox li:nth-of-type(9n+1) {
     	width: 0%;
+	} 
+	#contentBox li:nth-of-type(3) {
+    	width: 8%;
 	} 
 	#container li:nth-of-type(4):not(#topBar li:nth-of-type(4)){
 		width:20%;	
@@ -66,7 +79,12 @@
 		float:left;
 		margin-bottom:0px;
 	}
-	
+	/*데이터 내용*/
+	.subjectLine{
+		white-space:nowrap; 
+		overflow:hidden;
+		text-overflow:ellipsis;
+	}
 	/*페이징 이미지 링크*/
 	.page_nation .pprev {
 		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_pprev.png') no-repeat center center;
@@ -87,17 +105,16 @@
 </style>
 <script>
  
-</script>
-</head>
-<body>
+</script> 
 <%@ include file="/inc/top.jspf" %>
 <%@ include file="/inc/leftBar.jspf" %>
+<div id="body1">
 	<div id="container">
 		<div id="topBar">
 			<ul>
 				<li><h5><strong>신고 목록</strong></h5></li> 
-				<li><select name="sort" > 
-				<option value="상품번호" selected>번호</option>
+				<li><select name="sort"> 
+						<option value="상품번호" selected>번호</option>
 		   				<option value="게시판">게시판</option>
 		   				<option value="내용">내용</option> 
 		   				<option value="신고일">신고일</option>  
@@ -105,30 +122,30 @@
 		   				 <option value="신고유형">신고유형</option>
 		   				 <option value="신고인">신고인</option>
 		   				 <option value="신고받은이">신고받은이</option> 
-		   				 </select>
+	   				 </select>
 	   			</li> 
 	   			<li><button class="success" value="asc" name="asc" id="ascBtn">▲</button></li>
 				<li><button class="success" value="desc" name="desc" id="descBtn">▼</button></li>
 				<li><input type="text" id="from"> ~</li>
 				<li><input type="text" id="todate"></li>
 				<li><button class="success" value="search" name="search" id="search">검색</button></li> 
-	   			<li><button class="success" value="add" name="add" id="blind">비공개</button></li>
-				<li><button class="success" value="del" name="del" id="edit">정지</button></li>
-		
-				<li><select name="sort" > 
+				<li><select name="sort"   id="cateSort"> 
 		   				<option value="번호" selected>카테고리선택</option>
 		   				<option value="제목">과일</option> 
 		   				<option value="채소">채소</option> 
 		   				<option value="쌀/잡곡">쌀/잡곡</option> 
 			  		</select> 
 	   			</li>  
+	   			<li><button class="success" value="add" name="add" id="blind">비공개</button></li>
+				<li><button class="success" value="del" name="del" id="edit">정지</button></li>
+		
 					</ul> 
 		</div>  
    		<div id="contentBox"> 	
 		<div id="title">
 			<ul>
 				<li><input type="checkbox" name="check"></li>
-				<li>리뷰번호</li>
+				<li>신고번호</li>
 				<li>게시판</li>
 				<li>내용</li>
 				<li>신고일</li>
@@ -143,13 +160,13 @@
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
 					<li>1286</li>
-					<li>과일</li>
-					<li><a href="제목?">과일 상태 왜이래요</a></li>
-					<li>최고상점</li>  
-					<li>userid</li>
+					<li>리뷰</li>
+					<li class="subjectLine"><a href="제목?">과일 상태 왜이래요 껍질이 너무 두꺼워서 일도 먹을게 없쟈나요</a></li>
+					<li>2021/03/21</li>
+					<li>2021/03/23</li>
 					<li>비방</li>
-					<li>1236</li>
-					<li>2021/08/29</li>
+					<li>asdghle</li>
+					<li>yuthgvf</li>
 				</ul>
 			</c:forEach>
 			
@@ -158,221 +175,221 @@
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
 					<li>1286</li>
-					<li>과일</li>
-					<li><a href="제목?">과일 상태 왜이래요</a></li>
-					<li>최고상점</li>  
-					<li>userid</li>
+					<li>리뷰</li>
+					<li class="subjectLine"><a href="제목?">과일 상태 왜이래요 껍질이 너무 두꺼워서 일도 먹을게 없쟈나요</a></li>
+					<li>2021/03/21</li>
+					<li>2021/03/23</li>
 					<li>비방</li>
-					<li>1236</li>
-					<li>2021/08/29</li>
+					<li>asdghle</li>
+					<li>yuthgvf</li>
 				</ul>
 			</c:forEach>
 		<c:forEach var="data" items="${list}">
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
 					<li>1286</li>
-					<li>과일</li>
-					<li><a href="제목?">과일 상태 왜이래요</a></li>
-					<li>최고상점</li>  
-					<li>userid</li>
+					<li>리뷰</li>
+					<li class="subjectLine"><a href="제목?">과일 상태 왜이래요 껍질이 너무 두꺼워서 일도 먹을게 없쟈나요</a></li>
+					<li>2021/03/21</li>
+					<li>2021/03/23</li>
 					<li>비방</li>
-					<li>1236</li>
-					<li>2021/08/29</li>
+					<li>asdghle</li>
+					<li>yuthgvf</li>
 				</ul>
 			</c:forEach>
 		<c:forEach var="data" items="${list}">
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
 					<li>1286</li>
-					<li>과일</li>
-					<li><a href="제목?">과일 상태 왜이래요</a></li>
-					<li>최고상점</li>  
-					<li>userid</li>
+					<li>리뷰</li>
+					<li class="subjectLine"><a href="제목?">과일 상태 왜이래요 껍질이 너무 두꺼워서 일도 먹을게 없쟈나요</a></li>
+					<li>2021/03/21</li>
+					<li>2021/03/23</li>
 					<li>비방</li>
-					<li>1236</li>
-					<li>2021/08/29</li>
+					<li>asdghle</li>
+					<li>yuthgvf</li>
 				</ul>
 			</c:forEach>
 		<c:forEach var="data" items="${list}">
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
 					<li>1286</li>
-					<li>과일</li>
-					<li><a href="제목?">과일 상태 왜이래요</a></li>
-					<li>최고상점</li>  
-					<li>userid</li>
+					<li>리뷰</li>
+					<li class="subjectLine"><a href="제목?">과일 상태 왜이래요 껍질이 너무 두꺼워서 일도 먹을게 없쟈나요</a></li>
+					<li>2021/03/21</li>
+					<li>2021/03/23</li>
 					<li>비방</li>
-					<li>1236</li>
-					<li>2021/08/29</li>
+					<li>asdghle</li>
+					<li>yuthgvf</li>
 				</ul>
 			</c:forEach>
 		<c:forEach var="data" items="${list}">
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
 					<li>1286</li>
-					<li>과일</li>
-					<li><a href="제목?">과일 상태 왜이래요</a></li>
-					<li>최고상점</li>  
-					<li>userid</li>
+					<li>리뷰</li>
+					<li class="subjectLine"><a href="제목?">과일 상태 왜이래요 껍질이 너무 두꺼워서 일도 먹을게 없쟈나요</a></li>
+					<li>2021/03/21</li>
+					<li>2021/03/23</li>
 					<li>비방</li>
-					<li>1236</li>
-					<li>2021/08/29</li>
+					<li>asdghle</li>
+					<li>yuthgvf</li>
 				</ul>
 			</c:forEach>
 		<c:forEach var="data" items="${list}">
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
 					<li>1286</li>
-					<li>과일</li>
-					<li><a href="제목?">과일 상태 왜이래요</a></li>
-					<li>최고상점</li>  
-					<li>userid</li>
+					<li>리뷰</li>
+					<li class="subjectLine"><a href="제목?">과일 상태 왜이래요 껍질이 너무 두꺼워서 일도 먹을게 없쟈나요</a></li>
+					<li>2021/03/21</li>
+					<li>2021/03/23</li>
 					<li>비방</li>
-					<li>1236</li>
-					<li>2021/08/29</li>
+					<li>asdghle</li>
+					<li>yuthgvf</li>
 				</ul>
 			</c:forEach>
 		<c:forEach var="data" items="${list}">
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
 					<li>1286</li>
-					<li>과일</li>
-					<li><a href="제목?">과일 상태 왜이래요</a></li>
-					<li>최고상점</li>  
-					<li>userid</li>
+					<li>리뷰</li>
+					<li class="subjectLine"><a href="제목?">과일 상태 왜이래요 껍질이 너무 두꺼워서 일도 먹을게 없쟈나요</a></li>
+					<li>2021/03/21</li>
+					<li>2021/03/23</li>
 					<li>비방</li>
-					<li>1236</li>
-					<li>2021/08/29</li>
+					<li>asdghle</li>
+					<li>yuthgvf</li>
 				</ul>
 			</c:forEach>
 		<c:forEach var="data" items="${list}">
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
 					<li>1286</li>
-					<li>과일</li>
-					<li><a href="제목?">과일 상태 왜이래요</a></li>
-					<li>최고상점</li>  
-					<li>userid</li>
+					<li>리뷰</li>
+					<li class="subjectLine"><a href="제목?">과일 상태 왜이래요 껍질이 너무 두꺼워서 일도 먹을게 없쟈나요</a></li>
+					<li>2021/03/21</li>
+					<li>2021/03/23</li>
 					<li>비방</li>
-					<li>1236</li>
-					<li>2021/08/29</li>
+					<li>asdghle</li>
+					<li>yuthgvf</li>
 				</ul>
 			</c:forEach>
 		<c:forEach var="data" items="${list}">
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
 					<li>1286</li>
-					<li>과일</li>
-					<li><a href="제목?">과일 상태 왜이래요</a></li>
-					<li>최고상점</li>  
-					<li>userid</li>
+					<li>리뷰</li>
+					<li class="subjectLine"><a href="제목?">과일 상태 왜이래요 껍질이 너무 두꺼워서 일도 먹을게 없쟈나요</a></li>
+					<li>2021/03/21</li>
+					<li>2021/03/23</li>
 					<li>비방</li>
-					<li>1236</li>
-					<li>2021/08/29</li>
+					<li>asdghle</li>
+					<li>yuthgvf</li>
 				</ul>
 			</c:forEach>
 		<c:forEach var="data" items="${list}">
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
 					<li>1286</li>
-					<li>과일</li>
-					<li><a href="제목?">과일 상태 왜이래요</a></li>
-					<li>최고상점</li>  
-					<li>userid</li>
+					<li>리뷰</li>
+					<li class="subjectLine"><a href="제목?">과일 상태 왜이래요 껍질이 너무 두꺼워서 일도 먹을게 없쟈나요</a></li>
+					<li>2021/03/21</li>
+					<li>2021/03/23</li>
 					<li>비방</li>
-					<li>1236</li>
-					<li>2021/08/29</li>
+					<li>asdghle</li>
+					<li>yuthgvf</li>
 				</ul>
 			</c:forEach>
 		<c:forEach var="data" items="${list}">
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
 					<li>1286</li>
-					<li>과일</li>
-					<li><a href="제목?">과일 상태 왜이래요</a></li>
-					<li>최고상점</li>  
-					<li>userid</li>
+					<li>리뷰</li>
+					<li class="subjectLine"><a href="제목?">과일 상태 왜이래요 껍질이 너무 두꺼워서 일도 먹을게 없쟈나요</a></li>
+					<li>2021/03/21</li>
+					<li>2021/03/23</li>
 					<li>비방</li>
-					<li>1236</li>
-					<li>2021/08/29</li>
+					<li>asdghle</li>
+					<li>yuthgvf</li>
 				</ul>
 			</c:forEach>
 		<c:forEach var="data" items="${list}">
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
 					<li>1286</li>
-					<li>과일</li>
-					<li><a href="제목?">과일 상태 왜이래요</a></li>
-					<li>최고상점</li>  
-					<li>userid</li>
+					<li>리뷰</li>
+					<li class="subjectLine"><a href="제목?">과일 상태 왜이래요 껍질이 너무 두꺼워서 일도 먹을게 없쟈나요</a></li>
+					<li>2021/03/21</li>
+					<li>2021/03/23</li>
 					<li>비방</li>
-					<li>1236</li>
-					<li>2021/08/29</li>
+					<li>asdghle</li>
+					<li>yuthgvf</li>
 				</ul>
 			</c:forEach>
 		<c:forEach var="data" items="${list}">
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
 					<li>1286</li>
-					<li>과일</li>
-					<li><a href="제목?">과일 상태 왜이래요</a></li>
-					<li>최고상점</li>  
-					<li>userid</li>
+					<li>리뷰</li>
+					<li class="subjectLine"><a href="제목?">과일 상태 왜이래요 껍질이 너무 두꺼워서 일도 먹을게 없쟈나요</a></li>
+					<li>2021/03/21</li>
+					<li>2021/03/23</li>
 					<li>비방</li>
-					<li>1236</li>
-					<li>2021/08/29</li>
+					<li>asdghle</li>
+					<li>yuthgvf</li>
 				</ul>
 			</c:forEach>
 		<c:forEach var="data" items="${list}">
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
 					<li>1286</li>
-					<li>과일</li>
-					<li><a href="제목?">과일 상태 왜이래요</a></li>
-					<li>최고상점</li>  
-					<li>userid</li>
+					<li>리뷰</li>
+					<li class="subjectLine"><a href="제목?">과일 상태 왜이래요 껍질이 너무 두꺼워서 일도 먹을게 없쟈나요</a></li>
+					<li>2021/03/21</li>
+					<li>2021/03/23</li>
 					<li>비방</li>
-					<li>1236</li>
-					<li>2021/08/29</li>
+					<li>asdghle</li>
+					<li>yuthgvf</li>
 				</ul>
 			</c:forEach>
 		<c:forEach var="data" items="${list}">
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
 					<li>1286</li>
-					<li>과일</li>
-					<li><a href="제목?">과일 상태 왜이래요</a></li>
-					<li>최고상점</li>  
-					<li>userid</li>
+					<li>리뷰</li>
+					<li class="subjectLine"><a href="제목?">과일 상태 왜이래요 껍질이 너무 두꺼워서 일도 먹을게 없쟈나요</a></li>
+					<li>2021/03/21</li>
+					<li>2021/03/23</li>
 					<li>비방</li>
-					<li>1236</li>
-					<li>2021/08/29</li>
+					<li>asdghle</li>
+					<li>yuthgvf</li>
 				</ul>
 			</c:forEach>
 		<c:forEach var="data" items="${list}">
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
 					<li>1286</li>
-					<li>과일</li>
-					<li><a href="제목?">과일 상태 왜이래요</a></li>
-					<li>최고상점</li>  
-					<li>userid</li>
+					<li>리뷰</li>
+					<li class="subjectLine"><a href="제목?">과일 상태 왜이래요 껍질이 너무 두꺼워서 일도 먹을게 없쟈나요</a></li>
+					<li>2021/03/21</li>
+					<li>2021/03/23</li>
 					<li>비방</li>
-					<li>1236</li>
-					<li>2021/08/29</li>
+					<li>asdghle</li>
+					<li>yuthgvf</li>
 				</ul>
 			</c:forEach>
 		<c:forEach var="data" items="${list}">
 				<ul class="productList">
 					<li><input type="checkbox" name="check" id="check"> </li>
 					<li>1286</li>
-					<li>과일</li>
-					<li><a href="제목?">과일 상태 왜이래요</a></li>
-					<li>최고상점</li>  
-					<li>userid</li>
+					<li>리뷰</li>
+					<li class="subjectLine"><a href="제목?">과일 상태 왜이래요 껍질이 너무 두꺼워서 일도 먹을게 없쟈나요</a></li>
+					<li>2021/03/21</li>
+					<li>2021/03/23</li>
 					<li>비방</li>
-					<li>1236</li>
-					<li>2021/08/29</li>
+					<li>asdghle</li>
+					<li>yuthgvf</li>
 				</ul>
 			</c:forEach>
 		
@@ -450,5 +467,5 @@
 		
 	</div>  
 		</div>
-</body>
+</div>
 </html>
