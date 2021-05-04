@@ -6,58 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class testController {
 	
-	@RequestMapping("/kangsan")
-	public String kangsan() {
-		return "custom/categoryMain";
-	}
-	
-	@RequestMapping("/kcenter")
-	public String kcenter() {
-		return "custom/noticeMain";
-	}
-	@RequestMapping("/noticeMain")
-	public String kcenter2() {
-		return "custom/noticeMain";
-	}
-	
-	@RequestMapping("/customerCenter")
-	public String customerCenter() {
-		return "custom/customerCenter";
-	}
-	
-	@RequestMapping("/FAQBoard")
-	public String FAQBoard() {
-		return "custom/FAQBoard";
-	}
-	
-	@RequestMapping("/customerCenterWrite")
-	public String customerCenterWrite() {
-		return "custom/customerCenterWrite";
-	}
-	
-	@RequestMapping("/mapping")
-	public String mapping() {
-		return "custom/mapList";
-	}
-	
-	@RequestMapping("/kangsan2")
-	public String kangsan2() {
-		return "custom/uglyItem";
-	}
-	
-	@RequestMapping("kangsan3")
-	public String kangsan3() {
-		return "custom/categoryCharge";
-	}
-	
-	@RequestMapping("kangsan4")
-	public String kangsan4() {
-		return "custom/payCategory";
-	}
-	
 	@RequestMapping("myfavoriForm")
 	public String myfavoriForm() {
 		return "mypages/myfavoriForm";
+	}
+	@RequestMapping("chargeAPI")
+	public String chargeAPI() {
+		return "mypages/chargeAPI";
 	}
 	
 	
@@ -67,7 +22,7 @@ public class testController {
 	public String recipeHome() {
 		return "custom/recipeHome";
 	}
-	
+/*	
 	@RequestMapping("recipeView")
 	public String recipeView() {
 		return "custom/recipeView";
@@ -77,7 +32,7 @@ public class testController {
 	public String recipeWrite() {
 		return "custom/recipeWrite";
 	}
-	
+*/	
 	@RequestMapping("/custominfo")
 	public String customInfo() {
 		return "custom/custominfo";
@@ -97,6 +52,16 @@ public class testController {
 	public String customMyrecipe() {
 		return "custom/customMyrecipe";
 	}
+	
+	@RequestMapping("/customproduct")
+	public String customproduct() {
+		return "custom/customproduct";
+	}
+	
+	@RequestMapping("/custompay")
+	public String custompay() {
+		return "custom/custompay";
+	}
 
 
 // 윤수///////////////////////////////////////////////////////////////
@@ -104,18 +69,15 @@ public class testController {
 	public String errer() {
 		return "etc/error";
 	}
-	@RequestMapping("register")	// 회원가입페이지
-	public String register() {
-		return "login/register";
+	@RequestMapping("searchId")
+	public String searchId() {	// 아이디 찾기
+		return "login/idSearch";	
 	}
-	@RequestMapping("cregister")
-	public String cResigter() {	// 구매자 회원가입
-		return "login/cRegister";
+	@RequestMapping("searchPwd")
+	public String searchPwd() {	// 비밀번호 찾기
+		return "login/pwdSearch";	
 	}
-	@RequestMapping("sregister")
-	public String sRegister() {	// 판매자 회원가입
-		return "login/sRegister";	
-	}
+
 	@RequestMapping("infoView")
 	public String infoView() {	// 약관조회
 		return "info/infoView";
@@ -124,12 +86,24 @@ public class testController {
 	public String myPoint() {	// 마이포인트
 		return "mypages/mypoint";
 	}
+	@RequestMapping("myinfoEdit")
+	public String myInfoEdit() {	// 내 정보
+		return "mypages/myInfoEdit";
+	}
 	@RequestMapping("mybuyList")
 	public String myBuyList() {	// 구매내역
 		return "mypages/mybuyList";
 	}
 	@RequestMapping("myChatList")
-	public String myChatList() {	// 구매내역
+	public String myChatList() {	// 채팅내역
 		return "mypages/myChatList";
+	}
+	@RequestMapping("leaveMember")
+	public String leaveMember() {	// 회원탈퇴
+		return "mypages/leaveMember";
+	}
+	@RequestMapping("leaveMemberOk")
+	public String leaveMemberSuccess() {	// 회원탈퇴 성공페이지
+		return "mypages/leaveMemberSuccess";
 	}
 }
