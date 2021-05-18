@@ -23,6 +23,9 @@
 	#contentBox{
 		top:-10px;
 	}       
+	#contentBox ul{
+		margin-left:10px !important;
+	}
 	#contentBox li, #contentBox li:nth-of-type(5){ 
 		width:11%;
 	}
@@ -84,10 +87,10 @@
 		height:28px;
 	} 
 	.contentList:nth-of-type(2n-1)>li:nth-of-type(6){
-		padding:8.5px 0;
+		padding:7.7px 0;
 	}
 	.contentList:nth-of-type(2n)>li:nth-of-type(6){
-		padding:9px 0;
+		padding:7.8px 0;
 	}
 	/*버튼*/
 	#btns{ 

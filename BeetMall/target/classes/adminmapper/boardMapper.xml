@@ -6,6 +6,9 @@
  	<select id="noticeList" resultType="com.beetmall.sshj.admin.vo.BoardVO">
  		select infonum, infotype, infotitle, to_char(infowritedate, 'MM-DD HH:MI') infowritedate from notice order by infonum desc
  	</select>
+ 	<select id="getInfonum" resultType="int">
+ 		select max(infonum) from notice
+ 	</select>
  	<insert id="boardInsert" parameterType="com.beetmall.sshj.admin.vo.BoardVO">
  		insert into board(no, subject, content, ip, userid) values(boardsq.nextval, #{subject}, #{content}, #{ip}, #{userid})
  	</insert>

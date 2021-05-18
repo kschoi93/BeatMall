@@ -37,16 +37,12 @@
 	#topBar li:nth-of-type(4){
 		width:6%;
 	}   
-	/*데이터 내용*/ 
-	.cartImg{
-		margin-left:10px;
-		height:20%;
-		width:25%;
-	}
+	/*데이터 내용*/  
 	#content input, textarea, select, #noticeSearchFrm input{
 		border:1px solid lightgray; 
 		border-radius: 3px;
-	}#content li, label{
+	}
+	#content li, label{
 		list-style-type:none; 
 		padding-bottom:10px;
 	}
@@ -60,12 +56,6 @@
 	} 
 	#btns a>button, button:nth-of-type(4){ 
 		margin-left:900px; 
-	} 
-	#topBar Button:nth-of-type(1),
-	#topBar Button:nth-of-type(2),
-	#topBar Button:nth-of-type(3),
-	#topBar Button:nth-of-type(4){
-		padding:2px 7px;
 	}  
 	#sortBox {
 		margin: 80px 0 0 20px;
@@ -133,8 +123,7 @@
 		font-size:16px;
 		font-weight:bold;
 		letter-spacing:2px;
-		height:35px;
-		
+		height:35px; 
 	}
 	/*모달 내 상품, 구매자 정보 표*/
 	.tg  {
@@ -289,6 +278,21 @@
 	    left: 750px; 
 	}
 </style> 
+<script>
+////////////////////////////////전역변수 선언 /////////////////////////////////
+
+let sortStr = 0;// 정렬 기준을 위한 변수
+
+let startCalendarDataValue = "";//선택된 날짜의 데이터를 저장해 놓는 변수
+let endCalendarDataValue = "";//선택된 날짜의 데이터를 저장해 놓는 변수
+
+let startDate =null;// startDate 선택된 값을 가져온다.
+let endDate = null;// endDate 선택된 값을 가져온다.
+
+let searchTxt =null;// 검색 데이터
+
+
+</script>
 <%@ include file="/inc/top.jspf" %>
 	<div id="topBarContainer">
 		<div id="topBar">

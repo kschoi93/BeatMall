@@ -5,13 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping; 
 import org.springframework.web.servlet.ModelAndView;
 
-import com.beetmall.sshj.admin.service.Boardervice;
+import com.beetmall.sshj.admin.service.BoardService;
  
 
 @Controller
-public class admin_productController { 
+public class Admin_productController { 
 	@Inject
-	Boardervice adminService;
+	BoardService adminService;
 	//////////////////////상품 관리///////////////////////////////////// 
 
 	//상품 목록 보기

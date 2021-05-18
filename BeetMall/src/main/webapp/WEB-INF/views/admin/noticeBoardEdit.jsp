@@ -5,6 +5,7 @@
 <!-- include summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+ 
 <style>
 	#mypageMenubar{
 		display:block;
@@ -164,18 +165,6 @@
 	}
 </style>
 <script>
-$.ajax({
-	type:"GET",
-	url:"/resources/adminmapper/getInfonum.do",
-	contentType : "application/x-www-form-urlencoded; charset=utf-8",
-	success : function(res) { 
-       $("#noticeNum").text(res);   
-   },
-   error : function(request, status, error) {
-       alert("에러가 발생했습니다.\n error_code:BD5");
-   } 
-});
-//파일명 추출
 $(document).ready(function(){ 
 	  var fileTarget = $('#file'); 
 	  fileTarget.on('change', function(){ // 값이 변경되면
@@ -188,28 +177,10 @@ $(document).ready(function(){
 	        $(this).siblings('.uploadFile').val(filename); 
 	    }); 
 	}); 
-	
-//공지 추가
-$(document).on('click',"#addBtn",function(){ 
-	location.href="noticeBoardList";
-	var url = "noticeBoardWrite";
-	$.ajax({
-		url : url, 
-		success : function(result){ 
-			if(result == 1){
-				location.href="noticeBoardList";
-			}else{
-				alert('공지 추가 실패했습니다 \n error_code:BD1');
-			}
-		}, error : function(){
-			alert('삭제 실패했습니다. \n error_code:BD2');
-		}
-	});
-});
 </script>
 	<div id="topBarContainer">
 	<div id="topBar">
-		<h5><strong><a href="noticeBoardWrite">공지 작성</a></strong></h5>   
+		<h5><strong><a href="noticeBoardEdit">공지 수정</a></strong></h5>   
 	</div>
 	</div>
 <div id="body1">
@@ -221,7 +192,7 @@ $(document).on('click',"#addBtn",function(){
 			<tbody> 
 				<tr class="tr_head">
 					<th class="menu" >공지 번호</th>
-					<td class="td" colspan="3" id="noticeNum"></td>
+					<td class="td" colspan="3"><div id="recipeNum">1532</div></td>
 				</tr>
 				<tr class="tr_head">
 					<th class="menu">제목</th>
@@ -254,13 +225,11 @@ $(document).on('click',"#addBtn",function(){
 				</tr>
 			</tbody>
 		</table>
-		<c:if test="${logId !=null}">
 			<div id="bottommm">
 				<input type="submit" value="작성하기" class="btn write_btn" id="write_btn"/>	
 				<input type="reset" value="다시 쓰기" class="btn write_btn" id="reWrite_btn"/>	
-				<input type="button" value="취소" class="btn write_btn" id="cancle_btn" onClick="location.href='<%=request.getContextPath() %>/noticeBoardList'"/>
+				<input type="button" value="취소" class="btn write_btn" id="cancle_btn" onClick="location.href='<%=request.getContextPath() %>/recipeView'"/>
 			</div>
-		</c:if>	
 		</form>
 		</div>
 </div>
@@ -270,7 +239,7 @@ $(document).ready(function() {
 	  $('.summernote').summernote({
 		  height: 500,                 // 에디터 높이 
 		  focus: false,
-		  callbacks: {	//여기 부분이 이미지를 첨부하는 부분
+		  callbacks: {	// 이미지를 첨부하는 부분
 				onImageUpload : function(files) {
 					uploadSummernoteImageFile(files[0],this);
 				},

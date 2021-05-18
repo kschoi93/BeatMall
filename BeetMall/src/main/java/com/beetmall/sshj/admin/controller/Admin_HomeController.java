@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.beetmall.sshj.admin.service.Boardervice;
+import com.beetmall.sshj.admin.service.BoardService;
 import com.beetmall.sshj.admin.vo.BoardVO; 
 
 @Controller
-public class admin_Home { 
+public class Admin_HomeController { 
 	@Inject
-	Boardervice adminService;
+	BoardService adminService;
 	//////////////////////관리자 홈페이지///////////////////////////////////// 
 	@RequestMapping("/adminHome")
 	public ModelAndView noticeBoardList() {

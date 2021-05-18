@@ -1,31 +1,21 @@
 package com.beetmall.sshj.admin.vo;
 
 public class BoardVO {
-	private int no;
-	private String subject;
-	private String content;
+	private int infonum;
 	private String userid;
-	private int hit;
-	private String writedate;
+	private String infotitle;
+	private String infocontent;
+	private String infowritedate;
+	private int infohit;
+	private int infotype;
+	private String infoattach;
 	private String ip;
 	
-	public int getNo() {
-		return no;
+	public int getInfonum() {
+		return infonum;
 	}
-	public void setNo(int no) {
-		this.no = no;
-	}
-	public String getSubject() {
-		return subject;
-	}
-	public void setSubject(String subject) {
-		this.subject = subject;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setInfonum(int infonum) {
+		this.infonum = infonum;
 	}
 	public String getUserid() {
 		return userid;
@@ -33,17 +23,41 @@ public class BoardVO {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-	public int getHit() {
-		return hit;
+	public String getInfotitle() {
+		return infotitle;
 	}
-	public void setHit(int hit) {
-		this.hit = hit;
+	public void setInfotitle(String infotitle) {
+		this.infotitle = infotitle;
 	}
-	public String getWritedate() {
-		return writedate;
+	public String getInfocontent() {
+		return infocontent;
 	}
-	public void setWritedate(String writedate) {
-		this.writedate = writedate;
+	public void setInfocontent(String infocontent) {
+		this.infocontent = infocontent;
+	}
+	public String getInfowritedate() {
+		return infowritedate;
+	}
+	public void setInfowritedate(String infowritedate) {
+		this.infowritedate = infowritedate;
+	}
+	public int getInfohit() {
+		return infohit;
+	}
+	public void setInfohit(int infohit) {
+		this.infohit = infohit;
+	}
+	public int getInfotype() {
+		return infotype;
+	}
+	public void setInfotype(int infotype) {
+		this.infotype = infotype;
+	}
+	public String getInfoattach() {
+		return infoattach;
+	}
+	public void setInfoattach(String infoattach) {
+		this.infoattach = infoattach;
 	}
 	public String getIp() {
 		return ip;
@@ -51,6 +65,6 @@ public class BoardVO {
 	public void setIp(String ip) {
 		this.ip = ip;
 	}
-	
+	 
 	
 }

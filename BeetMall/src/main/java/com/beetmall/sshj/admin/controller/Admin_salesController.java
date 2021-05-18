@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.beetmall.sshj.admin.service.Boardervice;
+import com.beetmall.sshj.admin.service.BoardService;
 import com.beetmall.sshj.admin.vo.BoardVO; 
 
 @Controller
-public class admin_salesController {
+public class Admin_salesController {
 	@Inject
-	Boardervice adminService;
+	BoardService adminService;
 	////////////////////매출 관리////////////////////////////////
 	 	
 	//판매내역 보기
