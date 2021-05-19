@@ -10,7 +10,8 @@
 		 width:9%; 
 	 }  
 	 #container li:nth-of-type(6):not(#sortBox li:nth-of-type(6)){ 
-	 	padding:10px 0 10px 20px;
+	 	padding:10px 0;
+	 	text-align:left;
 	 } 
 	#contentBox{
 		top:-40px;
@@ -37,6 +38,9 @@
 	#topBar li:nth-of-type(4){
 		width:6%;
 	}   
+	#title li:nth-of-type(6){
+		padding-top: 0 !important;
+	}
 	/*데이터 내용*/  
 	#content input, textarea, select, #noticeSearchFrm input{
 		border:1px solid lightgray; 
@@ -343,7 +347,7 @@ let searchTxt =null;// 검색 데이터
 		<div id="title">
 			<ul>
 				<li><input type="checkbox" name="check"></li>
-				<li>상품번호</li>
+				<li>리뷰번호</li>
 				<li>카테고리</li>
 				<li>상품명</li>
 				<li>법인명</li>
@@ -354,150 +358,25 @@ let searchTxt =null;// 검색 데이터
 			</ul>
 		</div>  
 		
-		 
+		 <c:forEach var="data" items="${rlist}">
 			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
+				<li><input type="checkbox" name="check" id="check"></li>
+				<li>${data.reviewnum}</li>
 				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
+				<li class="wordCut"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
+				<li>제주천혜향법인</li>
+				<li class="wordCut" id="reportDiv">${data.reviewcontent}</li>
+				<li>
+					<c:if test="${data.reviewanswer==null || data.reviewanswer==''}">
+						답변대기
+					</c:if>
+					<c:if test="${data.reviewanswer!=null && data.reviewanswer !=''}">
+						답변완료
+					</c:if></li>
+				<li>${data.userid}</li>
+				<li>${data.reviewwritedate}</li> 
 			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			  
-		<!--  
-		<c:forEach var="data" items="${list}">
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>판매자</li>
-				<li><a href="회원정보?">[판매자 공지] 판매자 사업증 등록시 유의사항</a></li>
-				<li>2021/05/23</li> 
-			</ul>
-		</c:forEach>-->
+		</c:forEach> 	   
 		</div>	 
 		<div class="page_wrap">
 			<div class="page_nation">

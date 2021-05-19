@@ -1,6 +1,6 @@
 package com.beetmall.sshj.admin.vo;
 
-public class BoardVO {
+public class ABoardVO {
 	private int infonum;
 	private String userid;
 	private String infotitle;

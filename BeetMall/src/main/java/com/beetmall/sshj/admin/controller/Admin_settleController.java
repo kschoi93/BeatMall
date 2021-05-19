@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.beetmall.sshj.admin.service.BoardService;
-import com.beetmall.sshj.admin.vo.BoardVO; 
+import com.beetmall.sshj.admin.service.ABoardService;
+import com.beetmall.sshj.admin.vo.ABoardVO; 
 
 @Controller
 public class Admin_settleController {
 	@Inject
-	BoardService adminService;
+	ABoardService adminService;
 	 
 	
 	@RequestMapping("/settleMng")
@@ -55,7 +55,7 @@ public class Admin_settleController {
 	}
 	
 	@RequestMapping(value="/boardWriteOk", method=RequestMethod.POST)
-	public ModelAndView boardWriteOk(BoardVO vo, HttpSession session, HttpServletRequest req) {
+	public ModelAndView boardWriteOk(ABoardVO vo, HttpSession session, HttpServletRequest req) {
 		vo.setIp(req.getRemoteAddr());
 			
 		//vo.setUserid(((MemberVO)session.getAttribute("logVo")).getUserid()); 
@@ -88,12 +88,12 @@ public class Admin_settleController {
 	}
 	
 	@RequestMapping(value="/board/boardEditOk", method=RequestMethod.POST)
-	public ModelAndView boardEditOk(BoardVO vo, HttpSession session) {
+	public ModelAndView boardEditOk(ABoardVO vo, HttpSession session) {
 		//vo.setUserid(((MemberVO)session.getAttribute("logVo")).getUserid()); 
 		ModelAndView mav = new ModelAndView();
 		
 		if(adminService.boardUpdate(vo)>0) { //글 수정 성공
-			mav.addObject("no", vo.getNo());
+			//mav.addObject("no", vo.getNo());
 			mav.setViewName("redirect:/boardView");
 		}else {
 			mav.setViewName("redirect:boardEdit");

@@ -98,10 +98,17 @@
 		<span id="homeGo"><a href="<%=request.getContextPath()%>/">비트몰 홈페이지</a></span>
 				
 			<div id="top">
+			 <c:if test="${logStatus == 'Y' }">
 				<div id="fromDot">
 				 	관리자 님  
 				<span id="logout">로그아웃</span>
-				</div>		 
+				</div>
+			</c:if>
+			 <c:if test="${logStatus != 'Y' }">		
+			 	<div id="loginA">  
+					<span id="logout"><a href="<%=request.getContextPath()%>/login" style="color:white;">관리자 로그인</a></span>
+				</div>
+			</c:if>
 			</div> 
 		</div>
 	</div>

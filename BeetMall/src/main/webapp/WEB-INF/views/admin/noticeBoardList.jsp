@@ -214,8 +214,10 @@ let searchTxt =null;// 검색 데이터
 		<div id="topBar">
 			<ul>
 				<li><h5><strong><a href="noticeBoardList">공지 관리</a></strong></h5></li> 
+				<!-- <c:if test="${logVo.userid!=null && logVo.userid!=''}"> -->
 				<li><button class="success" value="addBtn" name="addBtn" id="addBtn" onClick="location.href='<%=request.getContextPath() %>/noticeBoardWrite'">추가</button></li>
 				<li><button class="success" value="delBtn" name="delBtn" id="delBtn" onClick="DeleteCheck()">삭제</button></li>
+				<!-- </c:if> -->
 			</ul> 
 		</div>  
 		</div>
@@ -258,24 +260,24 @@ let searchTxt =null;// 검색 데이터
 				<li>등록일</li> 
 			</ul>
 		</div>    
-		<c:forEach var="data" items="${list}">
+		<c:forEach var="avo" items="${list}">
 			<ul class="contentList">
 				<li><input type="checkbox" name="check" id="check"></li>
-				<li>${data.infonum}</li>
+				<li>${avo.infonum}</li>
 				<li>
-					<c:if test="${data.infotype==1}">
+					<c:if test="${avo.infotype==1}">
 						소비자
 					</c:if>
-					<c:if test="${data.infotype==2}">
+					<c:if test="${avo.infotype==2}">
 						판매자
 					</c:if>
-					<c:if test="${data.infotype==3}">
+					<c:if test="${avo.infotype==3}">
 						전체
 					</c:if>
 				
 				</li>
-				<li><a href="boardEdit?no=${data.infonum}">${data.infotitle}</a></li>
-				<li>${data.infowritedate}</li> 
+				<li><a href="boardEdit?no=${avo.infonum}">${avo.infotitle}</a></li>
+				<li>${avo.infowritedate}</li> 
 			</ul>
 		</c:forEach> 
 		</div>	 
