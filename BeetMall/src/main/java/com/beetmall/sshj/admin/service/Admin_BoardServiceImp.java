@@ -3,7 +3,8 @@ package com.beetmall.sshj.admin.service;
 import java.util.List;
 
 import javax.inject.Inject;
- 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Service;
 
 import com.beetmall.sshj.admin.dao.AdminBoardDAO; 

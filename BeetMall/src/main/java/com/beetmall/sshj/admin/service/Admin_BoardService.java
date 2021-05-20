@@ -2,6 +2,8 @@ package com.beetmall.sshj.admin.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.beetmall.sshj.admin.vo.Admin_Board_PageVO;
 import com.beetmall.sshj.admin.vo.Admin_MemberVO;
 import com.beetmall.sshj.admin.vo.Admin_Member_PageVO;

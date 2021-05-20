@@ -15,5 +15,8 @@
 			where <![CDATA[rownum<=]]>${pageNum}*${onePageRecord} order by reviewnum desc) e		 
             where <![CDATA[rownum<=]]><if test="pageNum==totalPage">${lastPageRecord}</if>
         							  <if test="pageNum!=totalPage">${onePageRecord}</if> order by reviewnum desc
- 	</select> 
+ 	</select>
+ 	<insert id="boardInsertA" parameterType="int">
+ 		insert into notice(infonum, infotitle, infocontent, infowritedate, infohit, infotype, infoattach) values(noticesq.nextval, #{infotitle}, #{infocontent}, sysdate, 0, #{infotype}, {infoattach})
+ 	</insert>
 </mapper>

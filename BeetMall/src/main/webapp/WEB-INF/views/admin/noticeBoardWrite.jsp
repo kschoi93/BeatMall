@@ -162,24 +162,14 @@
 	}
 </style>
 <script>
-/*$.ajax({
-	type:"GET",
-	url:"/resources/adminmapper/getInfonum.do",
-	contentType : "application/x-www-form-urlencoded; charset=utf-8",
-	success : function(res) { 
-       $("#noticeNum").text(res);   
-   },
-   error : function(request, status, error) {
-       alert("에러가 발생했습니다.\n error_code:BD5");
-   } 
-});*/
+ 
 //오늘날짜
 let today = new Date();   
 let year = today.getFullYear();  
 let month = today.getMonth() + 1;   
 let date = today.getDate();
 $(document).ready(function(){ 
-	$("#recipeWriteDate").html(year + '/' + month + '/' + date);
+	$("#noticeWriteDate").html(year + '/' + month + '/' + date);
 }); 
 //파일명 추출
 $(document).ready(function(){ 
@@ -196,7 +186,7 @@ $(document).ready(function(){
 	}); 
 	
 //공지 추가
-$(document).on('click',"#addBtn",function(){ 
+$(document).on('click',"#write_btn",function(){ 
 	location.href="noticeBoardList";
 	var url = "noticeBoardWrite";
 	$.ajax({
@@ -222,12 +212,12 @@ $(document).on('click',"#addBtn",function(){
 <%@ include file="/inc/leftBar.jspf" %> 
 <div class="container">
 	<div id="box"> 	
-		<form method="post" action="noticeWriteOk" enctype="multipart/form-data">
+		<form method="post" name="noticeWriteform"action="noticeWriteOk" enctype="multipart/form-data">
 			<table>
 				<tbody> 
 					<tr class="tr_head">
 						<th class="menu" >공지 번호</th>
-						<td class="td" colspan="3" id="noticeNum"></td>
+						<td class="td" colspan="3" id="noticeNum"><input type="text" name="infonum" id="infonum" placeholder="공지 번호를 입력하세요"/></td>
 					</tr>
 					<tr class="tr_head">
 						<th class="menu">제목</th>
@@ -235,7 +225,7 @@ $(document).on('click',"#addBtn",function(){
 					</tr>
 					<tr class="tr_head">
 						<th class="menu">등록일</th>
-						<td  class="td" id="recipeWriteDate"></td>
+						<td  class="td" id="noticeWriteDate"></td>
 					</tr>
 					<tr class="tr_head">
 						<th class="menu">첨부파일</th>
@@ -273,10 +263,10 @@ $(document).on('click',"#addBtn",function(){
 <script>
 $(document).ready(function() {
 	  $('.summernote').summernote({
-		  height: 500,                 // 에디터 높이 
+		  height: 500,                   
 		  focus: false,
-		  callbacks: {	//여기 부분이 이미지를 첨부하는 부분
-				onImageUpload : function(files) {
+		  callbacks: {	// 파일 첨부
+				onImageUpload : function(files, editor, welEditable) {
 					uploadSummernoteImageFile(files[0],this);
 				},
 				onPaste: function (e) {
@@ -302,6 +292,7 @@ function uploadSummernoteImageFile(file, editor) {
 		type : "POST",
 		url : "/uploadSummernoteImageFile",
 		contentType : false,
+		enctype : 'multipart/form-data',
 		processData : false,
 		success : function(data) {
         	//항상 업로드된 파일의 url이 있어야 한다.

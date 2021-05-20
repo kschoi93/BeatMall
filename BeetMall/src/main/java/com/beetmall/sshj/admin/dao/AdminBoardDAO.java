@@ -14,12 +14,6 @@ public interface AdminBoardDAO {
 	public int boardInsertA(AdminBoardVO vo); //새 공지 쓰기  
 	public int boardUpdateA(AdminBoardVO vo);//공지 수정
 	public int boardDelA(int infonum); //공지 삭제
-	//여러 개의 레코드 한번에 삭제
-		@Delete({"<script>",
-				 	" delete from board where no in",
-				 	" <foreach item=\"item\" collection=\"array\" open=\"(\" separator=\",\" close=\")\">",
-				 		" #{item}",
-				 	" </foreach>",
-				 " </script>"})
-		public int boardMultiDelete(int[] noList);
+	public int boardMultiDelete(int[] noList);
+	 
 }

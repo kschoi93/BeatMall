@@ -74,21 +74,7 @@
 		<p><strong>공지 작성</strong></p>   
 	</div>
 	<div id="box"> 
-		<form method="post" id="notiWritefrm" action="noticeWriteOk.jsp">
-			<div id="title">
-			번호 : 다음번호?  <span id="noticeTitle">제목 : <input type="text" id="notiSubject" name="noticeSubject" placeholder="제목을 입력하세요"/> </span> <span id="writeTitle">등록일 today?</span>
-			</div>
-			<textarea name="summer" id="summer"></textarea>  
-			<div id="who">
-				<input type="checkbox" name="all" value="all"/><label class="lbl">전체?</label> 
-				<input type="checkbox" name="customer" value="customer"/><label class="lbl">소비자?</label> 
-				<input type="checkbox" name="seller" value="seller"/><label class="lbl">판매자?</label>
-			</div>
-			<div id="submit">
-			<input type="submit" value="등록"/> 
-				<input type="reset" value="다시쓰기"/> 
-			</div>
-		</form>
+		 
 		
 	</div>
 	
