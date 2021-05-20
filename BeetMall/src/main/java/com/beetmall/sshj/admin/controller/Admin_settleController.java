@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.beetmall.sshj.admin.service.ABoardService;
-import com.beetmall.sshj.admin.vo.ABoardVO; 
+import com.beetmall.sshj.admin.service.Admin_BoardService;
+import com.beetmall.sshj.admin.vo.AdminBoardVO; 
 
 @Controller
 public class Admin_settleController {
 	@Inject
-	ABoardService adminService;
+	Admin_BoardService adminService;
 	 
 	
 	@RequestMapping("/settleMng")
@@ -55,7 +55,7 @@ public class Admin_settleController {
 	}
 	
 	@RequestMapping(value="/boardWriteOk", method=RequestMethod.POST)
-	public ModelAndView boardWriteOk(ABoardVO vo, HttpSession session, HttpServletRequest req) {
+	public ModelAndView boardWriteOk(AdminBoardVO vo, HttpSession session, HttpServletRequest req) {
 		vo.setIp(req.getRemoteAddr());
 			
 		//vo.setUserid(((MemberVO)session.getAttribute("logVo")).getUserid()); 
@@ -88,7 +88,7 @@ public class Admin_settleController {
 	}
 	
 	@RequestMapping(value="/board/boardEditOk", method=RequestMethod.POST)
-	public ModelAndView boardEditOk(ABoardVO vo, HttpSession session) {
+	public ModelAndView boardEditOk(AdminBoardVO vo, HttpSession session) {
 		//vo.setUserid(((MemberVO)session.getAttribute("logVo")).getUserid()); 
 		ModelAndView mav = new ModelAndView();
 		

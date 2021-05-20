@@ -95,7 +95,9 @@
 	#topBar Button:nth-of-type(4){
 		padding:2px 7px;
 	}  
-	
+	form{
+		display:block !important;
+	}
 	/* 페이징처리부분 */ 
 	.page_nation .pprev {
 		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_pprev.png') no-repeat center center;
@@ -142,26 +144,15 @@ let searchTxt =null;// 검색 데이터
 	//삭제 확인
 	function DeleteCheck(){
 		if(confirm("선택한 공지를 삭제하시겠습니까?")){
-			location.href="noticeBoardDel?infonum=${vo.infonum}"
+			location.href="noticeBoardDelA?infonum=${avo.infonum}"
 		} 
 	};
-	//공지 삭제
-	$(document).on('click',"#delBtn",function(){	 
-			var url = "noticeBoardDel";
-			$.ajax({
-				url : url, 
-				success : function(result){ 
-					if(result == 1){
-						location.href="noticeBoardList";
-					}else{
-						alert('삭제 실패했습니다 \n error_code:BD3');
-					}
-				}, error : function(){
-					alert('삭제 실패했습니다. \n error_code:BD4');
-				}
-			});
-		});	
-		
+	$(()=>{
+		//선택 삭제 클릭시 
+		$("#delBtn").click(()=>{
+			$("#delList").submit();
+		})
+	}); 
 		// 공지 대상 선택
 		$(document).on('click',"#sort1",function(){	  
 			// 선택된 대상 넘버를 변수에 넣어둔다.
@@ -214,11 +205,9 @@ let searchTxt =null;// 검색 데이터
 		<div id="topBar">
 			<ul>
 				<li><h5><strong><a href="noticeBoardList">공지 관리</a></strong></h5></li> 
-				<!-- <c:if test="${logVo.userid!=null && logVo.userid!=''}"> -->
 				<li><button class="success" value="addBtn" name="addBtn" id="addBtn" onClick="location.href='<%=request.getContextPath() %>/noticeBoardWrite'">추가</button></li>
 				<li><button class="success" value="delBtn" name="delBtn" id="delBtn" onClick="DeleteCheck()">삭제</button></li>
-				<!-- </c:if> -->
-			</ul> 
+		 	</ul> 
 		</div>  
 		</div>
 <div id="body1">
@@ -259,27 +248,28 @@ let searchTxt =null;// 검색 데이터
 				<li>제목</li>
 				<li>등록일</li> 
 			</ul>
-		</div>    
-		<c:forEach var="avo" items="${list}">
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"></li>
-				<li>${avo.infonum}</li>
-				<li>
-					<c:if test="${avo.infotype==1}">
-						소비자
-					</c:if>
-					<c:if test="${avo.infotype==2}">
-						판매자
-					</c:if>
-					<c:if test="${avo.infotype==3}">
-						전체
-					</c:if>
-				
-				</li>
-				<li><a href="boardEdit?no=${avo.infonum}">${avo.infotitle}</a></li>
-				<li>${avo.infowritedate}</li> 
-			</ul>
-		</c:forEach> 
+		</div>  
+		<form method="post" id="delList" action="multiDel">  
+			<c:forEach var="avo" items="${list}">
+				<ul class="contentList">
+					<li><input type="checkbox" name="check" class="check"></li>
+					<li>${avo.infonum}</li>
+					<li>
+						<c:if test="${avo.infotype==1}">
+							소비자
+						</c:if>
+						<c:if test="${avo.infotype==2}">
+							판매자
+						</c:if>
+						<c:if test="${avo.infotype==3}">
+							전체
+						</c:if> 
+					</li>
+					<li><a href="boardEdit?no=${avo.infonum}">${avo.infotitle}</a></li>
+					<li>${avo.infowritedate}</li> 
+				</ul>
+			</c:forEach> 
+		</form>
 		</div>	 
 		<div class="page_wrap">
 			<div class="page_nation">

@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.beetmall.sshj.admin.service.ABoardService;
-import com.beetmall.sshj.admin.service.AMemberService;
-import com.beetmall.sshj.admin.vo.AMemberVO; 
+import com.beetmall.sshj.admin.service.Admin_BoardService;
+import com.beetmall.sshj.admin.service.Admin_MemberService;
+import com.beetmall.sshj.admin.vo.Admin_MemberVO; 
 
 @Controller
 public class Admin_HomeController { 
 	@Inject
-	ABoardService adminService;
+	Admin_BoardService adminService;
 	@Inject
-	AMemberService aMemberService;
+	Admin_MemberService aMemberService;
 	//////////////////////관리자 홈페이지///////////////////////////////////// 
 	@RequestMapping("/adminHome")
 	public ModelAndView noticeBoardList() {
@@ -28,11 +28,11 @@ public class Admin_HomeController {
 	
 	//로그인
 	@RequestMapping(value="/AdminloginOk", method=RequestMethod.POST)
-	public ModelAndView loginOk(AMemberVO vo, HttpSession session) {
+	public ModelAndView loginOk(Admin_MemberVO vo, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		
 		//logVo가 null이면 로그인 실패, not null이면 VO에 아이디, 이름을 저장하여 리턴받는다 
-		AMemberVO logVo = aMemberService.loginCheck(vo);
+		Admin_MemberVO logVo = aMemberService.loginCheck(vo);
 		
 		if(logVo!=null) {//로그인 성공
 			session.setAttribute("logVo", logVo);

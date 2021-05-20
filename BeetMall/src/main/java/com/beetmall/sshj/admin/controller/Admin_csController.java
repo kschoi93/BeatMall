@@ -6,13 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping; 
 import org.springframework.web.servlet.ModelAndView;
 
-import com.beetmall.sshj.admin.service.ABoardService; 
+import com.beetmall.sshj.admin.service.Admin_BoardService; 
 
 @Controller
 public class Admin_csController {
 
 	@Inject
-	ABoardService adminService;
+	Admin_BoardService adminService;
 	 
 	/////////////////////////고객센터//////////////////////
  @RequestMapping("/csQuestionA")

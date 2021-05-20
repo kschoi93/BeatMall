@@ -1,27 +1,21 @@
-package com.beetmall.sshj.admin.vo;
+ package com.beetmall.sshj.admin.vo;
 
-public class ABoardVO {
-	private int infonum;
+public class AdminBoardVO {
 	private String userid;
+	private int infonum;
 	private String infotitle;
 	private String infocontent;
 	private String infowritedate;
 	private int infohit;
 	private int infotype;
 	private String infoattach;
-	private String ip;
+	private int[] noList;
 	
 	public int getInfonum() {
 		return infonum;
 	}
 	public void setInfonum(int infonum) {
 		this.infonum = infonum;
-	}
-	public String getUserid() {
-		return userid;
-	}
-	public void setUserid(String userid) {
-		this.userid = userid;
 	}
 	public String getInfotitle() {
 		return infotitle;
@@ -59,12 +53,18 @@ public class ABoardVO {
 	public void setInfoattach(String infoattach) {
 		this.infoattach = infoattach;
 	}
-	public String getIp() {
-		return ip;
+	public String getUserid() {
+		return userid;
 	}
-	public void setIp(String ip) {
-		this.ip = ip;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
-	 
+	public int[] getNoList() {
+		return noList;
+	}
+	public void setNoList(int[] noList) {
+		this.noList = noList;
+	}
 	
-}
+	 
+}	 

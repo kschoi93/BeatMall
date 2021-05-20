@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.beetmall.sshj.admin.service.ABoardService;
-import com.beetmall.sshj.admin.vo.ABoardVO;
+import com.beetmall.sshj.admin.service.Admin_BoardService;
+import com.beetmall.sshj.admin.vo.AdminBoardVO;
  
 
 @Controller
 public class Admin_designController { 
 	@Inject
-	ABoardService boardService;
+	Admin_BoardService boardService;
 	 
 	///////////////////////디자인 관리///////////////////////////////////
 	//디자인 관리

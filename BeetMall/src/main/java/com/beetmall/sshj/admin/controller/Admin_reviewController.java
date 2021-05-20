@@ -13,33 +13,38 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
  
-import com.beetmall.sshj.admin.service.AReviewService; 
-import com.beetmall.sshj.admin.vo.AReviewVO;
+import com.beetmall.sshj.admin.service.AdminReviewService; 
+import com.beetmall.sshj.admin.vo.AdminReviewVO;
+import com.beetmall.sshj.admin.vo.Admin_Board_PageVO;
 import com.beetmall.sshj.seller.vo.SellerReviewVO; 
  
 
 @Controller
 public class Admin_reviewController { 
 	@Inject
-	AReviewService reviewService; 
+	AdminReviewService reviewService; 
 	
 	///////////////////////리뷰 관리///////////////////////////////////
 	//리뷰 목록보기
 	@RequestMapping("/reviewListA")
-	public ModelAndView reviewListA(HttpSession session) {
+	public ModelAndView reviewListA(HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
-		AReviewVO vo = new AReviewVO();
-		String userid = (String)session.getAttribute("logId");
-		if(userid != null) {
-			List<AReviewVO> list = reviewService.reviewListA(userid); 
-			if(list.size()==0) {
-				mav.setViewName("/admin/reviewListA"); 
-			}  
-			mav.addObject("rlist", reviewService.reviewListA(userid));
-			mav.setViewName("/admin/reviewListA");
-		}else {
-			mav.setViewName("/adminHome"); 
+		Admin_Board_PageVO pageVO = new Admin_Board_PageVO();
+		
+		String pageNumStr = req.getParameter("pageNum");
+		if(pageNumStr != null) { 
+			pageVO.setPageNum(Integer.parseInt(pageNumStr));
 		}
+		 
+		pageVO.setSearchKey(req.getParameter("searchKey"));
+		pageVO.setSearchWord(req.getParameter("searchWord"));
+	//	pageVO.setTotalRecord(boardService.noticeAllRecord(pageVO));
+		
+		mav.addObject("list", reviewService.reviewListA(pageVO));
+		mav.addObject("pageVO",pageVO);
+		
+		mav.setViewName("/admin/reviewListA");
+		
 		return mav;
 	}
 }

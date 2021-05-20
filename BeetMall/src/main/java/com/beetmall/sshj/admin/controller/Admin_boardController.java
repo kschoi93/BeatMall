@@ -2,86 +2,84 @@ package com.beetmall.sshj.admin.controller;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.beetmall.sshj.admin.service.ABoardService;
-import com.beetmall.sshj.admin.vo.ABoardVO;
-import com.beetmall.sshj.admin.vo.AMemberVO;
-import com.beetmall.sshj.custom.vo.PageSearchVO;
+import com.beetmall.sshj.admin.service.Admin_BoardService;
+import com.beetmall.sshj.admin.vo.AdminBoardVO;
+import com.beetmall.sshj.admin.vo.Admin_Board_PageVO; 
  
 
 @Controller
 public class Admin_boardController { 
 	@Inject
-	ABoardService boardService;
+	Admin_BoardService boardService;
 	//////////////////////공지 관리///////////////////////////////////// 
 	//공지 목록 보기
 	@RequestMapping("/noticeBoardList")
-	public ModelAndView noticeBoardList(HttpServletRequest req, HttpServletResponse res) {
+	public ModelAndView noticeBoardList(HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
-		String pageNumStr = req.getParameter("pageNum");
+		Admin_Board_PageVO pageVO = new Admin_Board_PageVO();
 		
-		PageSearchVO pageVO = new PageSearchVO();
+		String pageNumStr = req.getParameter("pageNum");
 		if(pageNumStr != null) { 
 			pageVO.setPageNum(Integer.parseInt(pageNumStr));
 		}
-		//검색어, 검색키
+		 
 		pageVO.setSearchKey(req.getParameter("searchKey"));
 		pageVO.setSearchWord(req.getParameter("searchWord"));
-		pageVO.setTotalRecord(boardService.noticeList(pageVO));
+	//	pageVO.setTotalRecord(boardService.noticeAllRecord(pageVO));
 		
-		mav.addObject("list",boardService.noticeAllRecord(pageVO));
+		mav.addObject("list", boardService.noticeBoardList(pageVO));
 		mav.addObject("pageVO",pageVO);
-				
+		
 		mav.setViewName("/admin/noticeBoardList");
+		
 		return mav;
 	}
 	//공지 작성하기
-	@RequestMapping("/noticeBoardWrite")
+/*	@RequestMapping("/noticeBoardWrite")
 	public String noticeBoardWrite() { 
 		 return "/admin/noticeBoardWrite"; 
-	}
+	} */
 	
 	//공지 넘버 생성하기
-	@RequestMapping("/noticeBoardWrite")
+	@RequestMapping("/noticeBoardWritea")
 	@ResponseBody
 	public int getInfonum() { 
 		int infonum = boardService.getInfonum();
 		return infonum;
 	}
-	
+/*	
 	//공지 작성하기    
 	  	@RequestMapping(value="/noticeBoardWriteOk", method=RequestMethod.POST)
-	public ModelAndView noticeBoardWriteOk(ABoardVO vo, HttpServletRequest req, HttpSession session) { 
-	 	vo.setUserid(((AMemberVO)session.getAttribute("logVo")).getUserid()); 
+	public ModelAndView noticeBoardWriteOk(AdminBoardVO vo, HttpServletRequest req, HttpSession session) { 
+	 //	vo.setUserid(((Admin_MemberVO)session.getAttribute("logVo")).getUserid()); 
   	
 		ModelAndView mav = new ModelAndView();
-		if(boardService.boardInsert(vo)>0) { //글 등록 성공
+		if(boardService.boardInsertA(vo)>0) { //글 등록 성공
 			mav.setViewName("redirect:noticeBoardList");
 		}else {//글 등록 실패
 			mav.setViewName("redirect:noticeBoardWrite");
 		}
 			return mav;
-	}
+	}*/
 	 
 	//공지 수정하기
 	@RequestMapping("/noticeBoardEdit")
 	public String noticeBoardEdit(int no, Model model) { 
-		model.addAttribute("vo", boardService.boardSelect(no));
+		//model.addAttribute("vo", boardService.boardUpdate(vo));
 		return "/admin/noticeBoardEdit"; 
 	}
 	
 	//공지 수정하기
 	/*	@RequestMapping(value="/board/boardEditOk", method=RequestMethod.POST)
-	public ModelAndView boardEditOk(BoardVO vo, HttpSession session) {
+	public ModelAndView boardEditOk(AdminBoardVO vo, HttpSession session) {
 		vo.setUserid(((MemberVO)session.getAttribute("logVo")).getUserid()); 
 		ModelAndView mav = new ModelAndView();
 		
@@ -95,20 +93,32 @@ public class Admin_boardController {
 	}*/
 	
 	//공지 삭제하기
-	/*@RequestMapping("/noticeBoardDel")
-	public ModelAndView noticeBoardDel(int infonum, HttpSession session) {  
+	 @RequestMapping("/noticeBoardDelA")
+	public ModelAndView noticeBoardDel(int infonum) {  
 		 ModelAndView mav = new ModelAndView();
-		 MemberVO vo = (MemberVO)session.getAttribute("logVo");
-			if(boardService.boardDel(infonum, vo.getUserid())>0){//삭제 성공시
-				mav.setViewName("redirect:noticeBoardList");
-			}else {//삭제 실패
-				mav.addObject("infonum", infonum);
-				mav.setViewName("redirect:noticeBoardList");
-			}
-			return mav;
-		}*/
+		 
+	  	if(boardService.boardDelA(infonum)>0){//삭제 성공시
+			mav.setViewName("redirect:noticeBoardList");
+		}else {//삭제 실패
+			mav.addObject("infonum", infonum);
+			mav.setViewName("redirect:noticeBoardEdit");
+		}
+		return mav;
+	} 
 	 
-  
+  //공지 여러개 삭제하기
+	 @RequestMapping("/multiDel")
+		public ModelAndView boardMultiDel(AdminBoardVO vo, HttpSession session) { 
+		  	vo.setUserid((String)session.getAttribute("logId"));  
+		 	for(int no:vo.getNoList()) {
+				System.out.println("삭제 체크한 번호="+no);
+			}
+			ModelAndView mav = new ModelAndView(); 
+			int result = boardService.boardMultiDelete(vo.getNoList());
+			System.out.println("삭제된 레코드 수 ->"+result);
+			mav.setViewName("redirect:list");
+			return mav;
+		}
 	
 }
 	

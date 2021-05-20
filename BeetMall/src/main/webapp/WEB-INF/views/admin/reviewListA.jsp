@@ -322,7 +322,7 @@ let searchTxt =null;// 검색 데이터
 			 	<li><select name="sort" > 
 		   				<option value="상품번호" selected>상품번호</option>
 		   				<option value="상품명">상품명</option>
-		   				<option value="법인명">법인명</option>
+		   				<option value="판매자">판매자</option>
 		   				<option value="리뷰내용">리뷰내용</option>
 		   				<option value="답변상태">답변상태</option>
 		   				<option value="작성자">작성자</option>
@@ -350,31 +350,49 @@ let searchTxt =null;// 검색 데이터
 				<li>리뷰번호</li>
 				<li>카테고리</li>
 				<li>상품명</li>
-				<li>법인명</li>
+				<li>판매자</li>
 				<li>리뷰내용</li>
 				<li>답변상태</li>
 				<li>작성자</li>
 				<li>등록일</li> 
 			</ul>
-		</div>  
-		
-		 <c:forEach var="data" items="${rlist}">
+		</div>   
+		 <c:forEach var="rvo" items="${list}">
 			<ul class="contentList">
 				<li><input type="checkbox" name="check" id="check"></li>
-				<li>${data.reviewnum}</li>
-				<li>채소</li>
-				<li class="wordCut"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향법인</li>
-				<li class="wordCut" id="reportDiv">${data.reviewcontent}</li>
+				<li>${rvo.reviewnum}</li>
+				<li>  
+					<c:if test="${rvo.catenum==1}">
+						 건과류
+					</c:if>
+					<c:if test="${rvo.catenum==2}">
+						 견과류
+					</c:if>
+					<c:if test="${rvo.catenum==3}">
+						 과일
+					</c:if>
+					<c:if test="${rvo.catenum==4}">
+						 쌀
+					</c:if>
+					<c:if test="${rvo.catenum==5}">
+						 잡곡
+					</c:if>
+					<c:if test="${rvo.catenum==6}">
+						 채소
+					</c:if>  
+				</li>
+				<li class="wordCut">${rvo.productname}</li>
+				<li>${rvo.sellerid}</li>
+				<li class="wordCut" id="reportDiv"><a href="회원정보?">${rvo.reviewcontent}</a></li>
 				<li>
-					<c:if test="${data.reviewanswer==null || data.reviewanswer==''}">
+					<c:if test="${rvo.reviewanswer==null || data.reviewanswer==''}">
 						답변대기
 					</c:if>
-					<c:if test="${data.reviewanswer!=null && data.reviewanswer !=''}">
+					<c:if test="${rvo.reviewanswer!=null && data.reviewanswer !=''}">
 						답변완료
 					</c:if></li>
-				<li>${data.userid}</li>
-				<li>${data.reviewwritedate}</li> 
+				<li>${rvo.customerid}</li>
+				<li>${rvo.reviewwritedate}</li> 
 			</ul> 
 		</c:forEach> 	   
 		</div>	 

@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.beetmall.sshj.admin.service.ABoardService;
-import com.beetmall.sshj.admin.vo.ABoardVO; 
+import com.beetmall.sshj.admin.service.Admin_BoardService;
+import com.beetmall.sshj.admin.vo.AdminBoardVO; 
 
 @Controller
 public class Admin_sellerController {
 	@Inject
-	ABoardService adminService;
+	Admin_BoardService adminService;
 	 
 	//////////////////////판매자 관리////////////////////////////////
 	//목록보기
