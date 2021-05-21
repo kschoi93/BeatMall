@@ -180,7 +180,7 @@ $(document).ready(function(){
 </script>
 	<div id="topBarContainer">
 	<div id="topBar">
-		<h5><strong><a href="noticeBoardEdit">공지 수정</a></strong></h5>   
+		<h5><strong><a href="noticeBoardEdit">공지 보기</a></strong></h5>   
 	</div>
 	</div>
 <div id="body1">
@@ -226,7 +226,7 @@ $(document).ready(function(){
 			</tbody>
 		</table>
 			<div id="bottommm">
-				<input type="submit" value="작성하기" class="btn write_btn" id="write_btn"/>	
+				<a href="noticeBoardEdit?no=${vo.no}"><input type="submit" value="수정하기" class="btn write_btn" id="write_btn"/></a>	
 				<input type="reset" value="다시 쓰기" class="btn write_btn" id="reWrite_btn"/>	
 				<input type="button" value="취소" class="btn write_btn" id="cancle_btn" onClick="location.href='<%=request.getContextPath() %>/recipeView'"/>
 			</div>

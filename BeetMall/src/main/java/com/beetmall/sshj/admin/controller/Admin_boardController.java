@@ -158,14 +158,23 @@ public class Admin_boardController {
 			return mav; 
 	}  
 
- 	
+ 	//공지 보기
+ 		@RequestMapping("/noticeBoardView")
+ 		public ModelAndView noticeBoardView(int infonum) {
+ 			ModelAndView mav = new ModelAndView();
+ 			mav.addObject("vo", boardService.noticeBoardView(infonum));
+ 			mav.setViewName("/noticeBoardView");
+ 			return mav;
+ 		}
  	 
 	 
 	//공지 수정하기
-	@RequestMapping("/noticeBoardEdit")
-	public String noticeBoardEdit(int no, Model model) { 
-		//model.addAttribute("vo", boardService.boardUpdate(vo));
-		return "/admin/noticeBoardEdit"; 
+	@RequestMapping("/noticeBoardEdit") 
+	public ModelAndView noticeBoardEdit(AdminBoardVO vo, Model model)  {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("vo", boardService.boardUpdate(vo));
+		mav.setViewName("/noticeBoardEdit");
+		return mav;
 	}
 	
 	//공지 수정하기

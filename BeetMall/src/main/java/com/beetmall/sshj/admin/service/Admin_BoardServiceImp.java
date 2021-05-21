@@ -28,11 +28,12 @@ public class Admin_BoardServiceImp implements Admin_BoardService {
 //	@Override
 //	public int noticeAllRecord(Admin_Board_PageVO pageVO) {
 //		return boardDAO.noticeAllRecord(pageVO);
-//		}
+//		} 
+
 	@Override
-	public int getInfonum() { 
-		return boardDAO.getInfonum();
-	}
+	public AdminBoardVO noticeBoardView(int no) { 
+		return boardDAO.noticeBoardView(no);
+	} 
 
 	@Override
 	public int boardInsertA(AdminBoardVO vo) { 
