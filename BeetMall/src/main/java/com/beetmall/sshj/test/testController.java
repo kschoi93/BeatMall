@@ -35,7 +35,7 @@ public class testController {
 		return "custom/customMyrecipe";
 	}
 	
-*/	
+	
 	@RequestMapping("/custominfo")
 	public String customInfo() {
 		return "custom/custominfo";
@@ -50,7 +50,7 @@ public class testController {
 	public String customInfoView() {
 		return "custom/custominfoView";
 	}
-	
+	*/
 	@RequestMapping("/customBuyConfirm")
 	public String customBuyConfirm() {
 		return "custom/customBuyConfirm";
@@ -72,14 +72,7 @@ public class testController {
 	public String errer() {
 		return "etc/error";
 	}
-	@RequestMapping("searchId")
-	public String searchId() {	// 아이디 찾기
-		return "login/idSearch";	
-	}
-	@RequestMapping("searchPwd")
-	public String searchPwd() {	// 비밀번호 찾기
-		return "login/pwdSearch";	
-	}
+	
 	
 	@RequestMapping("myinfoEdit")
 	public String myInfoEdit() {	// 내 정보

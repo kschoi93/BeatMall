@@ -37,4 +37,19 @@ public class ProductPayServiceImp implements ProductPayService {
 	public void inserOrderDetail(ProductPayVO pro) {
 		productPayDAO.inserOrderDetail(pro);	
 	}
+
+	@Override
+	public void UpdatePoint(int orderprice, String userid) {
+		productPayDAO.UpdatePoint(orderprice, userid);
+	}
+
+	@Override
+	public void usedPoint(ProductPayVO pro) {
+		productPayDAO.usedPoint(pro);
+	}
+
+	@Override
+	public void savePoint(ProductPayVO pro) {
+		productPayDAO.savePoint(pro);
+	}
 }

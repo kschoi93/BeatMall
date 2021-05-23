@@ -123,31 +123,38 @@ ul>li {
 	color: rgb(252, 118, 45);
 	height: 20px;
 	margin-top: 10px;
+	margin-bottom:40px;
 }
 
 /*  큰제목----------------------------------------------                 */
-#recit {
-	width: 300px;
-	padding: 0px;
-	margin: 0px;
-	color: rgb(252, 118, 45);
-}
 
 /*  게시글 리스트----------------------------------------------                 */
 #slist {
+float:left;
 	width: 100%;
-	height: 150px;
-	margin-bottom: 100px;
+	height:700px;
+	margin-bottom: 30px;
 }
 
 #reciListT {
 	padding: 0px;
 	margin-top: 10px;
 	border-bottom: 1px solid #ddd;
+	font-size:20px;
+	color:gray;
+	float:left;
+	width:100%;
+	text-align:center;
+	
+}
+#reciListT>li {
+margin-bottom:10px;
+
 }
 
 #reciList, #reciListT {
 	width: 100%;
+	
 }
 
 #reciList>li, #reciListT>li {
@@ -160,11 +167,15 @@ ul>li {
 #reciList>li {
 	border-bottom: 1px solid #ddd;
 	margin-bottom: 5px;
+	font-size:18px;
+	height:50px;
+	line-height:50px;
 }
 
 #reciList>li:nth-child(6n+2), #reciListT>li:nth-child(6n+2) {
 	width: 50%;
 }
+
 
 /*  글안에 내용----------------------------------------------                 */
 #reciContenView {
@@ -172,17 +183,20 @@ ul>li {
 	height: 40px;
 	background-color: #eee;
 	border-bottom: 1px solid #ddd;
+	text-align:center;
 }
 
 #reciContenView>li {
 	width: 10%;
 	float: left;
 	line-height: 40px;
+	
 }
 
 #reciContenView>li:nth-child(6n+2) {
 	width: 50%;
 }
+
 
 /*  해당 게시글 보기----------------------------------------------                 */
 #rcontent {
@@ -286,6 +300,26 @@ td, .td{
 }
 
 
+
+#searchKey{
+float:left;
+}
+
+#searchWord{
+float:left;
+margin-right:0px;
+border:1px solid #ddd;
+height:28px;
+width:170px;
+
+}
+
+#searb{
+width:100%;
+float:left;
+}
+
+
 </style>
 <script>
 
@@ -301,16 +335,23 @@ td, .td{
 		<div id="recipettile">
 			<b>레시피를 올리는 곳입니다.</b>
 		</div>
-		<!-- ------------------------게시글 리스트----------------------------------- -->
+		
+	<!-- ------------------------검색 기능----------------------------------- -->
+	
+	<div id="searb">
+	
+	 </div>
+<!-- ------------------------게시글 리스트----------------------------------- -->
 		<div>
 
+<!--
 			<select name="selectOrder" style="float: right">
 				<option>최신순</option>
 				<option>추천순</option>
 				<option>조회수순</option>
 			</select>
-
-
+	-->	
+<!-- ------------------------게시글 리스트----------------------------------- -->
 			<div id="slist">
 				<ul id="reciListT">
 					<li><b>번호</b></li>
@@ -342,22 +383,29 @@ td, .td{
 
 		<!-- -----------------------------페이지 표시----------------------------------------- -->
 
-		<div class="page_wrap">
-			<div class="page_nation">
-				<a class="arrow pprev" href="#"></a> <a class="arrow prev" href="#"></a>
-				<a href="#" class="active">1</a> <a href="#">2</a> <a href="#">3</a>
-				<a href="#">4</a> <a href="#">5</a> <a href="#">6</a> <a href="#">7</a>
-				<a href="#">8</a> <a href="#">9</a> <a href="#">10</a> <a
-					class="arrow next" href="#"></a> <a class="arrow nnext" href="#"></a>
-			</div>
-		</div>
-
+	    <div class="page_wrap">
+					<div class="page_nation">
+					   <c:if test="${pageVO1.pageNum>1}"><!-- 이전페이지가 있을때 -->
+					   		<a class="arrow prev" href="/sshj/recipeList?pageNum=${pageVO1.pageNum-1}<c:if test="${pageVO1.searchWord != null && pageVO1.searchWord != ''}">&searchKey=${pageVO1.searchKey}&searchWord=${pageVO1.searchWord}</c:if>"></a>
+					   </c:if>
+					   <!-- 페이지 번호                   1                                    5                     -->
+			           <c:forEach var="p" begin="${pageVO1.startPageNum}" step="1" end="${pageVO1.startPageNum + pageVO1.onePageNum-1}">
+			              <c:if test="${p<=pageVO1.totalPage}">
+			                 <c:if test="${p==pageVO1.pageNum}"> <!-- 현재페이지일때 실행 -->
+			                    <a class="active">${p}</a>
+			                 </c:if>   
+			                 <c:if test="${p!=pageVO1.pageNum}"> <!-- 현재페이지가 아닐때 실행 -->
+			                    <a href="/sshj/recipeList?pageNum=${p}<c:if test="${pageVO1.searchWord != null && pageVO1.searchWord != ''}">&searchKey=${pageVO1.searchKey}&searchWord=${pageVO1.searchWord}</c:if>">${p}</a>
+			                 </c:if>
+			              </c:if>
+			           </c:forEach>
+			           <c:if test="${pageVO1.pageNum < pageVO1.totalPage}">
+			              <a class="arrow next" href="/sshj/recipeList?pageNum=${pageVO1.pageNum+1}<c:if test="${pageVO1.searchWord != null && pageVO1.searchWord != ''}">&searchKey=${pageVO1.searchKey}&searchWord=${pageVO1.searchWord}</c:if>"></a>
+			           </c:if>
+					</div>
+			 </div>  
 	
-		<!-- ------------------------검색 기능----------------------------------- -->
-		<div id="searchbox">
-			<input type="text" name="search" placeholder="검색어를 입력하세요" /> <input
-				type="submit" id="searchbtn" value="Search" />
-		</div>
+	
 
 
 

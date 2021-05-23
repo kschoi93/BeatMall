@@ -9,9 +9,6 @@
 		 float:left; 
 		 width:9%; 
 	 }  
-	 #container li:nth-of-type(6):not(#sortBox li:nth-of-type(6)){ 
-	 	padding:10px 0 10px 20px;
-	 } 
 	#contentBox{
 		top:-40px;
 	} 
@@ -37,16 +34,15 @@
 	#topBar li:nth-of-type(4){
 		width:6%;
 	}   
-	/*데이터 내용*/ 
-	.cartImg{
-		margin-left:10px;
-		height:20%;
-		width:25%;
+	#title li:nth-of-type(6){
+		padding-top: 0 !important;
 	}
+	/*데이터 내용*/  
 	#content input, textarea, select, #noticeSearchFrm input{
 		border:1px solid lightgray; 
 		border-radius: 3px;
-	}#content li, label{
+	}
+	#content li, label{
 		list-style-type:none; 
 		padding-bottom:10px;
 	}
@@ -60,12 +56,6 @@
 	} 
 	#btns a>button, button:nth-of-type(4){ 
 		margin-left:900px; 
-	} 
-	#topBar Button:nth-of-type(1),
-	#topBar Button:nth-of-type(2),
-	#topBar Button:nth-of-type(3),
-	#topBar Button:nth-of-type(4){
-		padding:2px 7px;
 	}  
 	#sortBox {
 		margin: 80px 0 0 20px;
@@ -133,8 +123,7 @@
 		font-size:16px;
 		font-weight:bold;
 		letter-spacing:2px;
-		height:35px;
-		
+		height:35px; 
 	}
 	/*모달 내 상품, 구매자 정보 표*/
 	.tg  {
@@ -289,6 +278,21 @@
 	    left: 750px; 
 	}
 </style> 
+<script>
+////////////////////////////////전역변수 선언 /////////////////////////////////
+
+let sortStr = 0;// 정렬 기준을 위한 변수
+
+let startCalendarDataValue = "";//선택된 날짜의 데이터를 저장해 놓는 변수
+let endCalendarDataValue = "";//선택된 날짜의 데이터를 저장해 놓는 변수
+
+let startDate =null;// startDate 선택된 값을 가져온다.
+let endDate = null;// endDate 선택된 값을 가져온다.
+
+let searchTxt =null;// 검색 데이터
+
+
+</script>
 <%@ include file="/inc/top.jspf" %>
 	<div id="topBarContainer">
 		<div id="topBar">
@@ -314,7 +318,7 @@
 			 	<li><select name="sort" > 
 		   				<option value="상품번호" selected>상품번호</option>
 		   				<option value="상품명">상품명</option>
-		   				<option value="법인명">법인명</option>
+		   				<option value="판매자">판매자</option>
 		   				<option value="리뷰내용">리뷰내용</option>
 		   				<option value="답변상태">답변상태</option>
 		   				<option value="작성자">작성자</option>
@@ -339,178 +343,55 @@
 		<div id="title">
 			<ul>
 				<li><input type="checkbox" name="check"></li>
-				<li>상품번호</li>
+				<li>리뷰번호</li>
 				<li>카테고리</li>
 				<li>상품명</li>
-				<li>법인명</li>
+				<li>판매자</li>
 				<li>리뷰내용</li>
 				<li>답변상태</li>
 				<li>작성자</li>
 				<li>등록일</li> 
 			</ul>
-		</div>  
-		
-		 
+		</div>   
+		 <c:forEach var="rvo" items="${list}">
 			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
+				<li><input type="checkbox" name="check" id="check"></li>
+				<li>${rvo.reviewnum}</li>
+				<li>${rvo.mcatename}</li>
+				<li class="wordCut">${rvo.productname}</li>
+				<li>${rvo.seller}</li>
+				<li class="wordCut"><a href="회원정보?">${rvo.reviewcontent}</a></li>
+				<li>
+					<c:if test="${rvo.reviewanswer==null || data.reviewanswer==''}">
+						답변대기
+					</c:if>
+					<c:if test="${rvo.reviewanswer!=null && data.reviewanswer !=''}">
+						답변완료
+					</c:if></li>
+				<li>${rvo.reviewwriter}</li>
+				<li>${rvo.reviewwritedate}</li> 
 			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>채소</li>
-				<li class="subjectLine"><a href="회원정보?">싱싱농산의 유기농 토마토</a></li>
-				<li>제주천혜향</li>
-				<li class="subjectLine">천혜향 향이 진짜 좋아요 너무 맛있어서 또 주문할거예요<div id="reportDiv"></div></li>
-				<li>답변완료</li>
-				<li>ilovetomato</li>
-				<li>2021/04/26</li> 
-			</ul> 
-			  
-		<!--  
-		<c:forEach var="data" items="${list}">
-			<ul class="contentList">
-				<li><input type="checkbox" name="check" id="check"> </li>
-				<li>1569723</li>
-				<li>판매자</li>
-				<li><a href="회원정보?">[판매자 공지] 판매자 사업증 등록시 유의사항</a></li>
-				<li>2021/05/23</li> 
-			</ul>
-		</c:forEach>-->
+		</c:forEach> 	   
 		</div>	 
 		<div class="page_wrap">
 			<div class="page_nation">
-			   <a class="arrow pprev" href="<%=request.getContextPath()%>/img/kpage_pprev.png"></a>
-			   <a class="arrow prev" href="#"></a>
-			   <a href="#" class="active">1</a>
-			   <a href="#">2</a>
-			   <a href="#">3</a>
-			   <a href="#">4</a>
-			   <a href="#">5</a>
-			   <a href="#">6</a>
-			   <a href="#">7</a>
-			   <a href="#">8</a>
-			   <a href="#">9</a>
-			   <a href="#">10</a>
-			   <a class="arrow next" href="#"></a>
-			   <a class="arrow nnext" href="#"></a>
+			   <c:if test="${pageVO.pageNum>1}"><!-- 이전페이지가 있을때 -->
+			   		<a class="arrow prev" href="/sshj/reviewListA?pageNum=${pageVO.pageNum-1}<c:if test="${pageVO.searchWord != null && pageVO.searchWord != ''}">&searchKey=${pageVO.searchKey}&searchWord=${pageVO.searchWord}</c:if>"></a>
+			   </c:if>
+			   <!-- 페이지 번호                   1                                    5                     -->
+	           <c:forEach var="p" begin="${pageVO.startPageNum}" step="1" end="${pageVO.startPageNum + pageVO.onePageNum-1}">
+	              <c:if test="${p<=pageVO.totalPage}">
+	                 <c:if test="${p==pageVO.pageNum}"> <!-- 현재페이지일때 실행 -->
+	                    <a class="active">${p}</a>
+	                 </c:if>   
+	                 <c:if test="${p!=pageVO.pageNum}"> <!-- 현재페이지가 아닐때 실행 -->
+	                    <a href="/sshj/reviewListA?pageNum=${p}<c:if test="${pageVO.searchWord != null && pageVO.searchWord != ''}">&searchKey=${pageVO.searchKey}&searchWord=${pageVO.searchWord}</c:if>">${p}</a>
+	                 </c:if>
+	              </c:if>
+	           </c:forEach>
+	           <c:if test="${pageVO.pageNum < pageVO.totalPage}">
+	              <a class="arrow next" href="/sshj/reviewListA?pageNum=${pageVO.pageNum+1}<c:if test="${pageVO.searchWord != null && pageVO.searchWord != ''}">&searchKey=${pageVO.searchKey}&searchWord=${pageVO.searchWord}</c:if>"></a>
+	           </c:if>
 			</div>
 		 </div> 
 		 <div>
@@ -615,3 +496,19 @@
 </div> 
 
 </html>
+<style>
+	#container li:nth-of-type(6):not(#sortBox li:nth-of-type(6)){ 
+	 	padding:10px 0;
+	 	text-align:left;
+	 	white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	 } 
+</style>
+<script>
+	$(function(){
+		$("#closeBtn").click(function(){
+			$(this).parent().parent().css("display","none");
+		});
+	});
+</script>

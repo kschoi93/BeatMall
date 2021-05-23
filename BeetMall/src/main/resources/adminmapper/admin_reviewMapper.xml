@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beetmall.sshj.admin.dao.AdminReviewDAO">
+ 	<select id="reviewListA" resultType="com.beetmall.sshj.admin.vo.AdminReviewVO" parameterType="com.beetmall.sshj.admin.vo.adminkPageSearchVO">
+ 		select * from(
+	    	select * from(
+		 		select d.reviewnum, d.reviewcontent, d.reviewanswer, d.userid as reviewwriter, to_char(d.reviewwritedate, 'YYYY/MM/DD') reviewwritedate, c.productname, c.mcatename, c.userid seller
+		            from review d
+		                join(select a.productname, b.mcatename, a.userid, a.productnum, a.mcatenum
+		                        from product a
+		                            join (select mcatenum, mcatename 
+		                                   from mcategory) b
+		                            on a.mcatenum=b.mcatenum) c
+		                on d.productnum=c.productnum
+		                where 1=1
+		                order by reviewnum desc)
+		          where <![CDATA[rownum<=]]>${pageNum}*${onePageRecord} order by reviewnum)
+			where <![CDATA[rownum<=]]><if test="pageNum==totalPage">${lastPageRecord}</if>
+        							  <if test="pageNum!=totalPage">${onePageRecord}</if>
+        order by reviewnum desc      
+ 	</select> 
+ 	<select id="reviewListOnetotalRecord" resultType="int" parameterType="com.beetmall.sshj.admin.vo.adminkPageSearchVO">
+ 	select count(*) from(
+ 		select d.reviewnum, d.reviewcontent, d.reviewanswer, d.userid as reviewwriter, to_char(d.reviewwritedate, 'YYYY/MM/DD') reviewwritedate, c.productname, c.mcatename, c.userid seller
+            from review d
+                join(select a.productname, b.mcatename, a.userid, a.productnum, a.mcatenum
+                        from product a
+                            join (select mcatenum, mcatename 
+                                   from mcategory) b
+                            on a.mcatenum=b.mcatenum) c
+                on d.productnum=c.productnum)
+ 	</select>
+</mapper>
