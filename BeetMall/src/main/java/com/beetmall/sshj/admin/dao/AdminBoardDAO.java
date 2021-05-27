@@ -2,7 +2,7 @@ package com.beetmall.sshj.admin.dao;
 
 import java.util.List;
 
-
+ 
 import com.beetmall.sshj.admin.vo.AdminBoardVO;
 import com.beetmall.sshj.admin.vo.Admin_Board_PageVO;
   

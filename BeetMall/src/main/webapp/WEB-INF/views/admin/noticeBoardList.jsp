@@ -98,7 +98,7 @@
 	form{
 		display:block !important;
 	}
-	#addBtn{ 
+	#addBtn{  
 		left:1500px !important;
 	} 
 	.page_wrap, .searchFrm{

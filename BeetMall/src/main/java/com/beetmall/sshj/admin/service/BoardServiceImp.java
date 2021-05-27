@@ -10,7 +10,7 @@ import com.beetmall.sshj.admin.dao.BoardDAO;
 import com.beetmall.sshj.admin.vo.BoardVO;
  
 @Service
-public class BoardServiceImp implements Boardervice {
+public class BoardServiceImp implements BoardService {
 	
 	@Inject
 	BoardDAO boardDAO;

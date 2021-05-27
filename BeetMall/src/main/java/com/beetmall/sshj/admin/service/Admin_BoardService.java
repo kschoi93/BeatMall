@@ -12,7 +12,7 @@ import com.beetmall.sshj.admin.vo.Admin_Member_PageVO;
 import com.beetmall.sshj.admin.vo.AdminBoardVO;
 import com.beetmall.sshj.custom.vo.PageSearchVO;
  
-
+ 
 public interface Admin_BoardService {
 
 	public List<AdminBoardVO> noticeBoardList(Admin_Board_PageVO pageVO);   
