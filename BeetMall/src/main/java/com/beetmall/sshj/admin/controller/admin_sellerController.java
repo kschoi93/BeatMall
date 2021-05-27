@@ -18,13 +18,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.beetmall.sshj.admin.service.Admin_MemberSellerService;
 import com.beetmall.sshj.admin.service.Admin_MemberServiceImp;
+import com.beetmall.sshj.admin.service.Boardervice;
 import com.beetmall.sshj.admin.vo.Admin_MemberSellerVO;
 import com.beetmall.sshj.admin.vo.Admin_Member_PageVO;
+import com.beetmall.sshj.admin.vo.BoardVO;
 import com.beetmall.sshj.seller.service.SellerEditFarmService;
 import com.beetmall.sshj.seller.vo.SellerEditFarmVO; 
 
 @Controller
 public class admin_sellerController {
+	@Inject
+	Boardervice adminService;
 	 
 	//////////////////////판매자 관리////////////////////////////////
 	@Inject
@@ -45,26 +49,14 @@ public class admin_sellerController {
 			int selType = 2; // 판매자회원
 			pageVO.setUserType(2); // 판매자회원만 조회할거라서 2;
 			String pageNumStr = req.getParameter("pageNum");
-			//검색어, 검색키
-			String searchKey = req.getParameter("searchKey");
-			if(searchKey != null) {
-				if(searchKey.equals("userid")) {
-					searchKey = "userid";
-				}else if(searchKey.equals("useremail")) {
-					searchKey = "storeemail";
-				}else if(searchKey.equals("username")) {
-					searchKey = "sellername";
-				}
-			}
-			pageVO.setSearchKey(searchKey);
-			pageVO.setSearchWord(req.getParameter("searchWord"));
-			System.out.println("getSearchKey>>>>>"+pageVO.getSearchKey());
-			System.out.println("getSearchWord>>>>>"+pageVO.getSearchWord());
+			
 			if(pageNumStr == null) {
 				pageVO.setPageNum(1);
 			}else if(pageNumStr != null) {
 				pageVO.setPageNum(Integer.parseInt(pageNumStr));
 			}
+			
+			
 			//pageVO.setTotalRecord();
 			if(session.getAttribute("logType")!=null) {
 				logType = (int)session.getAttribute("logType");
@@ -72,10 +64,9 @@ public class admin_sellerController {
 				logType = 0;
 			}
 			logType=3;
-			int re = memberservice.memberCountSeller(pageVO);
+			int re = memberservice.memberCountSeller(logType,  selType);
 			pageVO.setTotalRecord(re);
 			System.out.println("re="+re);
-			
 			mav.addObject("list", memberservice.memberselectSellerAll(pageVO));
 			mav.addObject("pageVO", pageVO);
 			mav.setViewName("/admin/sellerListA");
@@ -91,21 +82,7 @@ public class admin_sellerController {
 			int selType = 5; // 탈퇴한 판매자회원
 			pageVO.setUserType(5); // 탈퇴한 판매자회원만 조회할거라서 5;
 			String pageNumStr = req.getParameter("pageNum");
-			//검색어, 검색키
-			String searchKey = req.getParameter("searchKey");
-			if(searchKey != null) {
-				if(searchKey.equals("userid")) {
-					searchKey = "userid";
-				}else if(searchKey.equals("useremail")) {
-					searchKey = "storeemail";
-				}else if(searchKey.equals("username")) {
-					searchKey = "sellername";
-				}
-			}
-			pageVO.setSearchKey(searchKey);
-			pageVO.setSearchWord(req.getParameter("searchWord"));
-			System.out.println("getSearchKey>>>>>"+pageVO.getSearchKey());
-			System.out.println("getSearchWord>>>>>"+pageVO.getSearchWord());
+			
 			if(pageNumStr == null) {
 				pageVO.setPageNum(1);
 			}else if(pageNumStr != null) {
@@ -117,7 +94,7 @@ public class admin_sellerController {
 			}else {
 				logType = 0;
 			}
-			int re = memberservice.memberCountSeller(pageVO);
+			int re = memberservice.memberCountSeller(logType,  selType);
 			pageVO.setTotalRecord(re);
 			
 			mav.addObject("list", memberservice.memberselectSeller(pageVO));
@@ -133,19 +110,13 @@ public class admin_sellerController {
 			int selType = 2; // 정지된 판매자회원
 			pageVO.setUserType(2); // 정지된 판매자회원만 조회할거라서 2;
 			String pageNumStr = req.getParameter("pageNum");
-			//검색어, 검색키
-			String searchKey = req.getParameter("searchKey");
 			
-			pageVO.setSearchKey(searchKey);
-			pageVO.setSearchWord(req.getParameter("searchWord"));
-			System.out.println("getSearchKey>>>>>"+pageVO.getSearchKey());
-			System.out.println("getSearchWord>>>>>"+pageVO.getSearchWord());
 			if(pageNumStr == null) {
 				pageVO.setPageNum(1);
 			}else if(pageNumStr != null) {
 				pageVO.setPageNum(Integer.parseInt(pageNumStr));
 			}
-			int re = memberservice.reportPageNum(pageVO);
+			int re = memberservice.reportPageNum(selType);
 			pageVO.setTotalRecord(re);
 			
 			mav.addObject("list", memberservice.reportselect(pageVO));
@@ -176,7 +147,6 @@ public class admin_sellerController {
 		public int regiapprovalUpdate(HttpServletRequest req) {
 			int num = Integer.parseInt((String)req.getParameter("num"));
 			String userid = (String)req.getParameter("userid");
-			System.out.println(userid);
 			
 			int result = 0;
 			if( num == 1) {

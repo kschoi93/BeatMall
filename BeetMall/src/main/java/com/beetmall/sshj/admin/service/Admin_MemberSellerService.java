@@ -1,7 +1,5 @@
 package com.beetmall.sshj.admin.service;
 
-import java.util.List;
-
 import com.beetmall.sshj.admin.dao.Admin_MemberSellerDAO;
 import com.beetmall.sshj.admin.vo.Admin_MemberSellerVO;
 

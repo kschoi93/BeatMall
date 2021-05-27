@@ -1,7 +1,7 @@
 package com.beetmall.sshj.custom.vo;
 
 public class OrderTblVO {
-	private long ordernum;
+	private int ordernum;
 	private String userid;
 	private String orderdate;
 	private String username;
@@ -21,10 +21,10 @@ public class OrderTblVO {
 	private String paymentoption;
 	private int usedpoint;
 	private int realpayment;
-	public long getOrdernum() {
+	public int getOrdernum() {
 		return ordernum;
 	}
-	public void setOrdernum(long ordernum) {
+	public void setOrdernum(int ordernum) {
 		this.ordernum = ordernum;
 	}
 	public String getUserid() {

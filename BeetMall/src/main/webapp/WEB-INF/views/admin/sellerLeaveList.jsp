@@ -9,7 +9,6 @@
 	 #contentBox{ 
 		top:20px; 
 		margin-left:10px;
-		margin-top:0px !important;
 	}
 	/*남색 바*/  
 	#topBar h5{
@@ -116,15 +115,6 @@
 	#foreachUL>li{
 		cursor: pointer;
 	}
-	#addBtn, #delBtn{
-		visibility: hidden;
-	}
-	#sortBox{
-		display:none;
-	}
-	#choose{
-		margin-top: 50px !important;
-	}
 </style>
 <script>
 	function pagelist(pagenum){
@@ -225,6 +215,7 @@
 		<input type="hidden" id="searchKeyhidden"/>
 		<input type="hidden" id="searchWordhidden"/>
 		 
+		</div>	 
 		<div class="page_wrap">	
 			<div class="page_nation">
 			   <c:if test="${pageVO.pageNum>1}"><!-- 이전페이지가 있을때 -->
@@ -248,16 +239,17 @@
 		 </div> 
  
 		 <div>
-			<form method="get" class="searchFrm" action="sellerLeaveList"> 
-				<select name="searchKey">
-					<option value="userid" selected>아이디</option>
-					<option value="useremail">이메일</option> 
-					<option value="username">이름</option> 
-				</select> <input type="text" name="searchWord" id="searchWord" /> 
-				<input type="submit" value="검색" />
-			</form>
+			<form method="get" class="searchFrm">
+				<select name="searchKey" id="searchKey">
+					<option value="subject" selected>제목</option>
+	   				<option value="no">공지번호</option> 
+	   				<option value="who">대상</option> 
+	   				<option value="writedate">공지일</option> 
+				</select>			
+				<input type="text" name="searchWord" id="searchWord"/>
+				<input type="submit" value="검색"/> 
+			</form> 
 		</div>  
-		</div>	 
 	</div>
 </div>
 </body>

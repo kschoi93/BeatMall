@@ -21,9 +21,7 @@
 		display:block;
 		font-size:17px;
 	}
-	.btn{
-		padding:0px !important;
-	}
+	
 	*{margin:0px; padding:0px; list-style-type :none; font-size:14px;}
 
 	a:hover, a:active, a:visited, a:link {
@@ -109,16 +107,7 @@
 	.tr_head>.td>input{
 	width:700px;
 	}
-	.rbtn{
-	    padding: 3px 10px;
-	    color: #666666;
-	    text-align: center;
-	    text-decoration: none;
-	    display: inline-block;
-	    margin-bottom: 0;
-    	font-weight: 400;
-    	background-color:white;
-	}
+	
 </style>
 
 <div class="section">
@@ -153,8 +142,8 @@
 			</tbody>
 		</table>
 			<div id="bottommm">
-				<input type="button" value="취소" class="rbtn" id="write_btn" onClick="location.href='<%=request.getContextPath() %>/recipeList'"/>
-				<input type="submit" value="작성하기" class="rbtn" id="write_btn"/>		
+				<input type="button" value="취소" class="btn" id="write_btn" onClick="location.href='<%=request.getContextPath() %>/recipeList'"/>
+				<input type="submit" value="작성하기" class="btn" id="write_btn"/>		
 						
 			</div>
 		</form>

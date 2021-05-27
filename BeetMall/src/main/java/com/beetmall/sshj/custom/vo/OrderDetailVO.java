@@ -2,7 +2,7 @@ package com.beetmall.sshj.custom.vo;
 
 public class OrderDetailVO {
 	private int productnum;
-	private long ordernum;
+	private int ordernum;
 	private int orderquantity;
 	private String orderstatus;
 	private String orderconfirm;
@@ -14,10 +14,10 @@ public class OrderDetailVO {
 	public void setProductnum(int productnum) {
 		this.productnum = productnum;
 	}
-	public long getOrdernum() {
+	public int getOrdernum() {
 		return ordernum;
 	}
-	public void setOrdernum(long ordernum) {
+	public void setOrdernum(int ordernum) {
 		this.ordernum = ordernum;
 	}
 	public int getOrderquantity() {

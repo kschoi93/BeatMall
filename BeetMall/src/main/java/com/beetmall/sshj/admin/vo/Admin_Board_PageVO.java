@@ -1,7 +1,7 @@
  package com.beetmall.sshj.admin.vo;
 
 public class Admin_Board_PageVO {
-
+ 
 	private int pageNum = 1;
 	private int onePageNum = 5;
 	private int onePageRecord = 12;

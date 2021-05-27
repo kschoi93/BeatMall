@@ -74,17 +74,6 @@
 	.contentList{
 		cursor: pointer;
 	}
-	#sortBox{
-		display:none;
-	}
-	#addBtn, #delBtn{
-		visibility: hidden;
-	}
-	#choose{
-		margin-top: 50px !important;
-	}
-	
-	
 </style>
 <script>
 	function pagelist(pagenum){
@@ -160,12 +149,12 @@
    		<div id="contentBox"> 	
 		<div id="title">
 			<ul>
-				<li><input type="hidden" name="check"  ></li>
+				<li><input type="checkbox" name="check"  ></li>
 				<li>이름</li>
 				<li>아이디</li>
 				<li>나이</li>
 				<li>이메일</li>
-				<li>포인트</li>
+				<li>생년월일</li>
 				<li>주소</li>
 				<li>탈퇴일</li> 
 				
@@ -205,14 +194,16 @@
 			</div>
 		 </div>
 		 <div>
-			<form method="get" class="searchFrm" action="customerLeaveList"> 
+			<form method="get" class="searchFrm" action="<%=request.getContextPath() %>/board/noticeBoardList.jsp">
 				<select name="searchKey">
-					<option value="userid" selected>아이디</option>
-					<option value="useremail">이메일</option> 
-					<option value="username">이름</option> 
-				</select> <input type="text" name="searchWord" id="searchWord" /> 
-				<input type="submit" value="검색" />
-			</form>
+					<option value="username" selected>이름</option>
+	   				<option value="userid">아이디</option> 
+	   				<option value="useremail">이메일</option> 
+	   				<option value="useraddr">주소</option> 
+				</select>			
+				<input type="text" name="searchWord" id="searchWord"/>
+				<input type="submit" value="검색"/> 
+			</form> 
 		</div>  
 	</div>
 </div>

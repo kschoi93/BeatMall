@@ -97,11 +97,11 @@
 				left join discount d
 				    on w.productnum = d.productnum
 				where w.userid = #{userid}
-				order by w.wishcode desc)
-			 where <![CDATA[rownum<=]]>${pageNum}*${onePageRecord} order by wishcode asc)
+				order by w.wishcode)
+			 where <![CDATA[rownum<=]]>${pageNum}*${onePageRecord} order by wishcode desc)
 			 where <![CDATA[rownum<=]]><if test="pageNum==totalPage">${lastPageRecord}</if>
         							  <if test="pageNum!=totalPage">${onePageRecord}</if>
-        	order by wishcode desc					  				
+        	order by wishcode asc					  				
      </select>
      
   <!-- 장바구니 삭제 -->

@@ -151,7 +151,7 @@
 		padding:0px;
 		margin:0;
 		float: left;
-	    width: 13%;
+	    width: 12.5%;
 	    height: 42px;
 	    
 	    background-color: #f8f8f8;
@@ -181,10 +181,7 @@
 
 	}
 	#management_container li{
-		width:133px !important;
-	}
-	.menu8{
-		border-right:1px solid #dfe2e6 !important;
+		width:11.7%;
 	}
 	.menu1{
 		padding:18px 0;
@@ -365,9 +362,6 @@
 	.option_change button{
 		border:1px solid lightgray;
 		border-radius:5px;
-	}
-	#sortBox{
-		display:none;
 	}
 </style>
 <script>
@@ -618,7 +612,7 @@ function modalAjax(){
 			 </ul>
    		</div> 
    	
-   <div id="contentBox" style="height:120px;"> 	
+   <div id="contentBox"> 	
 		  <!-- 상단 검색 옵션 : 접수일/ 카테고리/ 주문번호/ 고객ID/ 검색 -->
 		<form id="searchBox">
 		<div class="search">

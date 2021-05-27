@@ -68,7 +68,7 @@ public class Admin_WishVO {
 	
 	//리뷰 VO
 	private int reviewnum;
-	private long ordernum;
+	private int ordernum;
 	private String reviewcontent;
 	private String reviewwritedate;
 	private int reviewrecommend;
@@ -332,10 +332,10 @@ public class Admin_WishVO {
 	public void setReviewnum(int reviewnum) {
 		this.reviewnum = reviewnum;
 	}
-	public long getOrdernum() {
+	public int getOrdernum() {
 		return ordernum;
 	}
-	public void setOrdernum(long ordernum) {
+	public void setOrdernum(int ordernum) {
 		this.ordernum = ordernum;
 	}
 	public String getReviewcontent() {

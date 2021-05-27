@@ -22,8 +22,8 @@ public class Admin_MemberServiceImp implements Admin_MemberService {
 	Admin_MemberDAO memberdao;
 
 	@Override
-	public int memberCount(Admin_Member_PageVO vo) {
-		return memberdao.memberCount(vo);
+	public int memberCount(int usertype, int seltype) {
+		return memberdao.memberCount(usertype, seltype);
 	}
 
 	@Override
@@ -32,8 +32,8 @@ public class Admin_MemberServiceImp implements Admin_MemberService {
 	}
 
 	@Override
-	public int memberCountBlack(Admin_Member_PageVO vo) {
-		return memberdao.memberCountBlack(vo);
+	public int memberCountBlack(int usertype, int seltype) {
+		return memberdao.memberCountBlack(usertype, seltype);
 	}
 
 	@Override
@@ -42,8 +42,8 @@ public class Admin_MemberServiceImp implements Admin_MemberService {
 	}
 
 	@Override
-	public int memberCountall(Admin_Member_PageVO vo) {
-		return memberdao.memberCountall(vo);
+	public int memberCountall() {
+		return memberdao.memberCountall();
 	}
 
 	@Override
@@ -52,8 +52,8 @@ public class Admin_MemberServiceImp implements Admin_MemberService {
 	}
 
 	@Override
-	public int memberCountSeller(Admin_Member_PageVO vo) {
-		return memberdao.memberCountSeller(vo);
+	public int memberCountSeller(int usertype, int seltype) {
+		return memberdao.memberCountSeller(usertype, seltype);
 	}
 
 	@Override
@@ -162,13 +162,13 @@ public class Admin_MemberServiceImp implements Admin_MemberService {
 	}
 
 	@Override
-	public int reportPageNum(Admin_Member_PageVO vo) {
-		return memberdao.reportPageNum(vo);
+	public int reportPageNum(int usertype) {
+		return memberdao.reportPageNum(usertype);
 	}
 
 	@Override
-	public int chatTotal(Admin_Member_PageVO vo) {
-		return memberdao.chatTotal(vo);
+	public int chatTotal() {
+		return memberdao.chatTotal();
 	}
 
 	@Override

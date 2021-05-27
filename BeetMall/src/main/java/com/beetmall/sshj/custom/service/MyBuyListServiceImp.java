@@ -25,24 +25,24 @@ public class MyBuyListServiceImp implements MyBuyListService {
 	}
 
 	@Override
-	public int orderCommit(long ordernum) {
+	public int orderCommit(int ordernum) {
 		
 		return mybuylistDAO.orderCommit(ordernum);
 	}
 
 	@Override
-	public int orderCancel(long ordernum) {
+	public int orderCancel(int ordernum) {
 		return mybuylistDAO.orderCancel(ordernum);
 	}
 
 	@Override
-	public int orderCancelOk(long ordernum) {
+	public int orderCancelOk(int ordernum) {
 		
 		return mybuylistDAO.orderCancelOk(ordernum);
 	}
 
 	@Override
-	public int reviewCheck(long ordernum) {
+	public int reviewCheck(int ordernum) {
 		
 		return mybuylistDAO.reviewCheck(ordernum);
 	}
@@ -60,7 +60,7 @@ public class MyBuyListServiceImp implements MyBuyListService {
 	}
 
 	@Override
-	public ReviewVO reviewSelect(long ordernum) {
+	public ReviewVO reviewSelect(int ordernum) {
 		
 		return mybuylistDAO.reviewSelect(ordernum);
 	}
@@ -96,13 +96,13 @@ public class MyBuyListServiceImp implements MyBuyListService {
 	}
 
 	@Override
-	public int claimUpdate(long ordernum, String status) {
+	public int claimUpdate(int ordernum, String status) {
 		
 		return mybuylistDAO.claimUpdate(ordernum, status);
 	}
 
 	@Override
-	public ClaimVO returnSelect(long ordernum) {
+	public ClaimVO returnSelect(int ordernum) {
 		
 		return mybuylistDAO.returnSelect(ordernum);
 	}
@@ -114,7 +114,7 @@ public class MyBuyListServiceImp implements MyBuyListService {
 	}
 
 	@Override
-	public int returnFinish(long ordernum) {
+	public int returnFinish(int ordernum) {
 		
 		return mybuylistDAO.returnFinish(ordernum);
 	}

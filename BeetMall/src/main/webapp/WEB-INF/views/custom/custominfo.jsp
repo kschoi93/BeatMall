@@ -44,13 +44,11 @@
 
 
 #qnaViewbox{
-	width:100%;
-	float:left;
-	padding-left:30px;
-	padding-bottom:10px;
-	border-bottom:1px solid #ddd;
-	margin-bottom:20px;
-	display: none;
+width:100%;
+float:left;
+padding-left:30px;
+padding-bottom:10px;
+border-bottom:1px solid #ddd;
 }
 
 /* 리뷰이미지 설정*/
@@ -80,7 +78,7 @@
 #qnatxtbox2{
    padding-left:15px;
 	width:1050px;
-	height: 150px;
+	height: 200px;
 	line-height: 100px;
 	float: left;
 	padding-left:50px;
@@ -91,23 +89,20 @@
 #nonebox{
 float:left;
  width:100%;
- height:2px;
- line-height:2px;
- margin-top:50px;
- margin-bottom:150px;
+ height:30px;
+ line-height:30px;
+ margin:10px;
 }
 	/* ---------------상세정보박스3시잗-------------------- */
 #productInfoPage3 {
-   float:left;
 	width: 100%;
-	height:900px;
 }
 
 #productInfoPage3>#qtitle {
 	width: 100%;
 	float: left;
-	margin-top:5px;
-	
+	margin-top:30px;
+	margin-bottom: 50px;
 }
 
 #qnaTitle {
@@ -139,7 +134,6 @@ overflow:hidden;
 	height: 60px;
 	line-height: 50px;
 	padding-bottom:10px;
-	font-size:17px;
 	
 }
 
@@ -228,9 +222,31 @@ overflow:hidden;
 	padding-left: 0px;
 }
 
-	
-	
-	
+	button, .btn{
+		padding: 3px 10px;
+		color: #666666;
+		text-align: center;
+ 		text-decoration: none;
+		display: inline-block;
+		border:none;
+	}
+	.minibtn{
+		padding: 3px 5px;
+		color: #666666;
+		border-radius: 8px;
+		background:#fff;
+		box-shadow: 0 0px 3px 0 rgba(0,0,0,0.5);
+		text-align: center;
+ 		text-decoration: none;
+		display: inline-block;
+		border:none;
+	}
+	/*버튼*/
+	.btn:hover, .minibtn:hover{
+		background-color:white;
+		color:black;
+		display: inline-block;
+	}
 	
 	
 	#infoBtn1,#infoBtn2,#infoBtn3{
@@ -274,6 +290,18 @@ overflow:hidden;
 		width:100%;
 	}
 	
+	button, .btn {
+	    padding: 3px 10px;
+	    color: #666666;
+	    border-radius: 8px;
+	    background: #fff;
+	    box-shadow: 0 0px 3px 0 rgb(0 0 0 / 50%);
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    border: none;
+	    margin-left: 5px;
+	}
 	.cs_message {
 	    margin: 0 auto;
 	    font-size: 15px;
@@ -288,7 +316,7 @@ overflow:hidden;
 	    font-family: inherit;
 	    font-size: inherit;
 	    line-height: inherit;
-	    /* text-transform: none; */
+	    text-transform: none;
 	    color: inherit;
 	    font: inherit;
 	    margin: 0;
@@ -315,7 +343,6 @@ overflow:hidden;
 		font-size:0;
 		padding-bottom: 30px;
 		padding-top: 50px;
-	
 	}
 	.page_nation {
 		display:inline-block;
@@ -362,8 +389,6 @@ overflow:hidden;
 		border:1px solid #42454c;
 	}
 	/* 페이징처리끝 */
-	
-	
 </style>
 
 <script>
@@ -434,7 +459,7 @@ $(function(){
 		
 		
 		
-		$("#reportClose").click(function(){			// 신고  닫기 부분 
+		$("#reportClose").click(function(){			// 신고 닫기 부분
 		$("#reportcontent").val('');
 		$("#reportDiv").css("display","none");
 	     })
@@ -585,7 +610,6 @@ $(function(){
 				  		<li>미답변</li>
 				  	</c:if>
 				  	
-				  	
 				  	<c:if test="${qlist.qanswer!=null}">
 				 		 <li>답변완료</li>
 				 	</c:if>
@@ -645,11 +669,6 @@ $(function(){
 	
 	<div id="nonebox">   </div>
 
-		
-
-			</div>
-			<!--productInfoPage3  -->
-
 			<c:if test="${not empty faqlist}">
 			
 				<!-- 페이징 표시--------- -->
@@ -677,10 +696,11 @@ $(function(){
 				<!-- 페이징 표시--------- -->
   			</c:if>
 
+			</div>
+			<!--productInfoPage3  -->
 
 		</div>
 		<!--productInfoPage  -->
-
 	</div>
 </div>
 

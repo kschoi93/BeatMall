@@ -2,7 +2,7 @@ package com.beetmall.sshj.custom.vo;
 
 public class MyBuyListVO {
 	private String orderdate;
-	private long ordernum;
+	private int ordernum;
 	private String productname;
 	private String thumbimg;
 	private String productcontent;
@@ -11,24 +11,17 @@ public class MyBuyListVO {
 	private int productnum;
 	private long invoice;
 	private int ordercnt;
-	private String productinfomation;
 	
-	public String getProductinfomation() {
-		return productinfomation;
-	}
-	public void setProductinfomation(String productinfomation) {
-		this.productinfomation = productinfomation;
-	}
 	public String getOrderdate() {
 		return orderdate;
 	}
 	public void setOrderdate(String orderdate) {
 		this.orderdate = orderdate;
 	}
-	public long getOrdernum() {
+	public int getOrdernum() {
 		return ordernum;
 	}
-	public void setOrdernum(long ordernum) {
+	public void setOrdernum(int ordernum) {
 		this.ordernum = ordernum;
 	}
 	public String getProductname() {

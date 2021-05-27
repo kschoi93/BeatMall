@@ -16,13 +16,10 @@
 
 <style>
 /*  기본설정----------------------------------------------                 */
-body{
+body, .btn{
 font-size: 14px !important;
 }
-.btn{
-	font-size:14px;
-	padding:0px !important;
-}
+
 a:hover, a:active, a:visited, a:link {
     text-decoration: none;
     color: black;
@@ -269,7 +266,7 @@ padding-top:0px;
 
 #recipeListul>li:nth-child(5n+5){
 float:left;
-padding-left:490px;
+padding-left:520px;
 width:840px;
 height:25px;
 font-size:19px;
@@ -374,7 +371,7 @@ function new10(){
 		             <ul id="recipeListul">
 		              <li>
 		                  <a href="recipeView?recipenum=${data.recipenum}&id=${logId}">
-		                    <img src="/sshj/upload/${data.recipemainimg}" id="rtitleImg" onerror="this.src='/sshj/img/derror.png'"/>
+		                    <img src="img/${data.recipemainimg}" id="rtitleImg"/>
 		                  </a>
 		              </li>
 		              <li id="retili"><a href="recipeView?recipenum=${data.recipenum}&id=${logId}">${data.recipetitle}</a></li>
@@ -413,7 +410,7 @@ function new10(){
    <!-- <img src="img/${data.recipemainimg}" id="rtitleImg"/> -->
 		         <c:forEach var="data2" items="${list2}">   
 		             <ul id="recipeListul">
-		              <li><a href="recipeView?recipenum=${data2.recipenum}&id=${logId}"><img src="/sshj/upload/${data2.recipemainimg}" onerror="this.src='/sshj/img/derror.png'" id="rtitleImg"/></a></li>
+		              <li><a href="recipeView?recipenum=${data2.recipenum}&id=${logId}"><img src="img/${data2.recipemainimg}" id="rtitleImg"/></a></li>
 		              <li id="retili"><a href="recipeView?recipenum=${data2.recipenum}&id=${logId}">${data2.recipetitle}</a></li>
 		              <li>${data2.userid}</li>
 		              <li><a href="recipeView?recipenum=${data2.recipenum}&id=${logId}"></a></li>

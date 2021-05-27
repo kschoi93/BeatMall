@@ -2,7 +2,7 @@ package com.beetmall.sshj.admin.vo;
 
 public class Admin_PointVO {
 	private int productnum;
-	private long ordernum;
+	private int ordernum;
 	private String userid;
 	private int changepoint;
 	private int usedpoint;
@@ -11,23 +11,16 @@ public class Admin_PointVO {
 	private String productname;
 	private String productcontent;
 	private int orderprice;
-	private String productinfomation;
-	public String getProductinfomation() {
-		return productinfomation;
-	}
-	public void setProductinfomation(String productinfomation) {
-		this.productinfomation = productinfomation;
-	}
 	public int getProductnum() {
 		return productnum;
 	}
 	public void setProductnum(int productnum) {
 		this.productnum = productnum;
 	}
-	public long getOrdernum() {
+	public int getOrdernum() {
 		return ordernum;
 	}
-	public void setOrdernum(long ordernum) {
+	public void setOrdernum(int ordernum) {
 		this.ordernum = ordernum;
 	}
 	public String getUserid() {

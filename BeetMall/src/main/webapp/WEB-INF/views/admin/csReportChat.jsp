@@ -248,10 +248,9 @@
 		width:702px;
 		height:552px;
 		padding:1px;
-		background-color:white;
+		background-color:rgb(250, 250, 250);
 		display:none;
 		overflow:hidden;
-		z-index:20;
 	}
 	#chatContainer{
 		width:500px;
@@ -303,37 +302,15 @@
 		font-size:20px !important;
 		margin-right:0px !important;
 	}
-	/* 모달 처리 */
-	#modal{
-		background-color: gray;
-		opacity: 0.6;
-		position: fixed;
-		left:0px;
-		top:0px;
-		width:100%;
-		height:100%;
-		display:none;
-		margin:0px !important;
-		z-index:10;
-	}
-	#sortBox{
-		display:none;
-		
-	}
 </style>
 <script>
-	function pagelist(pagenum){
-		var lin = "csReportChat?pageNum="+pagenum;
-		location.href=lin;
-	}
+	
 	$(function(){
 		function reportPrev(){
 			alert('실행됨');
 			$("#chatFooter").css("display","none");
 		}
 		$(".contentList").click(function(){
-			$("#modal").css("display","block");
-			$(document.body).css("overflow","hidden");
 			var roomcode = $(this).children().eq(0).children().eq(0).val();
 			var sender = $(this).children().eq(0).children().eq(1).val();
 			var receiver = $(this).children().eq(0).children().eq(2).val();
@@ -383,45 +360,30 @@
 		
 		$(document).on('click',"#closedivBtn",function(){
 			$("#chatIframe").css("display","none");
-			$("#modal").css("display","none");
-			$(document.body).css("overflow","visible");
 		});
-		$(document).on('click', "#closeChatdiv", function(){
-			$("#chatIframe").css("display","none");
-			$("#modal").css("display","none");
-			$(document.body).css("overflow","visible");
-		})
-		$(document).on('click', "#stopreportuserBtn", function(){
-			var seltype = $("#useridsel").val();
-			if(seltype == null){
-				alert("정지 할 유저를 선택해주세요");
-				return false;
-			}else{
-				$("#userstopform").submit();
-			}
-		});
+		
 		
 		$(".contentList").hover(function(){
 			$(this).children().css("background","#ddd");
 		},function(){
 			$(this).children().css("background","none");
 		})
+		
 	})
 </script> 
 <%@ include file="/inc/top.jspf" %>
-	<div id="modal"></div>
 	<div id="topBarContainer">
 		<div id="topBar">
 			<ul>
 				<li><h5><strong><a href="csReportChat">채팅 관리</a></strong></h5></li> 
-					<li><button class="success" value="add" name="add" id="blind" style="display:none;">비공개</button></li>
-				<li><button class="success" value="del" name="del" id="delBtn" style="display:none;">정지</button></li> 
+					<li><button class="success" value="add" name="add" id="blind">비공개</button></li>
+				<li><button class="success" value="del" name="del" id="delBtn">정지</button></li> 
 			</ul>
 		</div>  
 		</div>
 <div id="body1">
 <%@ include file="/inc/leftBar.jspf" %>
-	<div id="container" style="padding-top:30px;">
+	<div id="container">
 		<div id="sortBox">
 			<ul>
 				<li>
@@ -448,7 +410,7 @@
 			</ul>
 		</div>
    		<div id="contentBox"> 	
-   		<div style="float:right; margin-right:25px;">* 신고 채팅은 붉은색으로 표시됩니다</div>
+   		<div style="float:right; margin-right:25px;">* 신고 채팅은 분홍색으로 표시됩니다</div>
 		<div id="title">
 			<ul id="titleul">
 				<li></li>
@@ -494,44 +456,51 @@
 			</c:forEach>
 			</div>
 		</div>	 
-		<div class="page_wrap">	
+		<div class="page_wrap">
 			<div class="page_nation">
-			   <c:if test="${pageVO.pageNum>1}"><!-- 이전페이지가 있을때 -->
-			   		<a class="arrow prev" href="javascript:pagelist(${pageVO.pageNum-1})"></a>
-			   </c:if>
-			   <!-- 페이지 번호                   1                                    5                     -->
-	           <c:forEach var="p" begin="${pageVO.startPageNum}" step="1" end="${pageVO.startPageNum + pageVO.onePageNum-1}">
-	              <c:if test="${p<=pageVO.totalPage}">
-	                 <c:if test="${p==pageVO.pageNum }"> <!-- 현재페이지일때 실행 -->
-	                    <a class="active">${p}</a>
-	                 </c:if>   
-	                 <c:if test="${p!=pageVO.pageNum}"> <!-- 현재페이지가 아닐때 실행 -->
-	                    <a href="javascript:pagelist(${p})">${p}</a>
-	                 </c:if>
-	              </c:if>
-	           </c:forEach>
-	           <c:if test="${pageVO.pageNum < pageVO.totalPage}">
-	              <a class="arrow next" href="javascript:pagelist(${pageVO.pageNum+1})"></a>
-	           </c:if>
+			   <a class="arrow pprev" href="<%=request.getContextPath()%>/img/kpage_pprev.png"></a>
+			   <a class="arrow prev" href="#"></a>
+			   <a href="#" class="active">1</a>
+			   <a href="#">2</a>
+			   <a href="#">3</a>
+			   <a href="#">4</a>
+			   <a href="#">5</a>
+			   <a href="#">6</a>
+			   <a href="#">7</a>
+			   <a href="#">8</a>
+			   <a href="#">9</a>
+			   <a href="#">10</a>
+			   <a class="arrow next" href="#"></a>
+			   <a class="arrow nnext" href="#"></a>
 			</div>
-			
 		 </div> 
 		 <div>
-			<form method="get" class="searchFrm" action="csReportChat"> 
-				<select name="searchKey">
-					<option value="roomcode" selected>채팅방번호</option>
-					<option value="creator">생성자</option> 
-					<option value="receiver">참여자</option> 
-				</select> <input type="text" name="searchWord" id="searchWord" /> 
-				<input type="submit" value="검색" />
+			<form method="get" class="searchFrm" action="<%=request.getContextPath() %>/board/noticeBoardList.jsp">
+				 <select name="searchKey">
+					<option value="subject" selected>제목</option>
+	   				<option value="no">공지번호</option> 
+	   				<option value="who">대상</option> 
+	   				<option value="writedate">공지일</option> 
+				</select>			
+				<input type="text" name="searchWord" id="searchWord"/>
+				<input type="submit" value="검색"/> 
 			</form>
 			
 		</div>  
 	</div>
 		<!-- 신고된 채팅 보기 모달창 -->
-		
+		<div id="modal">
+			<select name="reportChoice"> 
+				<option value="선택" selected>선택</option>
+		   		<option value="dlkfjhbu">dlkfjhbu</option>
+		   		<option value="aosihnf">aosihnf</option>
+		   	</select>
+			<input type="text">&nbsp; 일 &nbsp;
+			<button class="success" value="" name="" id="">정지</button>
+			<button class="success" value="" name="" id="">닫기</button>
+		</div> 
 		</div>
-		<div id ="chatIframe" class="admingchatiframe">
+		<div id ="chatIframe">
 			<div style="position: relative;">
 				<div style="width:500px;">
 					<div id="chatTop"></div>
@@ -549,14 +518,13 @@
 					정지일 : 총<span id="receiversum">0</span>일
 				</div>
 				<div style="float:left;height:142px;width:200px;background-color:white;position: absolute;left:500px;top:360px;">
-					<form style="display:block !important;" action="userstopsubmit" id="userstopform">
-					<select name="userid" style="width:200px;" id="useridsel">
-						<option disabled selected value="false">정지 할 유저 선택</option>
+					<form style="display:block !important;" action="userstopsubmit">
+					<select name="userid" style="width:200px;">
 						<option class="senderid" value=""></option>
 						<option class="receiverid" value=""></option>
 					</select>
 					<input id="stopdateinput" type="text" name="reportdate" style="width:200px;height:52px;text-align:right;padding-right:10px;font-size:17px;" placeholder="정지 일수 입력"/><br/>
-					<input type="button" value="정지"class="reportBtn" id="stopreportuserBtn"/><input type="reset" value="닫기" class="reportBtn" id="closeChatdiv"/>
+					<input type="submit" value="정지"class="reportBtn"/><input type="reset" value="닫기" class="reportBtn"/>
 					</form>
 				</div>
 			</div>

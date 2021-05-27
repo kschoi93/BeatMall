@@ -1,7 +1,7 @@
  package com.beetmall.sshj.admin.vo;
  
  import org.springframework.util.MimeType;
-
+ 
 public class AdminBoardVO {
 	private String userid;
 	private int infonum;
