@@ -16,10 +16,13 @@
 
 <style>
 /*  기본설정----------------------------------------------                 */
-body, .btn{
+body{
 font-size: 14px !important;
 }
-
+.btn{
+	font-size:14px;
+	padding:0px !important;
+}
 a:hover, a:active, a:visited, a:link {
     text-decoration: none;
     color: black;
@@ -266,7 +269,7 @@ padding-top:0px;
 
 #recipeListul>li:nth-child(5n+5){
 float:left;
-padding-left:450px;
+padding-left:490px;
 width:840px;
 height:25px;
 font-size:19px;
@@ -279,6 +282,10 @@ font-size:17px;
 #goodimg{
 width:20px;
 height:20px;
+}
+
+#retili>a{
+overflow:hidden;
 }
 
 </style>
@@ -365,8 +372,12 @@ function new10(){
    <!-- <img src="img/${data.recipemainimg}" id="rtitleImg"/> -->
 		         <c:forEach var="data" items="${list}">   
 		             <ul id="recipeListul">
-		              <li><a href="recipeView?recipenum=${data.recipenum}&id=${logId}"><img src="img/${data.recipemainimg}" id="rtitleImg"/></a></li>
-		              <li><a href="recipeView?recipenum=${data.recipenum}&id=${logId}">${data.recipetitle}</a></li>
+		              <li>
+		                  <a href="recipeView?recipenum=${data.recipenum}&id=${logId}">
+		                    <img src="/sshj/upload/${data.recipemainimg}" id="rtitleImg" onerror="this.src='/sshj/img/derror.png'"/>
+		                  </a>
+		              </li>
+		              <li id="retili"><a href="recipeView?recipenum=${data.recipenum}&id=${logId}">${data.recipetitle}</a></li>
 		              <li>${data.userid}</li>
 		              <li><a href="recipeView?recipenum=${data.recipenum}&id=${logId}"></a></li>
 		              <li><img src="img/dlike.png" id="goodimg">추천수: ${data.reciperecommend}  조회수: ${data.recipehit}  ${data.recipewritedate}</li>
@@ -402,8 +413,8 @@ function new10(){
    <!-- <img src="img/${data.recipemainimg}" id="rtitleImg"/> -->
 		         <c:forEach var="data2" items="${list2}">   
 		             <ul id="recipeListul">
-		              <li><a href="recipeView?recipenum=${data2.recipenum}&id=${logId}"><img src="img/${data2.recipemainimg}" id="rtitleImg"/></a></li>
-		              <li><a href="recipeView?recipenum=${data2.recipenum}&id=${logId}">${data2.recipetitle}</a></li>
+		              <li><a href="recipeView?recipenum=${data2.recipenum}&id=${logId}"><img src="/sshj/upload/${data2.recipemainimg}" onerror="this.src='/sshj/img/derror.png'" id="rtitleImg"/></a></li>
+		              <li id="retili"><a href="recipeView?recipenum=${data2.recipenum}&id=${logId}">${data2.recipetitle}</a></li>
 		              <li>${data2.userid}</li>
 		              <li><a href="recipeView?recipenum=${data2.recipenum}&id=${logId}"></a></li>
 		              <li><img src="img/dlike.png" id="goodimg">추천수: ${data2.reciperecommend}  조회수: ${data2.recipehit}  ${data2.recipewritedate}</li>
@@ -412,16 +423,16 @@ function new10(){
 		           
 			<div class="page_wrap">
 					<div class="page_nation">
-					   <c:if test="${pageVO2.pageNum>1}"><!-- 이전페이지가 있을때 -->
+					   <c:if test="${pageVO2.pageNum>1}">
 					   		<a class="arrow prev" href="/sshj/recipeHome?pageNum=${pageVO2.pageNum-1}<c:if test="${pageVO2.searchWord != null && pageVO2.searchWord != ''}">&searchKey=${pageVO2.searchKey}&searchWord=${pageVO2.searchWord}</c:if>"></a>
 					   </c:if>
 					   <!-- 페이지 번호                   1                                    5                     -->
 			           <c:forEach var="p" begin="${pageVO2.startPageNum}" step="1" end="${pageVO2.startPageNum + pageVO2.onePageNum-1}">
 			              <c:if test="${p<=pageVO2.totalPage}">
-			                 <c:if test="${p==pageVO2.pageNum}"> <!-- 현재페이지일때 실행 -->
+			                 <c:if test="${p==pageVO2.pageNum}"> 
 			                    <a class="active">${p}</a>
 			                 </c:if>   
-			                 <c:if test="${p!=pageVO2.pageNum}"> <!-- 현재페이지가 아닐때 실행 -->
+			                 <c:if test="${p!=pageVO2.pageNum}">
 			                    <a href="/sshj/recipeHome?pageNum=${p}<c:if test="${pageVO2.searchWord != null && pageVO2.searchWord != ''}">&searchKey=${pageVO2.searchKey}&searchWord=${pageVO2.searchWord}</c:if>">${p}</a>
 			                 </c:if>
 			              </c:if>

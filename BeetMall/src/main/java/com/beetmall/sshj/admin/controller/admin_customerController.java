@@ -11,18 +11,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.beetmall.sshj.admin.service.Admin_BoardService;
 import com.beetmall.sshj.admin.service.Admin_MemberService;
-import com.beetmall.sshj.admin.service.Admin_MemberServiceImp;
-import com.beetmall.sshj.admin.service.Boardervice;
+import com.beetmall.sshj.admin.service.Admin_MemberServiceImp; 
 import com.beetmall.sshj.admin.vo.Admin_MemberVO;
 import com.beetmall.sshj.admin.vo.Admin_Member_PageVO;
+import com.beetmall.sshj.admin.vo.Admin_reportVO;
 
 @Controller
 public class admin_customerController {
 	@Inject
-	Boardervice adminService;
+	Admin_BoardService adminService;
 	//////////////////////일반회원 관리////////////////////////////////
 	@Inject
 	Admin_MemberServiceImp memberservice;
@@ -35,21 +37,25 @@ public class admin_customerController {
 		int selType = 0; // 일반회원
 		pageVO.setUserType(0); // 일반회원만 조회할거라서 1;
 		String pageNumStr = req.getParameter("pageNum");
-		
 		if(pageNumStr == null) {
 			pageVO.setPageNum(1);
 		}else if(pageNumStr != null) {
 			pageVO.setPageNum(Integer.parseInt(pageNumStr));
 		}
-		
-		
+		//검색어, 검색키
+		String searchKey = req.getParameter("searchKey");
+		pageVO.setSearchKey(searchKey);
+		pageVO.setSearchWord(req.getParameter("searchWord"));
+		System.out.println("getSearchKey>>>>>"+pageVO.getSearchKey());
+		System.out.println("getSearchWord>>>>>"+pageVO.getSearchWord());
 		//pageVO.setTotalRecord();
 		if(session.getAttribute("logType")!=null) {
 			logType = (int)session.getAttribute("logType");
 		}else {
 			logType = 0;
 		}
-		int re = memberservice.memberCountall(logType);
+		int re = memberservice.memberCountall(pageVO);
+		System.out.println("레코드 수>>"+re);
 		pageVO.setTotalRecord(re);
 		
 		mav.addObject("list", memberservice.memberselectall(pageVO));
@@ -161,6 +167,13 @@ public class admin_customerController {
 	@RequestMapping("userinfoupdate")
 	public ModelAndView customerEdit(Admin_MemberVO vo) {
 		ModelAndView mav = new ModelAndView();
+		System.out.println(">>>>>>>>>>>>>><<<<<<<<<<<<<<<");
+		System.out.println(vo.getUseraddr());
+		System.out.println(vo.getUsername());
+		System.out.println(vo.getUserid());
+		System.out.println(vo.getUseremail());
+		System.out.println(vo.getUserzipcode());
+		System.out.println(vo.getUserdetailaddr());
 		if(memberservice.memberEdit(vo)>0) {
 			mav.addObject("editOk","Y");
 		}else {
@@ -176,11 +189,16 @@ public class admin_customerController {
 	public ModelAndView customerLeaveList(HttpServletRequest req, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		Admin_Member_PageVO pageVO = new Admin_Member_PageVO();
-		int logType = 0;
+		
 		int selType = 4; // 탈퇴한 일반회원
 		pageVO.setUserType(4); // 탈퇴한 일반회원만 조회할거라서 4;
 		String pageNumStr = req.getParameter("pageNum");
-		
+		//검색어, 검색키
+		String searchKey = req.getParameter("searchKey");
+		pageVO.setSearchKey(searchKey);
+		pageVO.setSearchWord(req.getParameter("searchWord"));
+		System.out.println("getSearchKey>>>>>"+pageVO.getSearchKey());
+		System.out.println("getSearchWord>>>>>"+pageVO.getSearchWord());
 		if(pageNumStr == null) {
 			pageVO.setPageNum(1);
 		}else if(pageNumStr != null) {
@@ -188,13 +206,7 @@ public class admin_customerController {
 		}
 		
 		
-		//pageVO.setTotalRecord();
-		if(session.getAttribute("logType")!=null) {
-			logType = (int)session.getAttribute("logType");
-		}else {
-			logType = 0;
-		}
-		int re = memberservice.memberCount(logType,  selType);
+		int re = memberservice.memberCount(pageVO);
 		pageVO.setTotalRecord(re);
 		
 		mav.addObject("list", memberservice.memberselect(pageVO));
@@ -208,34 +220,81 @@ public class admin_customerController {
 	public ModelAndView customerBlackList(HttpServletRequest req, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		Admin_Member_PageVO pageVO = new Admin_Member_PageVO();
-		int logType = 0;
 		int selType = 1; // 정지된 구매자회원
 		pageVO.setUserType(1); // 정지된 구매자회원만 조회할거라서 1;
 		String pageNumStr = req.getParameter("pageNum");
+		//검색어, 검색키
+		String searchKey = req.getParameter("searchKey");
 		
+		pageVO.setSearchKey(searchKey);
+		pageVO.setSearchWord(req.getParameter("searchWord"));
+		System.out.println("getSearchKey>>>>>"+pageVO.getSearchKey());
+		System.out.println("getSearchWord>>>>>"+pageVO.getSearchWord());
 		if(pageNumStr == null) {
 			pageVO.setPageNum(1);
 		}else if(pageNumStr != null) {
 			pageVO.setPageNum(Integer.parseInt(pageNumStr));
 		}
-		
-		
-		//pageVO.setTotalRecord();
-		if(session.getAttribute("logType")!=null) {
-			logType = (int)session.getAttribute("logType");
-		}else {
-			logType = 0;
-		}
-		int re = memberservice.memberCountBlack(logType,  selType);
+		int re = memberservice.reportPageNum(pageVO);
 		pageVO.setTotalRecord(re);
 		
-		mav.addObject("list", memberservice.memberselectblack(pageVO));
+		mav.addObject("list", memberservice.reportselect(pageVO));
 		mav.addObject("pageVO", pageVO); 
-		mav.setViewName("/admin/customerLeaveList");
+		mav.setViewName("/admin/customerBlackList");
+		return mav;
+	} 
+	//신고 채팅 보기
+	@RequestMapping("/csReportChat")
+	public ModelAndView csReportChat(HttpServletRequest req, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		Admin_Member_PageVO pageVO = new Admin_Member_PageVO();
+		String pageNumStr = req.getParameter("pageNum");
+		//검색어, 검색키
+		String searchKey = req.getParameter("searchKey");
+		
+		pageVO.setSearchKey(searchKey);
+		pageVO.setSearchWord(req.getParameter("searchWord"));
+		System.out.println("getSearchKey>>>>>"+pageVO.getSearchKey());
+		System.out.println("getSearchWord>>>>>"+pageVO.getSearchWord());
+		if(pageNumStr == null) {
+			pageVO.setPageNum(1);
+		}else if(pageNumStr != null) {
+			pageVO.setPageNum(Integer.parseInt(pageNumStr));
+		}
+		pageVO.setTotalRecord(memberservice.chatTotal(pageVO));
+		mav.addObject("list", memberservice.chatList(pageVO));
+		mav.addObject("pageVO", pageVO);
+		mav.setViewName("/admin/csReportChat");
 		return mav;
 	} 
 	
+	// 정지일수 보기
+	@RequestMapping("/csReportSum")
+	@ResponseBody
+	public int reportsum(HttpServletRequest req) {
+		int result= 0;
+		String userid = req.getParameter("userid");
+		result = memberservice.sumreport(userid);
+		return result;
+	}
+	// 정지횟수 보기
+	@RequestMapping("/csReportCount")
+	@ResponseBody
+	public int reportcount(HttpServletRequest req) {
+		int result= 0;
+		String userid = req.getParameter("userid");
+		result = memberservice.countreport(userid);
+		return result;
+	}  
 	
-	  
-	 
+	@RequestMapping("userstopsubmit")
+	public ModelAndView userstopsubmit(Admin_reportVO vo){
+		ModelAndView mav = new ModelAndView();
+		String userid = vo.getUserid();
+		int reportdate = vo.getReportdate();
+		memberservice.insertreport(userid, reportdate);
+		memberservice.updateuserstop(userid);
+		mav.setViewName("redirect:csReportChat");
+		return mav;
+	}
 }

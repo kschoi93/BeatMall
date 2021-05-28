@@ -111,7 +111,7 @@
     #kcategory{
         margin-bottom: 40px;
 	    padding-bottom: 30px;
-	    border-bottom: 1px solid rgb(252,118,45);
+	    
 	    font-size: 21px;
 	    font-weight: bold;
     }
@@ -135,7 +135,7 @@
     
     #leftMenu{
        position: absolute;
-       left:-200px;
+       left:-250px;
        top:150px;
        display: none;
        width:180px;
@@ -155,19 +155,23 @@
     /* 공지사항 */
     #NoticeleftMenu{
     	position: absolute;
-    	left:-200px;
+    	left:-250px;
     	top:130px;
     	display: none;
     	width:180px;
-    	height:480px;
+    	height:290px;
     	color:black;
     	background-color:white;
     	text-align:left;
     	padding-left:10px;
     	padding-right:10px;
+    	border-top:3px solid rgb(252,118,45)
     }
     #NoticeleftMenu>div{
     	padding-top:15px;
+    }
+    #kNoticeMain:last-child{
+    	border-bottom:3px solid rgb(252,118,45);
     }
     #NoticeleftMenu a:active, #NoticeleftMenu a:link, #NoticeleftMenu a:visited, #NoticeleftMenu a:hover{
 		color:black;
@@ -184,7 +188,7 @@
     /* 마이페이지 왼쪽 */
     #cMyPageLeft{
     	position: absolute;
-    	left:-200px;
+    	left:-250px;
     	top:150px;
     	display: none;
     	width:180px;
@@ -379,11 +383,11 @@
 	/* 레시피*/
     #mypageMenubar{
     	position: absolute;
-    	left:-200px;
+    	left:-250px;
     	top:150px;
     	display: none;
     	width:180px;
-    	height:480px;
+    	height:284px;
     	color:black;
     	background-color:white;
     	text-align:left;
@@ -538,7 +542,7 @@
 		<div id="menuList">
 			<div id="cMyPageLeft">
 				<div id="menuListName">마이페이지</div>
-				<div><a href="myinfoEdit">정보수정</a></div>
+				<div><a href="myInfoEdit">정보수정</a></div>
 				<div><a href="customWish">장바구니</a></div>
 				<div><a href="mybuyList">구매내역</a></div>
 				<div><a href="mypoint">마이포인트</a></div>
@@ -635,9 +639,11 @@
                <div id="repcipevview">
                   <div><a href="recipeList">목록보기</a></div>
                </div>
+               <c:if test="${logId!=null}">
                <div id="repcipevview">
                   <div><a href="customMyrecipe">마이레시피</a></div>
                </div>
+               </c:if>
                 <div id="repcipevview">
                   <div><a href="recipeWrite">글쓰기</a></div>
                </div>

@@ -71,28 +71,46 @@
 		border:1px solid #42454c;
 	}
 	/* 페이징처리끝 */
+	.contentList{
+		cursor: pointer;
+	}
+	#sortBox{
+		display:none;
+	}
+	#addBtn, #delBtn{
+		visibility: hidden;
+	}
+	#choose{
+		margin-top: 50px !important;
+	}
+	
+	
 </style>
 <script>
-function pagelist(pagenum){
-	var lin = "customerLeaveList?pageNum="+pagenum;
-	
-	if($("#searchWordhidden").val()!=null && $("#searchWordhidden").val()!=''){
-		lin += "&searchKey="+$("#searchKeyhidden").val();
-		lin += "&searchWord="+$("#searchWordhidden").val();
+	function pagelist(pagenum){
+		var lin = "customerLeaveList?pageNum="+pagenum;
+		
+		if($("#searchWordhidden").val()!=null && $("#searchWordhidden").val()!=''){
+			lin += "&searchKey="+$("#searchKeyhidden").val();
+			lin += "&searchWord="+$("#searchWordhidden").val();
+		}
+		location.href=lin;
 	}
-	location.href=lin;
-}
-$(function(){
-	$("#searchKeyhidden").val($("#searchKey").val());
-	$("#searchKey").change(function(){
-		console.log('searchKey바뀜');
+	$(function(){
 		$("#searchKeyhidden").val($("#searchKey").val());
+		$("#searchKey").change(function(){
+			console.log('searchKey바뀜');
+			$("#searchKeyhidden").val($("#searchKey").val());
+		});
+		$("#searchWord").keyup(function(){
+			console.log('searchWord바뀜');
+			$("#searchWordhidden").val($("#searchWord").val());
+		})
+		$(".contentList").click(function(){
+			var userid = $(this).children().eq(0).children().val();
+			location.href="boardCustomerInfoEdit?userid="+userid;
+		})
 	});
-	$("#searchWord").keyup(function(){
-		console.log('searchWord바뀜');
-		$("#searchWordhidden").val($("#searchWord").val());
-	})
-});
 </script>
  
  
@@ -142,12 +160,12 @@ $(function(){
    		<div id="contentBox"> 	
 		<div id="title">
 			<ul>
-				<li><input type="checkbox" name="check"  ></li>
+				<li><input type="hidden" name="check"  ></li>
 				<li>이름</li>
 				<li>아이디</li>
 				<li>나이</li>
 				<li>이메일</li>
-				<li>생년월일</li>
+				<li>포인트</li>
 				<li>주소</li>
 				<li>탈퇴일</li> 
 				
@@ -155,9 +173,9 @@ $(function(){
 		</div>  
 		<c:forEach var="vo" items="${list}">
 		<ul class="contentList">
-			<li><input type="checkbox" name="check" id="check"></li>
+			<li><input type="hidden" value="${vo.userid}"></li>
 			<li>${vo.username}</li>
-			<li><a href="회원정보?">${vo.userid}</a></li>
+			<li>${vo.userid}</li>
 			<li>${vo.age}</li>
 			<li>${vo.useremail}</li>
 			<li>${vo.point}</li>
@@ -187,16 +205,14 @@ $(function(){
 			</div>
 		 </div>
 		 <div>
-			<form method="get" class="searchFrm" action="<%=request.getContextPath() %>/board/noticeBoardList.jsp">
+			<form method="get" class="searchFrm" action="customerLeaveList"> 
 				<select name="searchKey">
-					<option value="username" selected>이름</option>
-	   				<option value="userid">아이디</option> 
-	   				<option value="useremail">이메일</option> 
-	   				<option value="useraddr">주소</option> 
-				</select>			
-				<input type="text" name="searchWord" id="searchWord"/>
-				<input type="submit" value="검색"/> 
-			</form> 
+					<option value="userid" selected>아이디</option>
+					<option value="useremail">이메일</option> 
+					<option value="username">이름</option> 
+				</select> <input type="text" name="searchWord" id="searchWord" /> 
+				<input type="submit" value="검색" />
+			</form>
 		</div>  
 	</div>
 </div>

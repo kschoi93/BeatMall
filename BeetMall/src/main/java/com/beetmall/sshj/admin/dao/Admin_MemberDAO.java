@@ -2,20 +2,22 @@ package com.beetmall.sshj.admin.dao;
 
 import java.util.List;
 
+import com.beetmall.sshj.admin.vo.Admin_ChatVO;
 import com.beetmall.sshj.admin.vo.Admin_MemberVO;
 import com.beetmall.sshj.admin.vo.Admin_Member_PageVO;
 import com.beetmall.sshj.admin.vo.Admin_PointVO;
 import com.beetmall.sshj.admin.vo.Admin_WishVO;
 import com.beetmall.sshj.admin.vo.Admin_farmVO;
+import com.beetmall.sshj.admin.vo.Admin_reportVO;
 
 public interface Admin_MemberDAO {
-	public int memberCountall(int usertype);	// 모든 회원 정보(탈퇴 제외)
+	public int memberCountall(Admin_Member_PageVO vo);	// 모든 회원 정보(탈퇴 제외)
 	public List<Admin_MemberVO> memberselectall(Admin_Member_PageVO pageVO);
-	public int memberCount(int usertype, int seltype); // 특정조건 회원 정보(탈퇴, 구매, 판매 등으로 나누는 것)
+	public int memberCount(Admin_Member_PageVO vo); // 특정조건 회원 정보(탈퇴, 구매, 판매 등으로 나누는 것)
 	public List<Admin_MemberVO> memberselect(Admin_Member_PageVO pageVO);
-	public int memberCountBlack(int usertype, int seltype);	// 블랙회원 정보
+	public int memberCountBlack(Admin_Member_PageVO vo);	// 블랙회원 정보
 	public List<Admin_MemberVO> memberselectblack(Admin_Member_PageVO pageVO);
-	public int memberCountSeller(int usertype, int seltype);	// 판매자 정보
+	public int memberCountSeller(Admin_Member_PageVO vo);	// 판매자 정보
 	public List<Admin_MemberVO> memberselectSeller(Admin_Member_PageVO pageVO);
 	public List<Admin_MemberVO> memberselectSellerAll(Admin_Member_PageVO pageVO);
 	// 회원정보 부분
@@ -40,5 +42,15 @@ public interface Admin_MemberDAO {
 	// 장바구니 부분
 	public int wishCount(String userid);
 	public List<Admin_WishVO> wishListSelect(Admin_Member_PageVO pageVO);
+	public List<Admin_reportVO> reportselect(Admin_Member_PageVO vo);// 블랙회원()
+	public int reportPageNum(Admin_Member_PageVO vo);	// 블랙회원 레코드 수
+	
+	// 채팅목록 부분
+	public int chatTotal(Admin_Member_PageVO pageVO);
+	public List<Admin_ChatVO> chatList(Admin_Member_PageVO pageVO);
+	public int countreport(String userid);// 신고횟수 가져오기
+	public int sumreport(String userid); // 정지일수 가져오기
+	public int insertreport(String userid, int reportdate);	// reporttbl에 작성하고
+	public int updateuserstop(String userid);	// member테이블 수정하기
 	
 }

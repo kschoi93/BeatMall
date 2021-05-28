@@ -9,6 +9,7 @@
 	 #contentBox{ 
 		top:20px; 
 		margin-left:10px;
+		margin-top:0px !important;
 	}
 	/*남색 바*/  
 	#topBar h5{
@@ -85,33 +86,45 @@
 		border:1px solid #42454c;
 	}
 	/* 페이징처리끝 */
-	#sellerlistul>li{
-		line-height: 50px;
-		height:50px;
-		border-bottom: 1px solid #eee;
+	#foreachUL>li:nth-child(8n+1), #forachtitle>li:nth-child(8n+1){
+		width:0px !important;
 	}
-	#sellerlistul>li:nth-child(7n+1){
-		width:7%;
+	#foreachUL>li:nth-child(8n+2), #forachtitle>li:nth-child(8n+2){
+		width:62px;
 	}
-	#sellerlistul>li:nth-child(7n+2){
-		width:10%;
+	#foreachUL>li:nth-child(8n+3), #forachtitle>li:nth-child(8n+3){
+		width:122px;
 	}
-	#sellerlistul>li:nth-child(7n+3){
-		width:10%;
+	#foreachUL>li:nth-child(8n+4), #forachtitle>li:nth-child(8n+4){
+		width:142px;
 	}
-	#sellerlistul>li:nth-child(7n+4){
-		width:20%;
+	#foreachUL>li:nth-child(8n+5), #forachtitle>li:nth-child(8n+5){
+		width:182px !important;
 	}
-	#sellerlistul>li:nth-child(7n+5){
-		width:18%;
+	#foreachUL>li:nth-child(8n+6), #forachtitle>li:nth-child(8n+6){
+		width:142px;
 	}
-	#sellerlistul>li:nth-child(7n+6){
-		width:25%;
+	#foreachUL>li:nth-child(8n+7), #forachtitle>li:nth-child(8n+7){
+		width:242px;
+		white-space: nowrap;
+		overflow:hidden;
+		text-overflow: ellipsis;
 	}
-	#sellerlistul>li:nth-child(7n){
-		width:10%;
+	#foreachUL>li:nth-child(8n), #forachtitle>li:nth-child(8n){
+		width:142px;
 	}
-	
+	#foreachUL>li{
+		cursor: pointer;
+	}
+	#addBtn, #delBtn{
+		visibility: hidden;
+	}
+	#sortBox{
+		display:none;
+	}
+	#choose{
+		margin-top: 50px !important;
+	}
 </style>
 <script>
 	function pagelist(pagenum){
@@ -133,6 +146,10 @@
 			console.log('searchWord바뀜');
 			$("#searchWordhidden").val($("#searchWord").val());
 		})
+		$("#foreachUL").click(function(){
+			var userid = $(this).children().eq(0).children().val();
+			location.href="sellerInfoEditA?userid="+userid;
+		});
 	});
 </script>
 
@@ -179,32 +196,35 @@
 				<li><button class="success" value="desc" name="desc" id="descBtn">▼</button></li>
 			 </ul>
 		</div>
-   		<div id=""> 	
-		<div style="overflow: auto;">
-			<ul id="sellerlistul">
-				<li>농장번호</li> 
-				<li>판매자명</li>
-				<li>아이디</li>
-				<li>이메일</li>
-				<li>상호명</li>
-				<li>주소</li> 
-				<li>탈퇴일</li> 
-				
-				<c:forEach var="vo" items="${list}">
+   		<div id="contentBox"> 	
+			<div id="title">
+				<ul id="forachtitle">
+					<li></li>
+					<li>농장번호</li>
+					<li>판매자명</li>
+					<li>아이디</li>
+					<li>이메일</li>
+					<li>상호명</li>
+					<li>주소</li>
+					<li>탈퇴일</li> 
+				</ul>
+			</div>  
+			<c:forEach var="vo" items="${list}">
+				<ul class="contentList" id="foreachUL">
+					<li><input type="hidden" value="${vo.userid}"></li>
 					<li>${vo.storenum}</li>
-					<li><a href="${vo.userid}">${vo.sellername}</a></li>
+					<li>${vo.sellername}</li>
 					<li>${vo.userid}</li>
 					<li>${vo.storeemail}</li>
 					<li>${vo.storename}</li>
-					<li class="wordcut">(${vo.storezipcode})${vo.storeaddr} ${vo.storedetailaddr}</li>
+					<li>(${vo.storezipcode})${vo.storeaddr} ${vo.storedetailaddr}</li>
 					<li>${vo.exitdate}</li>
-				</c:forEach>
-			</ul>
-		</div>  
+				</ul>
+			</c:forEach> 
+		</div>
 		<input type="hidden" id="searchKeyhidden"/>
 		<input type="hidden" id="searchWordhidden"/>
 		 
-		</div>	 
 		<div class="page_wrap">	
 			<div class="page_nation">
 			   <c:if test="${pageVO.pageNum>1}"><!-- 이전페이지가 있을때 -->
@@ -228,17 +248,16 @@
 		 </div> 
  
 		 <div>
-			<form method="get" class="searchFrm">
-				<select name="searchKey" id="searchKey">
-					<option value="subject" selected>제목</option>
-	   				<option value="no">공지번호</option> 
-	   				<option value="who">대상</option> 
-	   				<option value="writedate">공지일</option> 
-				</select>			
-				<input type="text" name="searchWord" id="searchWord"/>
-				<input type="submit" value="검색"/> 
-			</form> 
+			<form method="get" class="searchFrm" action="sellerLeaveList"> 
+				<select name="searchKey">
+					<option value="userid" selected>아이디</option>
+					<option value="useremail">이메일</option> 
+					<option value="username">이름</option> 
+				</select> <input type="text" name="searchWord" id="searchWord" /> 
+				<input type="submit" value="검색" />
+			</form>
 		</div>  
+		</div>	 
 	</div>
 </div>
 </body>

@@ -7,11 +7,13 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.beetmall.sshj.admin.dao.Admin_MemberDAO;
+import com.beetmall.sshj.admin.vo.Admin_ChatVO;
 import com.beetmall.sshj.admin.vo.Admin_MemberVO;
 import com.beetmall.sshj.admin.vo.Admin_Member_PageVO;
 import com.beetmall.sshj.admin.vo.Admin_PointVO;
 import com.beetmall.sshj.admin.vo.Admin_WishVO;
 import com.beetmall.sshj.admin.vo.Admin_farmVO;
+import com.beetmall.sshj.admin.vo.Admin_reportVO;
 
 @Service
 public class Admin_MemberServiceImp implements Admin_MemberService {
@@ -20,8 +22,8 @@ public class Admin_MemberServiceImp implements Admin_MemberService {
 	Admin_MemberDAO memberdao;
 
 	@Override
-	public int memberCount(int usertype, int seltype) {
-		return memberdao.memberCount(usertype, seltype);
+	public int memberCount(Admin_Member_PageVO vo) {
+		return memberdao.memberCount(vo);
 	}
 
 	@Override
@@ -30,8 +32,8 @@ public class Admin_MemberServiceImp implements Admin_MemberService {
 	}
 
 	@Override
-	public int memberCountBlack(int usertype, int seltype) {
-		return memberdao.memberCountBlack(usertype, seltype);
+	public int memberCountBlack(Admin_Member_PageVO vo) {
+		return memberdao.memberCountBlack(vo);
 	}
 
 	@Override
@@ -40,8 +42,8 @@ public class Admin_MemberServiceImp implements Admin_MemberService {
 	}
 
 	@Override
-	public int memberCountall(int usertype) {
-		return memberdao.memberCountall(usertype);
+	public int memberCountall(Admin_Member_PageVO vo) {
+		return memberdao.memberCountall(vo);
 	}
 
 	@Override
@@ -50,8 +52,8 @@ public class Admin_MemberServiceImp implements Admin_MemberService {
 	}
 
 	@Override
-	public int memberCountSeller(int usertype, int seltype) {
-		return memberdao.memberCountSeller(usertype, seltype);
+	public int memberCountSeller(Admin_Member_PageVO vo) {
+		return memberdao.memberCountSeller(vo);
 	}
 
 	@Override
@@ -153,5 +155,46 @@ public class Admin_MemberServiceImp implements Admin_MemberService {
 	public int memberEdit(Admin_MemberVO vo) {
 		return memberdao.memberEdit(vo);
 	}
+
+	@Override
+	public List<Admin_reportVO> reportselect(Admin_Member_PageVO vo) {
+		return memberdao.reportselect(vo);
+	}
+
+	@Override
+	public int reportPageNum(Admin_Member_PageVO vo) {
+		return memberdao.reportPageNum(vo);
+	}
+
+	@Override
+	public int chatTotal(Admin_Member_PageVO vo) {
+		return memberdao.chatTotal(vo);
+	}
+
+	@Override
+	public List<Admin_ChatVO> chatList(Admin_Member_PageVO pageVO) {
+		return memberdao.chatList(pageVO);
+	}
+
+	@Override
+	public int countreport(String userid) {
+		return memberdao.countreport(userid);
+	}
+
+	@Override
+	public int sumreport(String userid) {
+		return memberdao.sumreport(userid);
+	}
+
+	@Override
+	public int insertreport(String userid, int reportdate) {
+		return memberdao.insertreport(userid, reportdate);
+	}
+
+	@Override
+	public int updateuserstop(String userid) {
+		return memberdao.updateuserstop(userid);
+	}
+
 
 }

@@ -35,6 +35,8 @@ public class ProductViewController {
 		//테이블이 product/들어가는 수: productnum int/나오는 값 1개
 		//sellfinish,thumbimg,productname,productprice,selloption,sellweight,
 		//deliveryoption,origin,wrapping
+		productnum = Integer.parseInt(req.getParameter("productnum"));
+		
 		PageProductVO pageVO1=new PageProductVO();
 		pageVO1.setProductnum(productnum);
 		
@@ -46,8 +48,8 @@ public class ProductViewController {
 		mav.addObject("ovo",productViewService.ProductViewSelectoption(productnum));
 		
 		//상품의 할인가격 구하기	-->${Dprice}가 마이너스 되는 가격임	
+		mav.addObject("Dprice", productViewService.PDprice(productnum));
 		
-		mav.addObject("Dprice",productViewService.PDprice(productnum)); 
 		
 	
 		//System.out.println(productViewService.PDprice(productnum)); //출력됨
@@ -72,10 +74,10 @@ public class ProductViewController {
 		//sapvo.setSearchKey(sapvo.getSearchKey());
 		//총 레코드 수 구하기 
 		pageVO1.setTotalRecord(productViewService.totalRecord(pageVO1));
-		System.out.println("totalrecord ->" +  productViewService.totalRecord(pageVO1)); //여기까지 나옴
+		//System.out.println("totalrecord ->" +  productViewService.totalRecord(pageVO1)); //여기까지 나옴
 		
 		pageVO2.setTotalRecord(productViewService.totalRecord(pageVO2));
-		System.out.println("totalrecord2 ->" +  productViewService.totalRecord2(pageVO2)); //여기까지 나옴
+		//System.out.println("totalrecord2 ->" +  productViewService.totalRecord2(pageVO2)); //여기까지 나옴
 				
 		//상품후기 구하기
 		mav.addObject("reviewlist",productViewService.ProductViewReview(pageVO1));
@@ -87,10 +89,10 @@ public class ProductViewController {
 		
 		mav.addObject("pageVO",pageVO1);
 		mav.addObject("pageVO2",pageVO2);
-		System.out.println("페이지 나옴 마지막 페이지"+pageVO1.getLastPageRecord());
-		System.out.println("페이지 나옴 첫페이지 숫자"+pageVO1.getOnePageNum());
-		System.out.println("페이지 나옴 전체페이지 숫자"+pageVO1.getTotalPage());
-		
+//		System.out.println("페이지 나옴 마지막 페이지"+pageVO1.getLastPageRecord());
+//		System.out.println("페이지 나옴 첫페이지 숫자"+pageVO1.getOnePageNum());
+//		System.out.println("페이지 나옴 전체페이지 숫자"+pageVO1.getTotalPage());
+//		
 		
 		//구한것들 뷰페이지로 가지고 이동
 		mav.setViewName("custom/customproduct");
@@ -104,31 +106,31 @@ public class ProductViewController {
 	@RequestMapping("reviewViewSelect")
 	@ResponseBody
 	public ProductViewVO reviewViewSelect(int pnum,int rnum) {
-		System.out.println(pnum+"//"+rnum);
+//		System.out.println(pnum+"//"+rnum);
 		
 		ProductViewVO rvov = productViewService.reviewViewSelect(pnum,rnum);
-		System.out.println("요기까지 실행");
+//		System.out.println("요기까지 실행");
 		return rvov;
 	}
 	
 	//////////////상품장바구니 페이지////////////////
 	@RequestMapping("customWishInsert")
 	@ResponseBody
-	public String customWishInsert(HttpServletRequest req,HttpSession session) {
+	public int customWishInsert(HttpServletRequest req,HttpSession session) {
 		String id = (String)session.getAttribute("logId");
 		int productnum= Integer.parseInt(req.getParameter("productnum"));		
 		int optnum=Integer.parseInt(req.getParameter("optnum"));
 		int pcount=Integer.parseInt(req.getParameter("pcount"));
 		int ocount=Integer.parseInt(req.getParameter("ocount"));
-		System.out.println(id);
+	    System.out.println(id);
 		System.out.println(productnum);
-		System.out.println(pcount);
+	    System.out.println(pcount);
 		System.out.println(optnum);
 		System.out.println(ocount); //다 나오는거 확인함//넣기만 하면됨 
-		//System.out.println(productViewService.customWishInsert());
-		System.out.println(productViewService.customWishInsert(id,productnum,optnum,pcount,ocount));
+        //System.out.println(productViewService.customWishInsert());
+		//System.out.println(productViewService.customWishInsert(id,productnum,optnum,pcount,ocount));
 		
-		return id+","+productnum+","+optnum+","+pcount+","+ocount;
+		return productViewService.customWishInsert(id,productnum,optnum,pcount,ocount);
 				
 	}
 	
@@ -155,7 +157,7 @@ public class ProductViewController {
 			
 			//총 레코드 수 구하기 
 			pageVO1.setTotalRecord(productViewService.totalRecord3(userid));
-			System.out.println("totalrecord 장바구니 ->" +  productViewService.totalRecord3(userid)); //여기까지 나옴
+//			System.out.println("totalrecord 장바구니 ->" +  productViewService.totalRecord3(userid)); //여기까지 나옴
 			mav.addObject("pageVO1", pageVO1);
 				
 			///장바구니 내역 구하기

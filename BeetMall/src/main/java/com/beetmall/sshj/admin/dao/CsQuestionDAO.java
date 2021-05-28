@@ -5,6 +5,9 @@ import java.util.List;
 import com.beetmall.sshj.admin.vo.CsQuestionVO;
 import com.beetmall.sshj.admin.vo.adminkPageSearchVO;
 
+import com.beetmall.sshj.admin.vo.CsQuestionVO;
+import com.beetmall.sshj.admin.vo.adminkPageSearchVO;
+
 public interface CsQuestionDAO {
 
 	public List<CsQuestionVO> csQuestList(adminkPageSearchVO pageVO);

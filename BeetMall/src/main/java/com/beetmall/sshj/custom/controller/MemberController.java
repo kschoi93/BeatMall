@@ -292,8 +292,17 @@ public class MemberController {
 		System.out.println("emailCode == "+emailCode);
 		System.out.println("\n\n===========================\n\n");
 		String subject = "[BeetMall]비트몰 구매자 이메일 인증"; // 메일 제목부분
-		String content =  "비트몰 이메일 인증입니다.<br/>"
-						+ "인증번호 : "+emailCode ;
+		String content = "<div style='width: 400px;height:300px;background-color: rgb(250, 250, 250);border:1px solid black;border-radius: 10px;'>\r\n"
+				+ "   <div style='height:41px;background-color: darkorange;line-height: 40px;color:white;padding-left:10px;border-radius: 10px;width:392px;margin-top:-1px;margin-left:-1px;text-align: center;'>비트몰에서 발송된 이메일입니다.</div>\r\n"
+				+ "   <div style=''>\r\n"
+				+ "      <div style='padding-left:10px;height:50px;background-color: rgb(250, 250, 250);text-align: center;padding-top: 10px;'><span style='font-size: 22px;'>비트몰 안내 메일</span></div>\r\n"
+				+ "      <div style='padding-left:10px;'>메세지 내용</div>\r\n"
+				+ "      <div style='background-color: rgb(250, 230, 210);height:140px;width:360px;margin-left:10px;margin-top: 10px;border-radius: 10px;padding:10px;'>\r\n"
+				+ "         비트몰 이메일 인증입니다.<br/>"
+				+ "인증번호 : "+emailCode
+				+ "      </div>\r\n"
+				+ "   </div>\r\n"
+				+ "</div>";
 		try {
 			MimeMessage message = mailSender.createMimeMessage();
 			MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
@@ -338,7 +347,17 @@ public class MemberController {
 		System.out.println("emailCode == "+emailCode);
 		System.out.println("\n\n===========================\n\n");
 		String subject = "[BeetMall]비트몰 판매자 이메일 인증"; // 메일 제목부분
-		String content =  "비트몰 이메일 인증입니다.<br/>" + "인증번호 : "+emailCode ;
+		String content = "<div style='width: 400px;height:300px;background-color: rgb(250, 250, 250);border:1px solid black;border-radius: 10px;'>\r\n"
+				+ "   <div style='height:41px;background-color: darkorange;line-height: 40px;color:white;padding-left:10px;border-radius: 10px;width:392px;margin-top:-1px;margin-left:-1px;text-align: center;'>비트몰에서 발송된 이메일입니다.</div>\r\n"
+				+ "   <div style=''>\r\n"
+				+ "      <div style='padding-left:10px;height:50px;background-color: rgb(250, 250, 250);text-align: center;padding-top: 10px;'><span style='font-size: 22px;'>비트몰 안내 메일</span></div>\r\n"
+				+ "      <div style='padding-left:10px;'>메세지 내용</div>\r\n"
+				+ "      <div style='background-color: rgb(250, 230, 210);height:140px;width:360px;margin-left:10px;margin-top: 10px;border-radius: 10px;padding:10px;'>\r\n"
+				+ "         비트몰 이메일 인증입니다.<br/>"
+				+ "인증번호 : "+emailCode
+				+ "      </div>\r\n"
+				+ "   </div>\r\n"
+				+ "</div>";
 		try {
 			MimeMessage message = mailSender.createMimeMessage();
 			MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
@@ -434,8 +453,17 @@ public class MemberController {
 		}else {
 			if(memberservice.usertypetest(userid)<=3) {
 				String subject = "[BeetMall]비트몰 아이디 발송"; // 메일 제목부분
-				String content =  "비트몰 아이디 찾기입니다.<br/>"
-								+ "아이디 : "+vo.getUserid();
+				String content = "<div style='width: 400px;height:300px;background-color: rgb(250, 250, 250);border:1px solid black;border-radius: 10px;'>\r\n"
+						+ "   <div style='height:41px;background-color: darkorange;line-height: 40px;color:white;padding-left:10px;border-radius: 10px;width:392px;margin-top:-1px;margin-left:-1px;text-align: center;'>비트몰에서 발송된 이메일입니다.</div>\r\n"
+						+ "   <div style=''>\r\n"
+						+ "      <div style='padding-left:10px;height:50px;background-color: rgb(250, 250, 250);text-align: center;padding-top: 10px;'><span style='font-size: 22px;'>비트몰 안내 메일</span></div>\r\n"
+						+ "      <div style='padding-left:10px;'>메세지 내용</div>\r\n"
+						+ "      <div style='background-color: rgb(250, 230, 210);height:140px;width:360px;margin-left:10px;margin-top: 10px;border-radius: 10px;padding:10px;'>\r\n"
+						+ "         비트몰 아이디 찾기입니다.<br/>"
+						+ "아이디 : "+vo.getUserid()
+						+ "      </div>\r\n"
+						+ "   </div>\r\n"
+						+ "</div>";
 				try {
 					MimeMessage message = mailSender.createMimeMessage();
 					MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
@@ -473,8 +501,17 @@ public class MemberController {
 				String emailCode = uuid.substring(0,12);
 				if(memberservice.pwdupdate(userid, emailCode)>=1) {
 					String subject = "[BeetMall]비트몰 임시 비밀번호 발송"; // 메일 제목부분
-					String content =  "비트몰 임시 비밀번호입니다.<br/>"
-									+ "비밀번호 : "+emailCode ;
+					String content = "<div style='width: 400px;height:300px;background-color: rgb(250, 250, 250);border:1px solid black;border-radius: 10px;'>\r\n"
+							+ "   <div style='height:41px;background-color: darkorange;line-height: 40px;color:white;padding-left:10px;border-radius: 10px;width:392px;margin-top:-1px;margin-left:-1px;text-align: center;'>비트몰에서 발송된 이메일입니다.</div>\r\n"
+							+ "   <div style=''>\r\n"
+							+ "      <div style='padding-left:10px;height:50px;background-color: rgb(250, 250, 250);text-align: center;padding-top: 10px;'><span style='font-size: 22px;'>비트몰 안내 메일</span></div>\r\n"
+							+ "      <div style='padding-left:10px;'>메세지 내용</div>\r\n"
+							+ "      <div style='background-color: rgb(250, 230, 210);height:140px;width:360px;margin-left:10px;margin-top: 10px;border-radius: 10px;padding:10px;'>\r\n"
+							+ "         비트몰 임시 비밀번호입니다.<br/>"
+							+ "비밀번호 : "+emailCode
+							+ "      </div>\r\n"
+							+ "   </div>\r\n"
+							+ "</div>"; 
 					try {
 						MimeMessage message = mailSender.createMimeMessage();
 						MimeMessageHelper messageHelper = new MimeMessageHelper(message, true, "UTF-8");
@@ -501,4 +538,74 @@ public class MemberController {
 		}
 		return result;
 	}
+	
+	/////회원정보 수정///////////////
+
+	@RequestMapping("/editinfoOk") //update해주는애
+	@ResponseBody
+	public ModelAndView editinfoOk(HttpSession session,MemberVO vo, HttpServletRequest req) {
+		
+		int result=0;
+		String userid = (String)session.getAttribute("logId");
+		
+		MemberVO vo2=new MemberVO();
+		
+		String userpwd = req.getParameter("userpwd");
+		String username = req.getParameter("username");
+		String useremail = req.getParameter("useremail");
+		String tel1 = req.getParameter("userphone1");
+		String tel2 = req.getParameter("userphone2");
+		String tel3 = req.getParameter("userphone3");
+		int userzipcode = 0;
+		if(req.getParameter("userzipcode") != null) {
+			userzipcode = Integer.parseInt(req.getParameter("userzipcode"));
+		}
+		String useraddr = req.getParameter("useraddr");
+		String userdetailaddr = req.getParameter("userdetailaddr");
+		
+		vo2.setUserpwd(userpwd);
+		vo2.setUsername(username);
+		vo2.setUseremail(useremail);
+		vo2.setUserzipcode(userzipcode);
+		vo2.setUseraddr(useraddr);
+		vo2.setUserdetailaddr(userdetailaddr);
+		vo2.setUserphone(tel1+"-"+tel2+"-"+tel3);
+		vo2.setUsertype(1);
+		vo2.setUserid(userid);
+		
+		result=memberservice.editinfoOk(vo2);
+		if(result>0) {
+			result=1;
+		}else {
+			result=0;
+		}
+		
+		ModelAndView mav = new ModelAndView();
+		String userid2 = (String)session.getAttribute("logId");
+		MemberVO vo3=new MemberVO();
+		vo3.setUserid(userid2);
+	
+			
+		mav.addObject("vo3",memberservice.editinfoOkView(vo3));
+
+		mav.setViewName("redirect:myInfoEdit");
+		
+	
+	return mav;
+}
+
+	@RequestMapping("/myInfoEdit") // select해주는애
+	public ModelAndView editinfoOkView(HttpSession session,MemberVO vo, HttpServletRequest req) {
+		 ModelAndView mav = new ModelAndView();
+		 String userid = (String)session.getAttribute("logId");
+		 MemberVO vo3=new MemberVO();
+		 vo3.setUserid(userid);
+		 MemberVO dd= memberservice.editinfoOkView(vo3);
+			System.out.println(dd.getUserpwd());
+		mav.addObject("vo3",memberservice.editinfoOkView(vo3));
+
+		mav.setViewName("mypages/myInfoEdit");
+		return mav;
+	}
+	
 }

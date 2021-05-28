@@ -3,7 +3,7 @@ package com.beetmall.sshj.custom.vo;
 public class PointVO {
 
 	private int productnum;
-	private int ordernum;
+	private long ordernum;
 	private String userid;
 	private int changepoint;
 	private int usedpoint;
@@ -12,9 +12,15 @@ public class PointVO {
 	private String productname;
 	private String productcontent;
 	private int orderprice;
+	private String productinfomation;
 	
 	
-	
+	public String getProductinfomation() {
+		return productinfomation;
+	}
+	public void setProductinfomation(String productinfomation) {
+		this.productinfomation = productinfomation;
+	}
 	public String getThumbimg() {
 		return thumbimg;
 	}
@@ -51,10 +57,10 @@ public class PointVO {
 	public void setProductnum(int productnum) {
 		this.productnum = productnum;
 	}
-	public int getOrdernum() {
+	public long getOrdernum() {
 		return ordernum;
 	}
-	public void setOrdernum(int ordernum) {
+	public void setOrdernum(long ordernum) {
 		this.ordernum = ordernum;
 	}
 	public String getUserid() {

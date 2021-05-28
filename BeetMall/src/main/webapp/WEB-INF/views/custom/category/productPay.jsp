@@ -155,7 +155,7 @@
 				    pg : 'html5_inicis',
 				    pay_method : 'card',
 				    merchant_uid : 'merchant_' + new Date().getTime(),
-				    name : 'unescape(${vo4})',
+				    name : '${vo4}',
 				    amount : tototaal,
 				    buyer_email : '${vo.useremail}',
 				    buyer_name : '${vo.username}',
@@ -171,6 +171,7 @@
 				        	send +="&deliverymemo="+$("#deliverymemo").val()+"&usedpoint="+point;
 				        	send +="&mypoint=${vo.point}&realpayment="+tototaal+"&optionnum="+$("#optionnum").val();
 				        	send +="&productnum="+$("#productnum").val()+"&orderquantity="+$("#orderquantity").val()+"&orderprice22="+orderprice22+"&hellopoint="+hellopoint;
+				        	send +="&jangba="+$("#jangba").val();
 				        location.href="/sshj/productPayBuy"+send
 				    } else {
 				        var msg = '결제에 실패하였습니다.';
@@ -223,6 +224,7 @@
 <input type="hidden" id="deliveryoption" value="${vo5}"/> <!-- 옵션 -->
 <input type="hidden" id="optionnum" value="${vo6}"/> <!-- 옵션번호 -->
 <input type="hidden" id="orderquantity" value="${vo7}"/> <!-- 총개수 -->
+<input type="hidden" id="jangba" value="${vo8}"/> <!-- 장바구니에서넘어왔는지체크 -->
 
 <div class="section">
 	<div id="mainname"><h1>주문/결제</h1></div>

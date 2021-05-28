@@ -69,7 +69,7 @@ public class ProductViewVO {
 		
 		//리뷰 VO
 		private int reviewnum;
-		private int ordernum;
+		private long ordernum;
 		private String reviewcontent;
 		private String reviewwritedate;
 		private int reviewrecommend;
@@ -89,6 +89,7 @@ public class ProductViewVO {
         private int qopen;
         private String qanswer;
         private String qtitle;
+        private String selleruserid;
         //
         private int wishnum;
         private int wishoptionnum;
@@ -99,6 +100,12 @@ public class ProductViewVO {
         
         
         
+		public String getSelleruserid() {
+			return selleruserid;
+		}
+		public void setSelleruserid(String selleruserid) {
+			this.selleruserid = selleruserid;
+		}
 		public int getWishcode() {
 			return wishcode;
 		}
@@ -402,10 +409,10 @@ public class ProductViewVO {
 		public void setReviewnum(int reviewnum) {
 			this.reviewnum = reviewnum;
 		}
-		public int getOrdernum() {
+		public long getOrdernum() {
 			return ordernum;
 		}
-		public void setOrdernum(int ordernum) {
+		public void setOrdernum(long ordernum) {
 			this.ordernum = ordernum;
 		}
 		public String getReviewcontent() {

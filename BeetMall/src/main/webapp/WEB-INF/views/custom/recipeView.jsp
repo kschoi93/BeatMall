@@ -325,7 +325,11 @@ paddig-bottom:5px;
 </style>
 
 <body onload="countg()">
-
+<c:if test="${report != null }">
+	<script>
+		 location.href='recipeView?recipenum='+${report }+'&id=master';
+	</script>
+</c:if>
 	<div class="section">
 
 		<!-- ------------------------큰제목----------------------------------- -->
@@ -434,7 +438,7 @@ paddig-bottom:5px;
 			<h2 style="margin-left:10px;">신고하기</h2>
 			<span style="float:left;font-size:20px;margin-left:10px;">신고사유</span>
 				<input type="hidden" name="userid" value="${logId}"/>												<!-- 신고자 아이디 -->
-				<input type="hidden" name="reporteduser" id="${vo.userid}"/>											<!-- 신고할 사람 아이디 -->
+				<input type="hidden" name="reporteduser" id="reporteduser" value="${vo.userid}"/>											<!-- 신고할 사람 아이디 -->
 				<input type="hidden" name="reportboard" value="레시피"/>							<!-- 신고한 게시판 -->
 				<input type="hidden" name="reportboardnum" id="reportboardnum" value="${vo.recipenum}"/>										<!-- 신고한 글 번호 -->
 				<select name="reportreason"  style="float:right;margin-right:10px;font-size:20px;">	<!-- 신고사유 -->
@@ -455,13 +459,22 @@ paddig-bottom:5px;
 	</div>
 	
 <script>
-
 $(document).on('click','#chatHeaderSpan', function(){
+	  
+    var scroll = window.scrollY;
+    if(scroll>255){
+       $("#reportDiv").css("top",scroll+450);
+    }else {
+       $("#reportDiv").css("top",scroll+450);
+    }
+    
+	
 	$("#reportDiv").css("display","block");
 });
-
 $(function(){
 	$("#reportsubmit").click(function(){	// 신고처리하는 ajax부분
+		
+		
 		var formdata = $("#reportForm").serialize();
 		console.log("formdata === "+formdata);
 		$.ajax({
@@ -473,7 +486,7 @@ $(function(){
 				console.log(result);
 				if(result == 1){
 					alert('고객님의 신고가 접수되었습니다');
-					location.href="myChatList";
+					location.href="recipeView?recipenum=${vo.recipenum}&id=${logId}";
 				}else if(result != 1){
 					alert('신고에 실패했습니다. error_code : 176');
 					$("#reportcontent").val('');
@@ -491,10 +504,8 @@ $(function(){
 		$("#reportDiv").css("display","none");
 	})
 	$(document).on('click','input[value=신고하기]', function(){	// 신고창 여는 부분(여기서 신고할 유저아이디, 신고할 글번호 세팅해줌)
-		var reporteduser = $(this).parent().prev().children().eq(0).html();
-		$("#reporteduser").val(reporteduser);
-		var reportboardnum = $(this).prev().prev().prev().val();
-		$("#reportboardnum").val(reportboardnum);
+		var reporteduser = $("#reporteduser").val();
+		
 		$("#reportDiv").css("display","block");
 		
 	});

@@ -1,4 +1,4 @@
-package com.beetmall.sshj.admin.vo;
+ package com.beetmall.sshj.admin.vo;
 
 public class BoardVO {
 	private int no;

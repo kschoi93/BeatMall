@@ -120,6 +120,45 @@
 	#contentList>ul{
 		float:left; 
 	} 
+	.contentList{
+		margin:0!important;
+		padding:0!important;
+	}
+	#titleul>li{
+		padding-right:15px;
+	}
+	.contentList>li:nth-child(7n+1), #titleul>li:nth-child(7n+1){
+		width:0px!important;
+	}
+	.contentList>li:nth-child(7n+2), #titleul>li:nth-child(7n+2){
+		width:160px !important;
+	}
+	#titleul>li:nth-child(7n+2){
+		margin-left:0px !important;
+	}
+	.contentList>li:nth-child(7n+3), #titleul>li:nth-child(7n+3){
+		width:180px !important;
+	}
+	.contentList>li:nth-child(7n+4), #titleul>li:nth-child(7n+4){
+		width:180px !important;
+	}
+	.contentList>li:nth-child(7n+5), #titleul>li:nth-child(7n+5){
+		width:180px !important;
+	}
+	.contentList>li:nth-child(7n+6), #titleul>li:nth-child(7n+6){
+		width:180px !important;
+	}
+	.contentList>li:nth-child(7n), #titleul>li:nth-child(7n){
+		width:180px !important;
+	}
+	#titleul{
+		height:40px;
+		line-height: 40px;
+	}
+	#title{
+		margin-bottom:0px !important;
+		padding-bottom:0px !important;
+	}
 	/*페이징 이미지 링크*/
 	.page_nation .pprev {
 		background:#f8f8f8 url('<%=request.getContextPath()%>/img/kpage_pprev.png') no-repeat center center;
@@ -192,23 +231,197 @@
 	#modal select{
 		margin-left:30px;
 	}
+	.reportuser{
+		color:red;
+	}
+	.contentList{
+		cursor: pointer;
+	}
+	.contentreport{
+		
+	}
+	/* 채팅 */
+	#chatIframe{
+		position:absolute;
+		top:400px;
+		left:600px;
+		width:702px;
+		height:552px;
+		padding:1px;
+		background-color:white;
+		display:none;
+		overflow:hidden;
+		z-index:20;
+	}
+	#chatContainer{
+		width:500px;
+		height:480px;
+	}
+	#chatTop{
+		width:702px;
+		height:20px;
+		background-color:rgb(252,118,45);
+	}
+	#chatInfoTitle{
+		height:50px;
+		width:702px;
+		background-color:white;
+	}
+	#chatFooter{
+		display:none;
+	}
+	#closedivBtn, #reportChat{
+		cursor: pointer;
+	}
+	#chatHeaderSpan{
+		line-height:50px;	
+	}
+	#chatInfoTitle{
+		text-align: center;
+		font-size:16px;
+	}
+	#reportChat{
+		color:red;
+		float:left;
+		margin-left:10px;
+	}
+	#closedivBtn{
+		float:right;
+		line-height:50px;
+		font-size:20px;
+		margin-right:10px;
+	}
+	#sender, #receiver{
+		font-weight:bold;
+		font-size:17px;
+		margin-right:5px;
+	}
+	.reportBtn{
+		width:100px !important;
+		height:50px !important;
+		background-color:rgb(250, 230, 210) !important;
+		font-size:20px !important;
+		margin-right:0px !important;
+	}
+	/* 모달 처리 */
+	#modal{
+		background-color: gray;
+		opacity: 0.6;
+		position: fixed;
+		left:0px;
+		top:0px;
+		width:100%;
+		height:100%;
+		display:none;
+		margin:0px !important;
+		z-index:10;
+	}
+	#sortBox{
+		display:none;
+		
+	}
 </style>
 <script>
- 
+	function pagelist(pagenum){
+		var lin = "csReportChat?pageNum="+pagenum;
+		location.href=lin;
+	}
+	$(function(){
+		function reportPrev(){
+			alert('실행됨');
+			$("#chatFooter").css("display","none");
+		}
+		$(".contentList").click(function(){
+			$("#modal").css("display","block");
+			$(document.body).css("overflow","hidden");
+			var roomcode = $(this).children().eq(0).children().eq(0).val();
+			var sender = $(this).children().eq(0).children().eq(1).val();
+			var receiver = $(this).children().eq(0).children().eq(2).val();
+			$.ajax({
+				url:"csReportSum",
+				data : "userid="+sender,
+				success: function(result){
+					$("#sendersum").text(result);
+				}, error : function(error){
+					alert(error);
+				}
+			})
+			$.ajax({
+				url:"csReportCount",
+				data : "userid="+sender,
+				success: function(result){
+					$("#sendercount").text(result);
+				}, error : function(error){
+					alert(error);
+				}
+			})
+			$.ajax({
+				url:"csReportSum",
+				data : "userid="+receiver,
+				success: function(result){
+					$("#receiversum").text(result);
+				}, error : function(error){
+					alert(error);
+				}
+			})
+			$.ajax({
+				url:"csReportCount",
+				data : "userid="+receiver,
+				success: function(result){
+					$("#receivercount").text(result);
+				}, error : function(error){
+					alert(error);
+				}
+			})
+			$("#sender").text(sender);
+			$(".senderid").text(sender).val(sender);
+			$("#receiver").text(receiver);
+			$(".receiverid").text(receiver).val(receiver);
+			$("#chatIframe").css("display","block");/* 아이피 수정해야 할 곳 ^^^^^^ */
+			$("#chatContainer").attr("src","http://192.168.0.52:12021/chatForm?sender="+sender+"&receiver="+receiver+"&roomcode="+roomcode+"&view=true");
+		});
+		
+		$(document).on('click',"#closedivBtn",function(){
+			$("#chatIframe").css("display","none");
+			$("#modal").css("display","none");
+			$(document.body).css("overflow","visible");
+		});
+		$(document).on('click', "#closeChatdiv", function(){
+			$("#chatIframe").css("display","none");
+			$("#modal").css("display","none");
+			$(document.body).css("overflow","visible");
+		})
+		$(document).on('click', "#stopreportuserBtn", function(){
+			var seltype = $("#useridsel").val();
+			if(seltype == null){
+				alert("정지 할 유저를 선택해주세요");
+				return false;
+			}else{
+				$("#userstopform").submit();
+			}
+		});
+		
+		$(".contentList").hover(function(){
+			$(this).children().css("background","#ddd");
+		},function(){
+			$(this).children().css("background","none");
+		})
+	})
 </script> 
 <%@ include file="/inc/top.jspf" %>
+	<div id="modal"></div>
 	<div id="topBarContainer">
 		<div id="topBar">
 			<ul>
-				<li><h5><strong><a href="csReportChat">신고 채팅 관리</a></strong></h5></li> 
-					<li><button class="success" value="add" name="add" id="blind">비공개</button></li>
-				<li><button class="success" value="del" name="del" id="delBtn">정지</button></li> 
-			</ul> 
+				<li><h5><strong><a href="csReportChat">채팅 관리</a></strong></h5></li> 
+					<li><button class="success" value="add" name="add" id="blind" style="display:none;">비공개</button></li>
+				<li><button class="success" value="del" name="del" id="delBtn" style="display:none;">정지</button></li> 
+			</ul>
 		</div>  
 		</div>
 <div id="body1">
 <%@ include file="/inc/leftBar.jspf" %>
-	<div id="container">
+	<div id="container" style="padding-top:30px;">
 		<div id="sortBox">
 			<ul>
 				<li>
@@ -235,112 +448,130 @@
 			</ul>
 		</div>
    		<div id="contentBox"> 	
-   		<div style="float:right; margin-right:25px;">* 신고 채팅은 노란색으로 표시됩니다</div>
+   		<div style="float:right; margin-right:25px;">* 신고 채팅은 붉은색으로 표시됩니다</div>
 		<div id="title">
-			<ul>
-				<li><input type="checkbox" name="check"></li>
-				<li>채팅번호</li>
-				<li>주문번호</li>
-				<li>구입상품</li>
-				<li>구매자</li>
-				<li>판매자</li>
-				<li>날짜</li>
-				<li>내용</li> 
-				<li>신고처리</li>
+			<ul id="titleul">
+				<li></li>
+				<li>채팅방번호</li>
+				<li>채팅방 생성자</li>
+				<li>채팅방 참여자</li>
+				<li>채팅방 생성일</li>
+				<li>채팅방 참여자</li>
+				<li>신고받은이</li>
 			</ul>
 		</div>  
 		<div id="contentList">
-			<c:forEach var="data" items="${list}"> 
-				<ul class="contentList">
-					<li><input type="checkbox" name="check" id="check"> </li>
-					<li>1286</li>
-					<li>865435465</li>
-					<li>토마토</li> 
-					<li>asdghle113</li>
-					<li>yuthgvf</li>
-					<li>2021/03/21</li>
-					<li class="wordCut"><a href="제목?">상품 추가 주문 가능한지 문의드려요 포도 세 박스 더 주문하고싶어요</a></li>
-					<li>-</li> 
-				</ul>
-				<ul class="contentList">
-					<li><input type="checkbox" name="check" id="check"> </li>
-					<li>1286</li>
-					<li>865435465</li>
-					<li>토마토</li> 
-					<li>asdghle113</li>
-					<li>yuthgvf</li>
-					<li>2021/03/21</li>
-					<li class="wordCut"><a href="제목?">상품 추가 주문 가능한지 문의드려요 포도 세 박스 더 주문하고싶어요</a></li>
-					<li>-</li> 
+			<c:forEach var="vo" items="${list}"> 
+				<c:if test="${vo.creport == 1 || vo.rreport == 1}">
+					<ul class="contentList contentreport">
+				</c:if>
+				<c:if test="${vo.creport != 1 && vo.rreport != 1}">
+					<ul class="contentList">
+				</c:if>
+					<li><input type="hidden" value="${vo.roomcode}"/><input type="hidden" value="${vo.creator}"/><input type="hidden" value="${vo.room_receiver}"/></li>
+					<li>${vo.roomcode}</li>
+					<li>${vo.creator}</li>
+					<li>${vo.room_receiver}</li> 
+					<li>${vo.roomdate}</li>
+					<li>
+						<c:if test="${vo.cre_out == 1}">
+							${vo.creator}
+						</c:if>
+						<c:if test="${vo.rec_out == 1 && vo.cre_out == 1}">
+							,${vo.room_receiver}
+						</c:if>
+						<c:if test="${vo.rec_out == 1 && vo.cre_out == 0}">
+							${vo.room_receiver}
+						</c:if>
+					</li>
+					<li>
+						<c:if test="${vo.creport == 1 && vo.rreport == 1}"><span class="reportuser">${vo.creator}, ${vo.room_receiver}</span></c:if>
+						<c:if test="${vo.creport == 1 && vo.rreport != 1}"><span class="reportuser">${vo.creator}</span></c:if>
+						<c:if test="${vo.creport != 1 && vo.rreport == 1}"><span class="reportuser">${vo.room_receiver}</span></c:if>
+						<c:if test="${vo.creport != 1 && vo.rreport != 1}">&nbsp;</c:if>
+					</li>
 				</ul>
 			</c:forEach>
-			 
 			</div>
 		</div>	 
-		<div class="page_wrap">
+		<div class="page_wrap">	
 			<div class="page_nation">
-			   <a class="arrow pprev" href="<%=request.getContextPath()%>/img/kpage_pprev.png"></a>
-			   <a class="arrow prev" href="#"></a>
-			   <a href="#" class="active">1</a>
-			   <a href="#">2</a>
-			   <a href="#">3</a>
-			   <a href="#">4</a>
-			   <a href="#">5</a>
-			   <a href="#">6</a>
-			   <a href="#">7</a>
-			   <a href="#">8</a>
-			   <a href="#">9</a>
-			   <a href="#">10</a>
-			   <a class="arrow next" href="#"></a>
-			   <a class="arrow nnext" href="#"></a>
+			   <c:if test="${pageVO.pageNum>1}"><!-- 이전페이지가 있을때 -->
+			   		<a class="arrow prev" href="javascript:pagelist(${pageVO.pageNum-1})"></a>
+			   </c:if>
+			   <!-- 페이지 번호                   1                                    5                     -->
+	           <c:forEach var="p" begin="${pageVO.startPageNum}" step="1" end="${pageVO.startPageNum + pageVO.onePageNum-1}">
+	              <c:if test="${p<=pageVO.totalPage}">
+	                 <c:if test="${p==pageVO.pageNum }"> <!-- 현재페이지일때 실행 -->
+	                    <a class="active">${p}</a>
+	                 </c:if>   
+	                 <c:if test="${p!=pageVO.pageNum}"> <!-- 현재페이지가 아닐때 실행 -->
+	                    <a href="javascript:pagelist(${p})">${p}</a>
+	                 </c:if>
+	              </c:if>
+	           </c:forEach>
+	           <c:if test="${pageVO.pageNum < pageVO.totalPage}">
+	              <a class="arrow next" href="javascript:pagelist(${pageVO.pageNum+1})"></a>
+	           </c:if>
 			</div>
+			
 		 </div> 
 		 <div>
-			<form method="get" class="searchFrm" action="<%=request.getContextPath() %>/board/noticeBoardList.jsp">
-				 <select name="searchKey">
-					<option value="subject" selected>제목</option>
-	   				<option value="no">공지번호</option> 
-	   				<option value="who">대상</option> 
-	   				<option value="writedate">공지일</option> 
-				</select>			
-				<input type="text" name="searchWord" id="searchWord"/>
-				<input type="submit" value="검색"/> 
+			<form method="get" class="searchFrm" action="csReportChat"> 
+				<select name="searchKey">
+					<option value="roomcode" selected>채팅방번호</option>
+					<option value="creator">생성자</option> 
+					<option value="receiver">참여자</option> 
+				</select> <input type="text" name="searchWord" id="searchWord" /> 
+				<input type="submit" value="검색" />
 			</form>
 			
 		</div>  
 	</div>
 		<!-- 신고된 채팅 보기 모달창 -->
-		<div id="modal">
-			<div id="modalHeader">
-				신고된 채팅 보기
+		
+		</div>
+		<div id ="chatIframe" class="admingchatiframe">
+			<div style="position: relative;">
+				<div style="width:500px;">
+					<div id="chatTop"></div>
+					<div id="chatInfoTitle"><span id="chatHeaderSpan"><span id="sender"></span>님과 <span id="receiver"></span>님의 채팅입니다.</span><span id="closedivBtn">&times;</span></div>
+					<iframe src="" id="chatContainer" frameborder="0" ></iframe>
+				</div>
+				<div class="userinfo" style="float:left;position: absolute;left:500px;top:100px;">
+					<span class="senderid">sender</span>님의 정지이력<br/>
+					정지 : 총<span id="sendercount">0</span>회<br/>
+					정지일 : 총<span id="sendersum">0</span>일
+				</div>
+				<div class="userinfo" style="float:left;position: absolute;left:500px;top:200px;">
+					<span class="receiverid">receiver</span>님의 정지이력<br/>
+					정지 : 총<span id="receivercount">0</span>회<br/>
+					정지일 : 총<span id="receiversum">0</span>일
+				</div>
+				<div style="float:left;height:142px;width:200px;background-color:white;position: absolute;left:500px;top:360px;">
+					<form style="display:block !important;" action="userstopsubmit" id="userstopform">
+					<select name="userid" style="width:200px;" id="useridsel">
+						<option disabled selected value="false">정지 할 유저 선택</option>
+						<option class="senderid" value=""></option>
+						<option class="receiverid" value=""></option>
+					</select>
+					<input id="stopdateinput" type="text" name="reportdate" style="width:200px;height:52px;text-align:right;padding-right:10px;font-size:17px;" placeholder="정지 일수 입력"/><br/>
+					<input type="button" value="정지"class="reportBtn" id="stopreportuserBtn"/><input type="reset" value="닫기" class="reportBtn" id="closeChatdiv"/>
+					</form>
+				</div>
 			</div>
-			<div id="modalList">
-				<ul>
-					<li>아이디</li>
-					<li>대화</li>
-				</ul>
-				<ul>
-					<li style="display:flex; margin-left:20px;"><div>판매자 :&nbsp; </div><div>dlkfjhbu</div></li>
-					<li><div>맛이 없어요 포장은 또 왜이래요</div></li>
-				</ul>
-				<ul>
-					<li style="display:flex; margin-left:20px;"><div>구매자 :&nbsp; </div><div>aosihnf</div></li>
-					<li>신고합니다</li>
-				</ul>
-				<ul>
-					<li style="display:flex; margin-left:20px;"><div>판매자 :&nbsp; </div><div>dlkfjhbu</div></li>
-					<li><div>고객님 안됩니다ㅠㅠ</div></li>
-				</ul> 
-			</div> 
-			<hr>
-			<select name="reportChoice"> 
-				<option value="선택" selected>선택</option>
-		   		<option value="dlkfjhbu">dlkfjhbu</option>
-		   		<option value="aosihnf">aosihnf</option>
-		   	</select>
-			<input type="text">&nbsp; 일 &nbsp;
-			<button class="success" value="" name="" id="">정지</button>
-			<button class="success" value="" name="" id="">닫기</button>
-		</div> 
 		</div>
 </html>
+<style>
+	.userinfo{
+		float:left;
+		height:102px;
+		width:200px;
+		background-color:white;
+	}
+	#receivercount, #receiversum, #sendersum, #sendercount{
+		color:red;
+		margin-left:5px;
+		margin-right:5px;
+	}
+</style>
