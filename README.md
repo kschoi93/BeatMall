@@ -1,41 +1,28 @@
 
-# Final Team Project 😎
-## 팀명 : 씽씽하조
-## 프로젝트 : 농산물 직거래 사이트
+# Beetmall
 
-> BITCAMP 2020-12-14~2021-05-28 Final Team Project (1조)
+## Description
+*2020-12-14 ~ 2021-05-28*
 
-> 본 Git Repository는 비트캠프 자바 교육과정 마지막 팀 프로젝트를 위해 생성한 Git Repository 이다.
+### Summary
+* 비트캠프 자바 교육과정 Final Project
+* 사용자 모두 판매자가 될 수 있는 손쉬운 농수산물 직거래 사이트
 
-> 팀원 구성 
- - Kim Seo-Yoon 
- - Jang Su-Yeon 
- - Choi Kyung-Sik 
- - Kim Yun-Su 
- - Lee Kang-San 
- - Cha Yoon-Ju
+### Environment & Skills
+  Skills | Java 11, Javascript, Jquery, HTML, CSS, JSP, Node.js|
+ :----- | :-----  |
+ Framework | Spring|
+ Build Tool|	Maven |
+ DBMS | Oracle |
+ OS | Window, Mac OS |
+ IDE | Ecrlipse | 
+ Etc. | Git, Github|
 
-> 팀 협업 툴
- - Notion : https://www.notion.so/1-bfa2de9b5d1243109d53a8dcbdf0b0c9
- - Google Drive : 프로젝트 진행 중 문서 정리
- - Kakao Oven : 레이아웃 설계
- - 
-<br/>
+## About Project
 
-
-## Toy Project : Naver Webtoon Page ( https://comic.naver.com/webtoon/weekday.nhn );
-
-> 2021/03/05 ~ 2021/03/28
-
-> GitHub url : https://github.com/kschoi93/Toy_project_naver_webtoon.git
-> 
-<br/>
-
-
-## Final Project : BeetMall < 농산물 직거래 사이트 >
-> 2021/04/15 ~ 2021/05/28
-
-> 임무분장
+### Team
+> 팀명 : 씽씽하조
+  팀원 구성 
 ```
 구매자 페이지
  - Kim Yun-Su 
@@ -52,7 +39,13 @@
  - Kim Seo-Yoon 
 ```
 
+> 팀 협업 툴
+ - Notion : https://www.notion.so/1-bfa2de9b5d1243109d53a8dcbdf0b0c9
+ - Google Drive : 프로젝트 진행 중 문서 정리
+ - Kakao Oven : 레이아웃 설계
+ - 
 <br/>
+
 
 <details>
  <summary>프로젝트 PPT 내역 자세히 보기! </summary>
@@ -108,16 +101,4 @@
 
 </details>
 
- <br/>
- 
 
-# Contact Me
-## 우리에게 연락하길 희망하면 아래 이메일로 연락주세요.
-```
- - Kim Seo-Yoon : godkmn1004@naver.com
- - Kim Yun-Su : glowsu14@gmail.com
- - Lee Kang-San : qnrtjd96@naver.com
- - Jang Su-Yeon : suyeonjang127@gmail.com
- - Cha Yoon-Ju : 33cyj@naver.com
- - Choi Kyung-Sik : kyungsik0907@gmail.com
-```
